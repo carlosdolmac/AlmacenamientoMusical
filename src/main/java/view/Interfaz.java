@@ -83,7 +83,7 @@ public class Interfaz extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     // Método mostrarPanel para mostrar los paneles.
     public void mostrarPanel(JPanel p) {
-        p.setSize(1143, 863); //Se pone el tamaño con el que se mostrarán
+        p.setSize(1280, 720); //Se pone el tamaño con el que se mostrarán
         p.setLocation(0,0); // Se establece la posición de la ventana en las coordenadas (0, 0).
         
         ponerPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere

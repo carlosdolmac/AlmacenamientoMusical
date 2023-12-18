@@ -54,6 +54,8 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+
         jPanel1.setBackground(new java.awt.Color(79, 52, 90));
 
         jPanel2.setBackground(new java.awt.Color(57, 37, 65));
@@ -182,7 +184,6 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel numCanciones;
     // End of variables declaration//GEN-END:variables
