@@ -13,18 +13,21 @@ import javax.swing.JOptionPane;
  *
  * @author Carlos de los Dolores Macías
  */
-public class Login extends javax.swing.JPanel {
+public class signup extends javax.swing.JPanel {
     private Interfaz interfaz;
     /**
      * Creates new form login
      */
-    public Login(Interfaz interfaz) {
+    public signup(Interfaz interfaz) {
         this.interfaz = interfaz; // Guardar la referencia a Interfaz
         initComponents();
         
+        name.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Name" ); //Placeholder
+        surname.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Surname" ); //Placeholder
+        username.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Username" ); //Placeholder
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
-        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
-        signinLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
+        password.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
+        createLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
     }
 
     /**
@@ -37,41 +40,45 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
-        signinLabel = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        passwrd = new javax.swing.JTextField();
-        login = new javax.swing.JButton();
+        createLabel = new javax.swing.JLabel();
+        name = new javax.swing.JTextField();
+        surname = new javax.swing.JTextField();
+        createAccount = new javax.swing.JButton();
         signupLabel = new javax.swing.JLabel();
         recoverpassLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         fondo.setBackground(new java.awt.Color(139, 243, 204));
         fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        signinLabel.setText("Sign in");
+        createLabel.setText("Create account");
 
-        email.setPreferredSize(new java.awt.Dimension(575, 47));
+        name.setPreferredSize(new java.awt.Dimension(575, 47));
 
-        passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        surname.setPreferredSize(new java.awt.Dimension(575, 47));
 
-        login.setBackground(new java.awt.Color(91, 134, 229));
-        login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        login.setForeground(new java.awt.Color(255, 255, 255));
-        login.setText("Login");
-        login.setPreferredSize(new java.awt.Dimension(575, 60));
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
-            }
-        });
+        createAccount.setBackground(new java.awt.Color(91, 134, 229));
+        createAccount.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createAccount.setForeground(new java.awt.Color(255, 255, 255));
+        createAccount.setText("Create Account");
+        createAccount.setPreferredSize(new java.awt.Dimension(575, 60));
 
         signupLabel.setText("Don’t have an account? Signup Here");
 
         recoverpassLabel.setText("Don’t remember your password? Click Here");
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+
+        username.setPreferredSize(new java.awt.Dimension(575, 47));
+
+        email.setPreferredSize(new java.awt.Dimension(575, 47));
+
+        password.setPreferredSize(new java.awt.Dimension(575, 47));
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
@@ -80,43 +87,51 @@ public class Login extends javax.swing.JPanel {
             .addGroup(fondoLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(signinLabel))
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(signupLabel))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(143, 143, 143)
-                        .addComponent(recoverpassLabel)))
+                        .addComponent(recoverpassLabel))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(imagelogin)
                 .addGap(48, 48, 48))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(createLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(createLabel)
+                .addGap(44, 44, 44)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(signinLabel)
-                        .addGap(46, 46, 46)
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
                         .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addComponent(signupLabel)
                         .addGap(0, 0, 0)
                         .addComponent(recoverpassLabel))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(imagelogin)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                    .addComponent(imagelogin))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -131,36 +146,18 @@ public class Login extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        String correo = email.getText();
-    String contraseña = passwrd.getText();
-
-    try {
-        SQLHelper sqlHelper = new SQLHelper();
-        int idUsuario = sqlHelper.obtenerIdUsuario(correo, contraseña); // Método para obtener el ID del usuario
-
-        if (idUsuario != -1) { // Verificar si se encontró un usuario válido
-            Dashboard dashboard = new Dashboard(idUsuario); // Pasar el ID del usuario al constructor de Dashboard
-
-            interfaz.mostrarPanel(dashboard); // Mostrar el panel Dashboard
-        } else {
-            JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Por favor, intenta de nuevo.");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        // Manejo de errores
-    }
-    }//GEN-LAST:event_loginActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createAccount;
+    private javax.swing.JLabel createLabel;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;
-    private javax.swing.JButton login;
-    private javax.swing.JTextField passwrd;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField password;
     private javax.swing.JLabel recoverpassLabel;
-    private javax.swing.JLabel signinLabel;
     private javax.swing.JLabel signupLabel;
+    private javax.swing.JTextField surname;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
