@@ -140,7 +140,7 @@ public class Login extends javax.swing.JPanel {
         int idUsuario = sqlHelper.obtenerIdUsuario(correo, contraseña); // Método para obtener el ID del usuario
 
         if (idUsuario != -1) { // Verificar si se encontró un usuario válido
-            Dashboard dashboard = new Dashboard(idUsuario); // Pasar el ID del usuario al constructor de Dashboard
+            Principal dashboard = new Principal(idUsuario); // Pasar el ID del usuario al constructor de Dashboard
 
             interfaz.mostrarPanel(dashboard); // Mostrar el panel Dashboard
         } else {
