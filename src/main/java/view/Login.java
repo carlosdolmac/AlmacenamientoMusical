@@ -25,6 +25,9 @@ public class Login extends javax.swing.JPanel {
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
         passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
         signinLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
+        
+        signupLabel.setText("<html>Don’t have an account?</html>");
+        signupHere.setText("<html><em>Signup Here</em></html>");
     }
 
     /**
@@ -44,17 +47,22 @@ public class Login extends javax.swing.JPanel {
         signupLabel = new javax.swing.JLabel();
         recoverpassLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
+        signupHere = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         fondo.setBackground(new java.awt.Color(139, 243, 204));
         fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
+        fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signinLabel.setText("Sign in");
+        fondo.add(signinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 158, -1, -1));
 
         email.setPreferredSize(new java.awt.Dimension(575, 47));
+        fondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 220, -1, -1));
 
         passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 279, -1, -1));
 
         login.setBackground(new java.awt.Color(91, 134, 229));
         login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -66,58 +74,20 @@ public class Login extends javax.swing.JPanel {
                 loginActionPerformed(evt);
             }
         });
+        fondo.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 370, -1, -1));
 
-        signupLabel.setText("Don’t have an account? Signup Here");
+        signupLabel.setText("Don’t have an account?");
+        fondo.add(signupLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 449, -1, -1));
 
         recoverpassLabel.setText("Don’t remember your password? Click Here");
+        fondo.add(recoverpassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 465, -1, -1));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+        fondo.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
-        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
-        fondo.setLayout(fondoLayout);
-        fondoLayout.setHorizontalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(signinLabel))
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(signupLabel))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(recoverpassLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(imagelogin)
-                .addGap(48, 48, 48))
-        );
-        fondoLayout.setVerticalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(signinLabel)
-                        .addGap(46, 46, 46)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(signupLabel)
-                        .addGap(0, 0, 0)
-                        .addComponent(recoverpassLabel))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(imagelogin)))
-                .addContainerGap(124, Short.MAX_VALUE))
-        );
+        signupHere.setForeground(new java.awt.Color(0, 51, 153));
+        signupHere.setText("Signup Here");
+        fondo.add(signupHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 449, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,6 +131,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JTextField passwrd;
     private javax.swing.JLabel recoverpassLabel;
     private javax.swing.JLabel signinLabel;
+    private javax.swing.JLabel signupHere;
     private javax.swing.JLabel signupLabel;
     // End of variables declaration//GEN-END:variables
 }
