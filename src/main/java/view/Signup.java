@@ -6,8 +6,11 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.SignupController;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import javax.swing.JOptionPane;
+import model.Usuarios;
 
 /**
  *
@@ -160,7 +163,22 @@ public class Signup extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
-     
+        String nombre = name.getText();
+        String apellidos = surname.getText();
+        String nombreUsuario = username.getText();
+        String correo = email.getText();
+        String password = passwrd.getText();
+
+        SignupController signupController = new SignupController(interfaz);
+        boolean creado = signupController.crearNuevoUsuario(nombre, apellidos, nombreUsuario, correo, password);
+
+        if (creado) {
+            // Mostrar un mensaje de éxito o redirigir a otra pantalla
+            JOptionPane.showMessageDialog(this, "Usuario creado exitosamente.");
+        } else {
+            // Manejar el caso de error al crear el usuario
+            JOptionPane.showMessageDialog(this, "Error al crear el usuario. Por favor, inténtalo de nuevo.");
+        }
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
