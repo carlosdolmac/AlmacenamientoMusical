@@ -5,16 +5,17 @@
 package view;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import controller.SQLHelper;
+import controller.HibernateHelper;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import model.Usuarios;
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class Principal extends javax.swing.JPanel {
-    private SQLHelper sqlHelper;
+    private HibernateHelper sqlHelper;
     private int idUsuario;
     /**
      * Creates new form Dashboard
@@ -22,8 +23,8 @@ public class Principal extends javax.swing.JPanel {
     public Principal(int idUsuario) {
         initComponents();
         this.idUsuario = idUsuario;
-        sqlHelper = new SQLHelper();
-        numCanciones.setText(String.valueOf(obtenerNumeroCanciones())); // Actualizar el JLabel con el número de canciones
+        sqlHelper = new HibernateHelper();
+        //numCanciones.setText(String.valueOf(obtenerNumeroCanciones())); // Actualizar el JLabel con el número de canciones
         
         iconDash.setIcon(new FlatSVGIcon("img/Dashboard.svg"));
         iconLib.setIcon(new FlatSVGIcon("img/Library.svg"));
@@ -31,15 +32,7 @@ public class Principal extends javax.swing.JPanel {
         iconOut.setIcon(new FlatSVGIcon("img/Logout.svg"));
     }
 
-    private int obtenerNumeroCanciones() {
-        try {
-            return sqlHelper.obtenerNumeroCancionesUsuario(idUsuario);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Manejo de errores
-        }
-        return 0; // Valor predeterminado en caso de error
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,9 +116,9 @@ public class Principal extends javax.swing.JPanel {
             panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLibraryLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelLibrary)
-                    .addComponent(iconLib))
+                .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconLib, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelLibrary))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -156,9 +149,9 @@ public class Principal extends javax.swing.JPanel {
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(iconDash))
+                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconDash, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -185,9 +178,9 @@ public class Principal extends javax.swing.JPanel {
             panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelArtistLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelArtist)
-                    .addComponent(iconArt))
+                .addGroup(panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconArt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelArtist))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -214,9 +207,9 @@ public class Principal extends javax.swing.JPanel {
             panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLogoutLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelLogout)
-                    .addComponent(iconOut))
+                .addGroup(panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconOut, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelLogout))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 

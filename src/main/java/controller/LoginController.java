@@ -16,30 +16,24 @@ import view.Login;
 public class LoginController {
     private Interfaz interfaz;
 
-        public LoginController(Interfaz interfaz) {
-            this.interfaz = interfaz;
-        }
+    public LoginController(Interfaz interfaz) {
+        this.interfaz = interfaz;
+    }
 
-        public void mostrarLogin() {
-            Login login = new Login(interfaz);
-            interfaz.mostrarPanel(login);
-        }
+    public void mostrarLogin() {
+        Login login = new Login(interfaz);
+        interfaz.mostrarPanel(login);
+    }
         
-        public void login(String correo, String contraseña) {
-        try {
-            SQLHelper sqlHelper = new SQLHelper();
-            int idUsuario = sqlHelper.obtenerIdUsuario(correo, contraseña);
-
-            if (idUsuario != -1) {
-                // Iniciar sesión correctamente
-                interfaz.mostrarDashboard(idUsuario);
-            } else {
-                // Credenciales incorrectas
-                JOptionPane.showMessageDialog(interfaz, "Credenciales incorrectas. Por favor, intenta de nuevo.");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Manejo de errores
+    public void login(String correo, String contraseña) {
+        HibernateHelper hibernateHelper = new HibernateHelper(); // Manejo de errores
+        int idUsuario = hibernateHelper.obtenerIdUsuario(correo, contraseña);
+        if (idUsuario != -1) {
+            // Iniciar sesión correctamente
+            interfaz.mostrarDashboard(idUsuario);
+        } else {
+            // Credenciales incorrectas
+            JOptionPane.showMessageDialog(interfaz, "Credenciales incorrectas. Por favor, intenta de nuevo.");
         }
     }
 

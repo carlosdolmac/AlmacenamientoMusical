@@ -6,9 +6,6 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.LoginController;
-import controller.SQLHelper;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 
 /**

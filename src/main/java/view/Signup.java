@@ -5,7 +5,7 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
-import controller.SQLHelper;
+import controller.HibernateHelper;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
