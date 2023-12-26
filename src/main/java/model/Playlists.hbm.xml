@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26 dic 2023 12:32:18 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="ad_musica" name="model.Playlists" optimistic-lock="none" table="playlists">
+        <id name="idPlaylist" type="java.lang.Integer">
+            <column name="id_playlist"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="model.Usuarios" fetch="select" name="usuarios">
+            <column name="id_usuario"/>
+        </many-to-one>
+        <property name="nombrePlaylist" type="string">
+            <column length="100" name="nombre_playlist"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="cancioneses" table="canciones">
+            <key>
+                <column name="id_playlist"/>
+            </key>
+            <one-to-many class="model.Canciones"/>
+        </set>
+    </class>
+</hibernate-mapping>

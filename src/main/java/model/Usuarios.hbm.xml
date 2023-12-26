@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26 dic 2023 12:32:18 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="ad_musica" name="model.Usuarios" optimistic-lock="none" table="usuarios">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nombreUsuario" type="string">
+            <column length="50" name="nombre_usuario" not-null="true" unique="true"/>
+        </property>
+        <property name="passwrd" type="string">
+            <column length="100" name="passwrd" not-null="true"/>
+        </property>
+        <property name="email" type="string">
+            <column length="100" name="email" not-null="true"/>
+        </property>
+        <property name="ultimaConexion" type="timestamp">
+            <column length="19" name="ultima_conexion" not-null="true"/>
+        </property>
+        <property name="nombre" type="string">
+            <column length="50" name="nombre"/>
+        </property>
+        <property name="apellidos" type="string">
+            <column length="50" name="apellidos"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="cancioneses" table="canciones">
+            <key>
+                <column name="id_usuario"/>
+            </key>
+            <one-to-many class="model.Canciones"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="playlistses" table="playlists">
+            <key>
+                <column name="id_usuario"/>
+            </key>
+            <one-to-many class="model.Playlists"/>
+        </set>
+    </class>
+</hibernate-mapping>
