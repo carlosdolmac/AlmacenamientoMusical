@@ -6,6 +6,8 @@ package controller;
 
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import model.Usuarios;
+import org.mindrot.jbcrypt.BCrypt;
 import view.Interfaz;
 import view.Login;
 
@@ -26,16 +28,24 @@ public class LoginController {
     }
         
     public void login(String correo, String contraseña) {
-        HibernateHelper hibernateHelper = new HibernateHelper(); // Manejo de errores
-        int idUsuario = hibernateHelper.obtenerIdUsuario(correo, contraseña);
-        if (idUsuario != -1) {
-            // Iniciar sesión correctamente
-            interfaz.mostrarDashboard(idUsuario);
+        HibernateHelper hibernateHelper = new HibernateHelper(); 
+        Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
+
+        if (usuario != null) {
+            String hashAlmacenado = usuario.getPasswrd();
+            if (BCrypt.checkpw(contraseña, hashAlmacenado)) {
+                // Contraseña correcta, inicia sesión
+                interfaz.mostrarDashboard(usuario.getIdUsuario());
+            } else {
+                // Contraseña incorrecta
+                JOptionPane.showMessageDialog(interfaz, "Contraseña incorrecta. Por favor, intenta de nuevo.");
+            }
         } else {
-            // Credenciales incorrectas
-            JOptionPane.showMessageDialog(interfaz, "Credenciales incorrectas. Por favor, intenta de nuevo.");
+            // Usuario no encontrado
+            JOptionPane.showMessageDialog(interfaz, "Usuario no encontrado. Por favor, verifica tus credenciales.");
         }
     }
+
 
     public void mostrarSignup() {
         SignupController signupController = new SignupController(interfaz);

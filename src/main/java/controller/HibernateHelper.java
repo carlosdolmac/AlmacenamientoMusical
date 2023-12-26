@@ -23,19 +23,21 @@ public class HibernateHelper {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
-    public int obtenerIdUsuario(String email, String passwrd) {
+    public int obtenerIdUsuario(String email, String passwrdEncriptada) {
         int idUsuario = -1;
 
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            List<Usuarios> usuarios = session.createQuery("FROM Usuarios WHERE email = :email AND passwrd = :passwrd", Usuarios.class)
+            List<Usuarios> usuarios = session.createQuery("FROM Usuarios WHERE email = :email", Usuarios.class)
                     .setParameter("email", email)
-                    .setParameter("passwrd", passwrd)
                     .getResultList();
 
-            if (!usuarios.isEmpty()) {
-                idUsuario = usuarios.get(0).getIdUsuario();
+            for (Usuarios usuario : usuarios) {
+                if (BCrypt.checkpw(passwrdEncriptada, usuario.getPasswrd())) {
+                    idUsuario = usuario.getIdUsuario();
+                    break;
+                }
             }
 
             session.getTransaction().commit();
@@ -68,6 +70,24 @@ public class HibernateHelper {
         }
 
         return creado;
+    }
+
+    public Usuarios obtenerUsuarioPorCorreo(String email) {
+        Usuarios usuario = null;
+
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            usuario = (Usuarios) session.createQuery("FROM Usuarios WHERE email = :email")
+                    .setParameter("email", email)
+                    .uniqueResult();
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return usuario;
     }
 
 }
