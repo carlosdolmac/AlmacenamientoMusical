@@ -5,6 +5,7 @@
 package view;
 
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import controller.LoginController;
 import javax.swing.JPanel;
 
 /**
@@ -13,16 +14,11 @@ import javax.swing.JPanel;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
     public Interfaz() {
         initComponents();
-        setLocationRelativeTo(null); //Se pone la app en el centro de la pantalla
-        
-        //Se muestra en la aplicación principal el panel de Dashboard
-        Login login = new Login(this);
-        mostrarPanel(login);
+        setLocationRelativeTo(null);
+        LoginController loginController = new LoginController(this);
+        loginController.mostrarLogin();
     }
 
     /**
@@ -90,5 +86,10 @@ public class Interfaz extends javax.swing.JFrame {
         ponerPaneles.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1)); // Se especifican las coordenadas y el tamaño del componente.
         ponerPaneles.revalidate(); // Obliga al panel a recalcular su diseño.
         ponerPaneles.repaint(); // Solicita al panel que repinte sus componentes. 
+    }
+    
+    public void mostrarDashboard(int idUsuario) {
+        Principal dashboard = new Principal(idUsuario);
+        mostrarPanel(dashboard);
     }
 }

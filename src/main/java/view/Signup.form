@@ -61,7 +61,9 @@
                               <Component id="name" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
-                                  <Component id="signupLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="accountLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="loginLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="80" max="32767" attributes="0"/>
@@ -92,7 +94,10 @@
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="createAccount" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="signupLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="accountLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="loginLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
@@ -144,9 +149,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAccountActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="signupLabel">
+        <Component class="javax.swing.JLabel" name="accountLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Already have an account? Login"/>
+            <Property name="text" type="java.lang.String" value="Already have an account?"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imagelogin">
@@ -176,6 +181,17 @@
               <Dimension value="[575, 47]"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="loginLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="33" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" Login"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginLabelMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

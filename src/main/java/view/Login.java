@@ -5,21 +5,21 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.LoginController;
 import controller.SQLHelper;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class Login extends javax.swing.JPanel {
-    private Interfaz interfaz;
-    /**
-     * Creates new form login
-     */
+    private LoginController controller;
+
     public Login(Interfaz interfaz) {
-        this.interfaz = interfaz; // Guardar la referencia a Interfaz
+        this.controller = new LoginController(interfaz);
         initComponents();
         
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
@@ -28,6 +28,7 @@ public class Login extends javax.swing.JPanel {
         
         signupLabel.setText("<html>Don’t have an account?</html>");
         signupHere.setText("<html><em>Signup Here</em></html>");
+        clickHere.setText("<html><em>Click Here</em></html>");
     }
 
     /**
@@ -47,8 +48,10 @@ public class Login extends javax.swing.JPanel {
         signupLabel = new javax.swing.JLabel();
         recoverpassLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
+        clickHere = new javax.swing.JLabel();
         signupHere = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(139, 243, 204));
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         fondo.setBackground(new java.awt.Color(139, 243, 204));
@@ -79,51 +82,54 @@ public class Login extends javax.swing.JPanel {
         signupLabel.setText("Don’t have an account?");
         fondo.add(signupLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 449, -1, -1));
 
-        recoverpassLabel.setText("Don’t remember your password? Click Here");
+        recoverpassLabel.setText("Don’t remember your password?");
         fondo.add(recoverpassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 465, -1, -1));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
         fondo.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
+        clickHere.setForeground(new java.awt.Color(0, 51, 153));
+        clickHere.setText("Click Here");
+        fondo.add(clickHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 465, -1, -1));
+
         signupHere.setForeground(new java.awt.Color(0, 51, 153));
         signupHere.setText("Signup Here");
-        fondo.add(signupHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 449, -1, -1));
+        signupHere.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signupHereMouseClicked(evt);
+            }
+        });
+        fondo.add(signupHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 449, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 1274, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String correo = email.getText();
-    String contraseña = passwrd.getText();
-
-    try {
-        SQLHelper sqlHelper = new SQLHelper();
-        int idUsuario = sqlHelper.obtenerIdUsuario(correo, contraseña); // Método para obtener el ID del usuario
-
-        if (idUsuario != -1) { // Verificar si se encontró un usuario válido
-            Principal dashboard = new Principal(idUsuario); // Pasar el ID del usuario al constructor de Dashboard
-
-            interfaz.mostrarPanel(dashboard); // Mostrar el panel Dashboard
-        } else {
-            JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Por favor, intenta de nuevo.");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        // Manejo de errores
-    }
+        String contraseña = passwrd.getText();
+        controller.login(correo, contraseña);
     }//GEN-LAST:event_loginActionPerformed
+
+    private void signupHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupHereMouseClicked
+        controller.mostrarSignup();
+    }//GEN-LAST:event_signupHereMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel clickHere;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;

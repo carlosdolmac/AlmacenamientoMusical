@@ -44,11 +44,12 @@ public class Signup extends javax.swing.JPanel {
         email = new javax.swing.JTextField();
         passwrd = new javax.swing.JTextField();
         createAccount = new javax.swing.JButton();
-        signupLabel = new javax.swing.JLabel();
+        accountLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         surname = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
+        loginLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
@@ -72,7 +73,7 @@ public class Signup extends javax.swing.JPanel {
             }
         });
 
-        signupLabel.setText("Already have an account? Login");
+        accountLabel.setText("Already have an account?");
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
 
@@ -81,6 +82,14 @@ public class Signup extends javax.swing.JPanel {
         surname.setPreferredSize(new java.awt.Dimension(575, 47));
 
         name.setPreferredSize(new java.awt.Dimension(575, 47));
+
+        loginLabel.setForeground(new java.awt.Color(0, 51, 153));
+        loginLabel.setText(" Login");
+        loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
@@ -102,7 +111,9 @@ public class Signup extends javax.swing.JPanel {
                             .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(fondoLayout.createSequentialGroup()
                                 .addGap(180, 180, 180)
-                                .addComponent(signupLabel)))
+                                .addComponent(accountLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(loginLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(imagelogin)
                         .addGap(48, 48, 48))))
@@ -127,7 +138,9 @@ public class Signup extends javax.swing.JPanel {
                         .addGap(55, 55, 55)
                         .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(signupLabel))
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(accountLabel)
+                            .addComponent(loginLabel)))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(imagelogin)))
@@ -150,16 +163,22 @@ public class Signup extends javax.swing.JPanel {
      
     }//GEN-LAST:event_createAccountActionPerformed
 
+    private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
+        Login loginPanel = new Login(interfaz); // Crear una instancia del panel de inicio de sesión
+        interfaz.mostrarPanel(loginPanel); // Mostrar el panel de inicio de sesión al hacer clic en 'Login'
+    }//GEN-LAST:event_loginLabelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel accountLabel;
     private javax.swing.JButton createAccount;
     private javax.swing.JLabel createAccountLabel;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;
+    private javax.swing.JLabel loginLabel;
     private javax.swing.JTextField name;
     private javax.swing.JTextField passwrd;
-    private javax.swing.JLabel signupLabel;
     private javax.swing.JTextField surname;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
