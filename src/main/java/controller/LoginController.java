@@ -10,6 +10,7 @@ import model.Usuarios;
 import org.mindrot.jbcrypt.BCrypt;
 import view.Interfaz;
 import view.Login;
+import view.Password;
 
 /**
  *
@@ -25,6 +26,11 @@ public class LoginController {
     public void mostrarLogin() {
         Login login = new Login(interfaz);
         interfaz.mostrarPanel(login);
+    }
+    
+    public void mostrarPassword() {
+        Password password = new Password(interfaz);
+        interfaz.mostrarPanel(password);
     }
         
     public void login(String correo, String contraseña) {

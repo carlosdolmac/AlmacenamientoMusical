@@ -89,5 +89,26 @@ public class HibernateHelper {
 
         return usuario;
     }
+    
+    public boolean existeCorreo(String correo) {
+        boolean correoExiste = false;
+
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Usuarios usuario = (Usuarios) session.createQuery("FROM Usuarios WHERE email = :email")
+                    .setParameter("email", correo)
+                    .uniqueResult();
+
+            // Si se encuentra un usuario con ese correo, significa que el correo existe en la base de datos
+            correoExiste = usuario != null;
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return correoExiste;
+    }
 
 }

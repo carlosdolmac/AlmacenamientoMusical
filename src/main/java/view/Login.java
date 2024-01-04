@@ -87,6 +87,11 @@ public class Login extends javax.swing.JPanel {
 
         clickHere.setForeground(new java.awt.Color(0, 51, 153));
         clickHere.setText("Click Here");
+        clickHere.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clickHereMouseClicked(evt);
+            }
+        });
         fondo.add(clickHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 465, -1, -1));
 
         signupHere.setForeground(new java.awt.Color(0, 51, 153));
@@ -123,6 +128,10 @@ public class Login extends javax.swing.JPanel {
     private void signupHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupHereMouseClicked
         controller.mostrarSignup();
     }//GEN-LAST:event_signupHereMouseClicked
+
+    private void clickHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickHereMouseClicked
+        controller.mostrarPassword();
+    }//GEN-LAST:event_clickHereMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
