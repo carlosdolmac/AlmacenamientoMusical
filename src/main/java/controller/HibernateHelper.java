@@ -111,4 +111,28 @@ public class HibernateHelper {
         return correoExiste;
     }
 
+    public void actualizarPasswordPorCorreo(String correo, String nuevaPassword) throws Exception {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Usuarios usuario = (Usuarios) session.createQuery("FROM Usuarios WHERE email = :email")
+                    .setParameter("email", correo)
+                    .uniqueResult();
+
+            if (usuario != null) {
+                // Encripta la nueva contraseña antes de guardarla
+                String passwordEncriptada = BCrypt.hashpw(nuevaPassword, BCrypt.gensalt());
+                usuario.setPasswrd(passwordEncriptada); // Establece la nueva contraseña encriptada
+
+                session.update(usuario); // Actualiza el objeto en la base de datos
+
+                session.getTransaction().commit();
+            } else {
+                throw new Exception("El usuario con correo " + correo + " no existe.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

@@ -7,6 +7,7 @@ package view;
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.EmailController;
 import controller.HibernateHelper;
+import controller.LoginController;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +15,22 @@ import javax.swing.JOptionPane;
  * @author Carlos de los Dolores Macías
  */
 public class Password extends javax.swing.JPanel {
-
+    private LoginController loginController;
+    private String codigoRecuperacion;
+    private String correoRecuperacion;
     /**
      * Creates new form Password
      */
-    public Password(Interfaz interfaz) {
+    public Password(Interfaz interfaz, LoginController loginController) {
         initComponents();
+        this.loginController = loginController; // Inicializa el loginController
          email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
          code.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Código" ); //Placeholder
+    }
+
+    // Método para obtener el código de recuperación desde fuera de la clase
+    public String getCodigoRecuperacion() {
+        return codigoRecuperacion;
     }
 
     /**
@@ -106,8 +115,15 @@ public class Password extends javax.swing.JPanel {
         HibernateHelper hibernateHelper = new HibernateHelper();
 
         if (hibernateHelper.existeCorreo(userEmail)) {
-            String codigoRecuperacion = EmailController.generarCodigoRecuperacion();
+            codigoRecuperacion = EmailController.generarCodigoRecuperacion();
             EmailController.enviarCorreoRecuperacion(userEmail, codigoRecuperacion);
+            // Mensaje de éxito al enviar el correo
+            JOptionPane.showMessageDialog(
+                null,
+                "Se ha enviado un correo con el código de recuperación.",
+                "Correo enviado",
+                JOptionPane.INFORMATION_MESSAGE
+            );
         } else {
             JOptionPane.showMessageDialog(
                 null,
@@ -116,12 +132,29 @@ public class Password extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE
             );
         }
+        correoRecuperacion = userEmail;
     }//GEN-LAST:event_recuperarActionPerformed
 
     private void cambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cambiarActionPerformed
+        String codigoIngresado = code.getText(); // Obtener el código ingresado
 
+        // Verificar si el código ingresado es correcto
+        if (codigoIngresado.equals(codigoRecuperacion)) {
+            loginController.mostrarChangePassword(correoRecuperacion);
+        } else {
+            // Código incorrecto, mostrar mensaje de error
+            JOptionPane.showMessageDialog(
+                null,
+                "El código ingresado no es válido. Por favor, verifica el código.",
+                "Código incorrecto",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_cambiarActionPerformed
+    
+    public String getCorreoRecuperacion() {
+            return correoRecuperacion;
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cambiar;

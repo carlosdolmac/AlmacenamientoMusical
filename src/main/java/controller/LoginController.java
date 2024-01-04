@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Usuarios;
 import org.mindrot.jbcrypt.BCrypt;
+import view.ChangePassword;
 import view.Interfaz;
 import view.Login;
 import view.Password;
@@ -29,9 +30,16 @@ public class LoginController {
     }
     
     public void mostrarPassword() {
-        Password password = new Password(interfaz);
+        Password password = new Password(interfaz, this); // Pasa el LoginController
         interfaz.mostrarPanel(password);
     }
+
+    
+    public void mostrarChangePassword(String correoRecuperacion) {
+        ChangePassword changePasswordPanel = new ChangePassword(interfaz, correoRecuperacion);
+        interfaz.mostrarPanel(changePasswordPanel);
+    }
+
         
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
@@ -57,4 +65,5 @@ public class LoginController {
         SignupController signupController = new SignupController(interfaz);
         signupController.mostrarSignup();
     }
+    
 }
