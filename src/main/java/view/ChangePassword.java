@@ -37,8 +37,10 @@ public class ChangePassword extends javax.swing.JPanel {
         newPass = new javax.swing.JTextField();
         newPass1 = new javax.swing.JTextField();
         modificarPass = new javax.swing.JButton();
+        imagelogin = new javax.swing.JLabel();
+        changeLabel = new javax.swing.JLabel();
 
-        fondoChangePassword.setBackground(new java.awt.Color(0, 204, 204));
+        fondoChangePassword.setBackground(new java.awt.Color(139, 243, 204));
 
         newPass.setPreferredSize(new java.awt.Dimension(575, 47));
 
@@ -51,6 +53,10 @@ public class ChangePassword extends javax.swing.JPanel {
             }
         });
 
+        imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+
+        changeLabel.setText("Cambia tu contraseña");
+
         javax.swing.GroupLayout fondoChangePasswordLayout = new javax.swing.GroupLayout(fondoChangePassword);
         fondoChangePassword.setLayout(fondoChangePasswordLayout);
         fondoChangePasswordLayout.setHorizontalGroup(
@@ -58,25 +64,37 @@ public class ChangePassword extends javax.swing.JPanel {
             .addGroup(fondoChangePasswordLayout.createSequentialGroup()
                 .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(205, 205, 205)
+                        .addGap(58, 58, 58)
                         .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(408, 408, 408)
-                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(500, Short.MAX_VALUE))
+                        .addGap(271, 271, 271)
+                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(changeLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(imagelogin)
+                .addGap(48, 48, 48))
         );
         fondoChangePasswordLayout.setVerticalGroup(
             fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(changeLabel)
+                        .addGap(46, 46, 46)
+                        .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(imagelogin)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -127,7 +145,9 @@ public class ChangePassword extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel changeLabel;
     private javax.swing.JPanel fondoChangePassword;
+    private javax.swing.JLabel imagelogin;
     private javax.swing.JButton modificarPass;
     private javax.swing.JTextField newPass;
     private javax.swing.JTextField newPass1;
