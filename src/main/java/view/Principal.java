@@ -8,6 +8,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import model.Usuarios;
 
 /**
@@ -30,6 +31,18 @@ public class Principal extends javax.swing.JPanel {
         iconLib.setIcon(new FlatSVGIcon("img/Library.svg"));
         iconArt.setIcon(new FlatSVGIcon("img/Artist.svg"));
         iconOut.setIcon(new FlatSVGIcon("img/Logout.svg"));
+        
+        mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
+    }
+    
+    public void mostrarPanel(JPanel p) {
+        p.setSize(1042, 720); // Establecer el tamaño del panel 'p'
+        p.setLocation(0, 0); // Establecer la posición del panel 'p'
+        
+        colocarPaneles.removeAll(); // Eliminar todos los componentes del panel colocarPaneles
+        colocarPaneles.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1)); // Agregar el panel 'p' a colocarPaneles
+        colocarPaneles.revalidate(); // Recalcular el diseño del panel colocarPaneles
+        colocarPaneles.repaint(); // Repintar los componentes del panel colocarPaneles
     }
 
     
