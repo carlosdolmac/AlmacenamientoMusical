@@ -59,9 +59,19 @@ public class Login extends javax.swing.JPanel {
         fondo.add(signinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 158, -1, -1));
 
         email.setPreferredSize(new java.awt.Dimension(575, 47));
+        email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emailKeyPressed(evt);
+            }
+        });
         fondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 220, -1, -1));
 
         passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwrdKeyPressed(evt);
+            }
+        });
         fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 279, -1, -1));
 
         login.setBackground(new java.awt.Color(91, 134, 229));
@@ -132,6 +142,18 @@ public class Login extends javax.swing.JPanel {
     private void clickHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickHereMouseClicked
         controller.mostrarPassword();
     }//GEN-LAST:event_clickHereMouseClicked
+
+    private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            passwrd.requestFocus(); // Mueve el foco al campo 'passwrd'
+        }
+    }//GEN-LAST:event_emailKeyPressed
+
+    private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            loginActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_passwrdKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

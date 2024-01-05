@@ -26,6 +26,8 @@ public class Password extends javax.swing.JPanel {
         this.loginController = loginController; // Inicializa el loginController
          email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
          code.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Código" ); //Placeholder
+         changeLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
+         continuarBtn.setEnabled(false);
     }
 
     // Método para obtener el código de recuperación desde fuera de la clase
@@ -44,58 +46,104 @@ public class Password extends javax.swing.JPanel {
 
         fondoPassword = new javax.swing.JPanel();
         email = new javax.swing.JTextField();
-        recuperar = new javax.swing.JButton();
-        cambiar = new javax.swing.JButton();
+        enviarBtn = new javax.swing.JButton();
+        continuarBtn = new javax.swing.JButton();
         code = new javax.swing.JTextField();
+        imagelogin = new javax.swing.JLabel();
+        changeLabel = new javax.swing.JLabel();
+        inicioImg = new javax.swing.JLabel();
 
-        fondoPassword.setBackground(new java.awt.Color(204, 0, 153));
+        fondoPassword.setBackground(new java.awt.Color(139, 243, 204));
 
         email.setPreferredSize(new java.awt.Dimension(575, 47));
-
-        recuperar.setText("Recuperar");
-        recuperar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recuperarActionPerformed(evt);
+        email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emailKeyPressed(evt);
             }
         });
 
-        cambiar.setText("Cambiar");
-        cambiar.addActionListener(new java.awt.event.ActionListener() {
+        enviarBtn.setText("Enviar Código");
+        enviarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cambiarActionPerformed(evt);
+                enviarBtnActionPerformed(evt);
+            }
+        });
+
+        continuarBtn.setText("Continuar");
+        continuarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarBtnActionPerformed(evt);
             }
         });
 
         code.setPreferredSize(new java.awt.Dimension(575, 47));
+        code.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                codeKeyPressed(evt);
+            }
+        });
+
+        imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+
+        changeLabel.setText("Cambia tu contraseña");
+
+        inicioImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
+        inicioImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicioImgMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoPasswordLayout = new javax.swing.GroupLayout(fondoPassword);
         fondoPassword.setLayout(fondoPasswordLayout);
         fondoPasswordLayout.setHorizontalGroup(
             fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoPasswordLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoPasswordLayout.createSequentialGroup()
-                        .addComponent(recuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(607, Short.MAX_VALUE))
+                        .addGap(244, 244, 244)
+                        .addComponent(changeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoPasswordLayout.createSequentialGroup()
+                        .addContainerGap(65, Short.MAX_VALUE)
+                        .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoPasswordLayout.createSequentialGroup()
+                                .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(fondoPasswordLayout.createSequentialGroup()
+                                        .addComponent(enviarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(continuarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(80, 80, 80))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoPasswordLayout.createSequentialGroup()
+                                .addComponent(inicioImg)
+                                .addGap(328, 328, 328)))))
+                .addComponent(imagelogin)
+                .addGap(48, 48, 48))
         );
         fondoPasswordLayout.setVerticalGroup(
             fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoPasswordLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recuperar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoPasswordLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(changeLabel)
+                        .addGap(46, 46, 46)
+                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addGroup(fondoPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enviarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(continuarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inicioImg))
+                    .addGroup(fondoPasswordLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(imagelogin)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -110,13 +158,17 @@ public class Password extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void recuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperarActionPerformed
+    private void enviarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarBtnActionPerformed
         String userEmail = email.getText(); // Obtener el correo electrónico ingresado en la interfaz
         HibernateHelper hibernateHelper = new HibernateHelper();
 
         if (hibernateHelper.existeCorreo(userEmail)) {
             codigoRecuperacion = EmailController.generarCodigoRecuperacion();
             EmailController.enviarCorreoRecuperacion(userEmail, codigoRecuperacion);
+             // Después de enviar el correo con el código de recuperación
+            // Habilitar el botón "Continuar"
+            continuarBtn.setEnabled(true);
+            
             // Mensaje de éxito al enviar el correo
             JOptionPane.showMessageDialog(
                 null,
@@ -133,9 +185,9 @@ public class Password extends javax.swing.JPanel {
             );
         }
         correoRecuperacion = userEmail;
-    }//GEN-LAST:event_recuperarActionPerformed
+    }//GEN-LAST:event_enviarBtnActionPerformed
 
-    private void cambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarActionPerformed
+    private void continuarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarBtnActionPerformed
         String codigoIngresado = code.getText(); // Obtener el código ingresado
 
         // Verificar si el código ingresado es correcto
@@ -150,17 +202,36 @@ public class Password extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE
             );
         }
-    }//GEN-LAST:event_cambiarActionPerformed
+    }//GEN-LAST:event_continuarBtnActionPerformed
+
+    private void inicioImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioImgMouseClicked
+        loginController.mostrarLogin();
+    }//GEN-LAST:event_inicioImgMouseClicked
+
+    private void codeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            continuarBtnActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_codeKeyPressed
+
+    private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            code.requestFocus(); // Mueve el foco al campo 'code'
+        }
+    }//GEN-LAST:event_emailKeyPressed
     
     public String getCorreoRecuperacion() {
             return correoRecuperacion;
         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cambiar;
+    private javax.swing.JLabel changeLabel;
     private javax.swing.JTextField code;
+    private javax.swing.JButton continuarBtn;
     private javax.swing.JTextField email;
+    private javax.swing.JButton enviarBtn;
     private javax.swing.JPanel fondoPassword;
-    private javax.swing.JButton recuperar;
+    private javax.swing.JLabel imagelogin;
+    private javax.swing.JLabel inicioImg;
     // End of variables declaration//GEN-END:variables
 }

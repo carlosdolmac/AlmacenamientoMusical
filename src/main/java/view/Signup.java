@@ -62,8 +62,18 @@ public class Signup extends javax.swing.JPanel {
         createAccountLabel.setText("Create Account");
 
         email.setPreferredSize(new java.awt.Dimension(575, 47));
+        email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emailKeyPressed(evt);
+            }
+        });
 
         passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwrdKeyPressed(evt);
+            }
+        });
 
         createAccount.setBackground(new java.awt.Color(91, 134, 229));
         createAccount.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -81,10 +91,25 @@ public class Signup extends javax.swing.JPanel {
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
 
         username.setPreferredSize(new java.awt.Dimension(575, 47));
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
 
         surname.setPreferredSize(new java.awt.Dimension(575, 47));
+        surname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                surnameKeyPressed(evt);
+            }
+        });
 
         name.setPreferredSize(new java.awt.Dimension(575, 47));
+        name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameKeyPressed(evt);
+            }
+        });
 
         loginLabel.setForeground(new java.awt.Color(0, 51, 153));
         loginLabel.setText(" Login");
@@ -169,15 +194,20 @@ public class Signup extends javax.swing.JPanel {
         String correo = email.getText();
         String password = passwrd.getText();
 
-        SignupController signupController = new SignupController(interfaz);
-        boolean creado = signupController.crearNuevoUsuario(nombre, apellidos, nombreUsuario, correo, password);
-
-        if (creado) {
-            // Mostrar un mensaje de éxito o redirigir a otra pantalla
-            JOptionPane.showMessageDialog(this, "Usuario creado exitosamente.");
+        // Verifica que ninguno de los campos esté vacío
+        if (nombre.isEmpty() || apellidos.isEmpty() || nombreUsuario.isEmpty() || correo.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos."); // Muestra un mensaje de error si algún campo está vacío
         } else {
-            // Manejar el caso de error al crear el usuario
-            JOptionPane.showMessageDialog(this, "Error al crear el usuario. Por favor, inténtalo de nuevo.");
+            SignupController signupController = new SignupController(interfaz);
+            boolean creado = signupController.crearNuevoUsuario(nombre, apellidos, nombreUsuario, correo, password);
+
+            if (creado) {
+                // Mostrar un mensaje de éxito
+                JOptionPane.showMessageDialog(this, "Usuario creado exitosamente.");
+            } else {
+                // Manejar el caso de error al crear el usuario
+                JOptionPane.showMessageDialog(this, "Error al crear el usuario. Por favor, inténtalo de nuevo.");
+            }
         }
     }//GEN-LAST:event_createAccountActionPerformed
 
@@ -185,6 +215,36 @@ public class Signup extends javax.swing.JPanel {
         Login loginPanel = new Login(interfaz); // Crear una instancia del panel de inicio de sesión
         interfaz.mostrarPanel(loginPanel); // Mostrar el panel de inicio de sesión al hacer clic en 'Login'
     }//GEN-LAST:event_loginLabelMouseClicked
+
+    private void nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            surname.requestFocus(); // Mueve el foco al campo 'passwrd'
+        }
+    }//GEN-LAST:event_nameKeyPressed
+
+    private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            createAccountActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_passwrdKeyPressed
+
+    private void surnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_surnameKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            username.requestFocus(); // Mueve el foco al campo 'passwrd'
+        }
+    }//GEN-LAST:event_surnameKeyPressed
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            email.requestFocus(); // Mueve el foco al campo 'passwrd'
+        }
+    }//GEN-LAST:event_usernameKeyPressed
+
+    private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            passwrd.requestFocus(); // Mueve el foco al campo 'passwrd'
+        }
+    }//GEN-LAST:event_emailKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -36,9 +36,10 @@ public class LoginController {
 
     
     public void mostrarChangePassword(String correoRecuperacion) {
-        ChangePassword changePasswordPanel = new ChangePassword(interfaz, correoRecuperacion);
+        ChangePassword changePasswordPanel = new ChangePassword(interfaz, correoRecuperacion, this); // Pasa el LoginController
         interfaz.mostrarPanel(changePasswordPanel);
     }
+
 
         
     public void login(String correo, String contraseña) {

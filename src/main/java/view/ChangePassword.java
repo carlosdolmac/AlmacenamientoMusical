@@ -5,6 +5,7 @@
 package view;
 
 import controller.HibernateHelper;
+import controller.LoginController;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +15,15 @@ import javax.swing.JOptionPane;
 public class ChangePassword extends javax.swing.JPanel {
     private HibernateHelper hibernateHelper;
     private String correoRecuperacion;
-
+    private LoginController loginController;        
     /**
      * Creates new form ChangePassword
      */
-    public ChangePassword(Interfaz interfaz, String correoRecuperacion) {
+    public ChangePassword(Interfaz interfaz, String correoRecuperacion, LoginController loginController) {
         initComponents();
         this.correoRecuperacion = correoRecuperacion; // Guarda el correo recuperado en esta clase
         hibernateHelper = new HibernateHelper(); // Inicializa HibernateHelper
+        this.loginController = loginController; // Inicializa el loginController
     }
 
     /**
@@ -39,6 +41,7 @@ public class ChangePassword extends javax.swing.JPanel {
         modificarPass = new javax.swing.JButton();
         imagelogin = new javax.swing.JLabel();
         changeLabel = new javax.swing.JLabel();
+        inicioLabel = new javax.swing.JLabel();
 
         fondoChangePassword.setBackground(new java.awt.Color(139, 243, 204));
 
@@ -57,6 +60,13 @@ public class ChangePassword extends javax.swing.JPanel {
 
         changeLabel.setText("Cambia tu contraseña");
 
+        inicioLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
+        inicioLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inicioLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout fondoChangePasswordLayout = new javax.swing.GroupLayout(fondoChangePassword);
         fondoChangePassword.setLayout(fondoChangePasswordLayout);
         fondoChangePasswordLayout.setHorizontalGroup(
@@ -73,7 +83,10 @@ public class ChangePassword extends javax.swing.JPanel {
                         .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoChangePasswordLayout.createSequentialGroup()
                         .addGap(244, 244, 244)
-                        .addComponent(changeLabel)))
+                        .addComponent(changeLabel))
+                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
+                        .addGap(316, 316, 316)
+                        .addComponent(inicioLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(imagelogin)
                 .addGap(48, 48, 48))
@@ -90,7 +103,9 @@ public class ChangePassword extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(inicioLabel))
                     .addGroup(fondoChangePasswordLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(imagelogin)))
@@ -143,11 +158,16 @@ public class ChangePassword extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_modificarPassActionPerformed
 
+    private void inicioLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioLabelMouseClicked
+       loginController.mostrarLogin();
+    }//GEN-LAST:event_inicioLabelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel changeLabel;
     private javax.swing.JPanel fondoChangePassword;
     private javax.swing.JLabel imagelogin;
+    private javax.swing.JLabel inicioLabel;
     private javax.swing.JButton modificarPass;
     private javax.swing.JTextField newPass;
     private javax.swing.JTextField newPass1;
