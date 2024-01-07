@@ -7,6 +7,7 @@ package view;
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
 import controller.SignupController;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import javax.swing.JOptionPane;
@@ -18,8 +19,11 @@ import model.Usuarios;
  */
 public class Signup extends javax.swing.JPanel {
     private Interfaz interfaz;
-    /**
-     * Creates new form login
+
+     /**
+     * Inicializa el panel de registro.
+     * Configura los placeholders para los campos y guarda la referencia a Interfaz.
+     * @param interfaz Instancia de Interfaz para manejar la navegación entre vistas.
      */
     public Signup(Interfaz interfaz) {
         this.interfaz = interfaz; // Guardar la referencia a Interfaz
@@ -41,11 +45,16 @@ public class Signup extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         fondo = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
         createAccountLabel = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        passwrd = new javax.swing.JTextField();
         createAccount = new javax.swing.JButton();
         accountLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
@@ -53,27 +62,43 @@ public class Signup extends javax.swing.JPanel {
         surname = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
         loginLabel = new javax.swing.JLabel();
+        passwrd = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(139, 243, 204));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+        setLayout(new java.awt.GridBagLayout());
 
         fondo.setBackground(new java.awt.Color(139, 243, 204));
         fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
+        fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 580, 20));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 580, 20));
+
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 580, 20));
+
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 580, 20));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 580, 20));
 
         createAccountLabel.setText("Create Account");
+        fondo.add(createAccountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 33, -1, -1));
 
+        email.setBackground(new java.awt.Color(139, 243, 204));
+        email.setBorder(null);
         email.setPreferredSize(new java.awt.Dimension(575, 47));
         email.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 emailKeyPressed(evt);
             }
         });
-
-        passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
-        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwrdKeyPressed(evt);
-            }
-        });
+        fondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 323, -1, -1));
 
         createAccount.setBackground(new java.awt.Color(91, 134, 229));
         createAccount.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -85,31 +110,43 @@ public class Signup extends javax.swing.JPanel {
                 createAccountActionPerformed(evt);
             }
         });
+        fondo.add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 502, -1, -1));
 
         accountLabel.setText("Already have an account?");
+        fondo.add(accountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 580, -1, -1));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+        fondo.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
+        username.setBackground(new java.awt.Color(139, 243, 204));
+        username.setBorder(null);
         username.setPreferredSize(new java.awt.Dimension(575, 47));
         username.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameKeyPressed(evt);
             }
         });
+        fondo.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 246, -1, -1));
 
+        surname.setBackground(new java.awt.Color(139, 243, 204));
+        surname.setBorder(null);
         surname.setPreferredSize(new java.awt.Dimension(575, 47));
         surname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 surnameKeyPressed(evt);
             }
         });
+        fondo.add(surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 169, -1, -1));
 
+        name.setBackground(new java.awt.Color(139, 243, 204));
+        name.setBorder(null);
         name.setPreferredSize(new java.awt.Dimension(575, 47));
         name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nameKeyPressed(evt);
             }
         });
+        fondo.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 92, -1, -1));
 
         loginLabel.setForeground(new java.awt.Color(0, 51, 153));
         loginLabel.setText(" Login");
@@ -118,75 +155,33 @@ public class Signup extends javax.swing.JPanel {
                 loginLabelMouseClicked(evt);
             }
         });
+        fondo.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 580, -1, -1));
 
-        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
-        fondo.setLayout(fondoLayout);
-        fondoLayout.setHorizontalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addComponent(createAccountLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(fondoLayout.createSequentialGroup()
-                                .addGap(180, 180, 180)
-                                .addComponent(accountLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(loginLabel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                        .addComponent(imagelogin)
-                        .addGap(48, 48, 48))))
-        );
-        fondoLayout.setVerticalGroup(
-            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(createAccountLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(passwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(createAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(accountLabel)
-                            .addComponent(loginLabel)))
-                    .addGroup(fondoLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(imagelogin)))
-                .addContainerGap(124, Short.MAX_VALUE))
-        );
+        passwrd.setBackground(new java.awt.Color(139, 243, 204));
+        passwrd.setBorder(null);
+        passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwrdKeyPressed(evt);
+            }
+        });
+        fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 400, 580, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 48;
+        gridBagConstraints.ipady = 124;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(fondo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al hacer clic en el botón "Create Account".
+     * Obtiene los datos ingresados en los campos y verifica que ninguno esté vacío.
+     * Llama al controlador de registro para crear un nuevo usuario.
+     * Muestra un mensaje de éxito o error según el resultado.
+     */
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
         String nombre = name.getText();
         String apellidos = surname.getText();
@@ -211,32 +206,31 @@ public class Signup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_createAccountActionPerformed
 
+    /**
+     * Acción realizada al hacer clic en el enlace "Login".
+     * Muestra el panel de inicio de sesión al hacer clic en el enlace "Login".
+     */
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
         Login loginPanel = new Login(interfaz); // Crear una instancia del panel de inicio de sesión
         interfaz.mostrarPanel(loginPanel); // Mostrar el panel de inicio de sesión al hacer clic en 'Login'
     }//GEN-LAST:event_loginLabelMouseClicked
 
+    // Métodos para manejar el cambio de foco entre campos al presionar 'Enter':
     private void nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            surname.requestFocus(); // Mueve el foco al campo 'passwrd'
+            surname.requestFocus(); // Mueve el foco al campo 'surname'
         }
     }//GEN-LAST:event_nameKeyPressed
 
-    private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            createAccountActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
-        }
-    }//GEN-LAST:event_passwrdKeyPressed
-
     private void surnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_surnameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            username.requestFocus(); // Mueve el foco al campo 'passwrd'
+            username.requestFocus(); // Mueve el foco al campo 'username'
         }
     }//GEN-LAST:event_surnameKeyPressed
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            email.requestFocus(); // Mueve el foco al campo 'passwrd'
+            email.requestFocus(); // Mueve el foco al campo 'email'
         }
     }//GEN-LAST:event_usernameKeyPressed
 
@@ -246,6 +240,12 @@ public class Signup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_emailKeyPressed
 
+    private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            createAccountActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_passwrdKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountLabel;
@@ -254,9 +254,14 @@ public class Signup extends javax.swing.JPanel {
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JTextField name;
-    private javax.swing.JTextField passwrd;
+    private javax.swing.JPasswordField passwrd;
     private javax.swing.JTextField surname;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

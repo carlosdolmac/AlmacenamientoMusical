@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package view;
-
+//Placeholer para primera entrega
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
+import java.awt.BorderLayout;
 import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,13 +37,13 @@ public class Principal extends javax.swing.JPanel {
     }
     
     public void mostrarPanel(JPanel p) {
-        p.setSize(1042, 720); // Establecer el tamaño del panel 'p'
-        p.setLocation(0, 0); // Establecer la posición del panel 'p'
-        
-        colocarPaneles.removeAll(); // Eliminar todos los componentes del panel colocarPaneles
-        colocarPaneles.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1)); // Agregar el panel 'p' a colocarPaneles
-        colocarPaneles.revalidate(); // Recalcular el diseño del panel colocarPaneles
-        colocarPaneles.repaint(); // Repintar los componentes del panel colocarPaneles
+        colocarPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
+        colocarPaneles.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda
+
+        colocarPaneles.add(p, BorderLayout.CENTER); // Agrega el panel al centro para que se ajuste al tamaño del contenedor
+
+        colocarPaneles.revalidate(); // Obliga al panel a recalcular su diseño
+        colocarPaneles.repaint(); // Solicita al panel que repinte sus componentes
     }
 
     
@@ -57,9 +58,9 @@ public class Principal extends javax.swing.JPanel {
     private void initComponents() {
 
         fondoDashboard = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         panelLibrary = new javax.swing.JPanel();
         jLabelLibrary = new javax.swing.JLabel();
         iconLib = new javax.swing.JLabel();
@@ -77,32 +78,26 @@ public class Principal extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
+        fondoDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/01dashboard.png"))); // NOI18N
+        fondoDashboard.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jPanel1.setBackground(new java.awt.Color(79, 52, 90));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(57, 37, 65));
         jPanel2.setPreferredSize(new java.awt.Dimension(256, 60));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3)
-                .addContainerGap(195, Short.MAX_VALUE))
+            .addGap(0, 256, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel3)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGap(0, 60, Short.MAX_VALUE)
         );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelLibrary.setBackground(new java.awt.Color(102, 0, 102));
         panelLibrary.setPreferredSize(new java.awt.Dimension(256, 46));
@@ -131,11 +126,8 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelLibrary, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
-
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
-        jPanel1.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 95, -1, -1));
 
         panelDashboard.setBackground(new java.awt.Color(102, 0, 102));
         panelDashboard.setPreferredSize(new java.awt.Dimension(256, 46));
@@ -164,8 +156,6 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 129, -1, -1));
-
         panelArtist.setBackground(new java.awt.Color(102, 0, 102));
         panelArtist.setPreferredSize(new java.awt.Dimension(256, 46));
 
@@ -192,8 +182,6 @@ public class Principal extends javax.swing.JPanel {
                     .addComponent(jLabelArtist))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
-
-        jPanel1.add(panelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
 
         panelLogout.setBackground(new java.awt.Color(102, 0, 102));
         panelLogout.setPreferredSize(new java.awt.Dimension(256, 46));
@@ -222,7 +210,41 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel1.add(panelLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jLabelUsername))
+            .addComponent(panelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabelUsername)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(panelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(424, Short.MAX_VALUE))
+        );
+
+        fondoDashboard.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         colocarPaneles.setBackground(new java.awt.Color(204, 255, 204));
         colocarPaneles.setPreferredSize(new java.awt.Dimension(1042, 720));
@@ -231,27 +253,14 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.setLayout(colocarPanelesLayout);
         colocarPanelesLayout.setHorizontalGroup(
             colocarPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1042, Short.MAX_VALUE)
+            .addGap(0, 1023, Short.MAX_VALUE)
         );
         colocarPanelesLayout.setVerticalGroup(
             colocarPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout fondoDashboardLayout = new javax.swing.GroupLayout(fondoDashboard);
-        fondoDashboard.setLayout(fondoDashboardLayout);
-        fondoDashboardLayout.setHorizontalGroup(
-            fondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoDashboardLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        fondoDashboardLayout.setVerticalGroup(
-            fondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        fondoDashboard.add(colocarPaneles, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 0, 1023, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

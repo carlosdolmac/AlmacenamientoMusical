@@ -6,19 +6,22 @@ package view;
 
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
 import controller.LoginController;
+import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
 /**
+ * La clase 'Interfaz' representa el marco principal de la aplicación.
+ * Controla la visualización de diferentes paneles y el inicio de sesión.
  *
- * @author Carlos de los Dolores Macías
+ * Autor: Carlos de los Dolores Macías
  */
 public class Interfaz extends javax.swing.JFrame {
 
     public Interfaz() {
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); // Establece la ubicación de la ventana en el centro de la pantalla
         LoginController loginController = new LoginController(this);
-        loginController.mostrarLogin();
+        loginController.mostrarLogin(); // Muestra el panel de inicio de sesión al iniciar la aplicación
     }
 
     /**
@@ -79,15 +82,19 @@ public class Interfaz extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     // Método mostrarPanel para mostrar los paneles.
     public void mostrarPanel(JPanel p) {
-        p.setSize(1280, 720); //Se pone el tamaño con el que se mostrarán
-        p.setLocation(0,0); // Se establece la posición de la ventana en las coordenadas (0, 0).
-        
         ponerPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
-        ponerPaneles.add(p, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1)); // Se especifican las coordenadas y el tamaño del componente.
-        ponerPaneles.revalidate(); // Obliga al panel a recalcular su diseño.
-        ponerPaneles.repaint(); // Solicita al panel que repinte sus componentes. 
+        ponerPaneles.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda
+
+        ponerPaneles.add(p, BorderLayout.CENTER); // Agrega el panel al centro para que se ajuste al tamaño del contenedor
+
+        ponerPaneles.revalidate(); // Obliga al panel a recalcular su diseño
+        ponerPaneles.repaint(); // Solicita al panel que repinte sus componentes
     }
     
+    /**
+     * Método para mostrar el panel de dashboard después del inicio de sesión.
+     * @param idUsuario El ID del usuario que ha iniciado sesión.
+     */
     public void mostrarDashboard(int idUsuario) {
         Principal dashboard = new Principal(idUsuario);
         mostrarPanel(dashboard);

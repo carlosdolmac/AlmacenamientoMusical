@@ -14,8 +14,10 @@ import view.Login;
 import view.Password;
 
 /**
+ * Controlador para la gestión del inicio de sesión y las operaciones relacionadas.
+ * Se encarga de mostrar los distintos paneles de la interfaz y manejar las operaciones de inicio de sesión.
  *
- * @author Carlos de los Dolores Macías
+ * Autor: Carlos de los Dolores Macías
  */
 public class LoginController {
     private Interfaz interfaz;
@@ -24,24 +26,26 @@ public class LoginController {
         this.interfaz = interfaz;
     }
 
+    // Método para mostrar el panel de inicio de sesión
     public void mostrarLogin() {
         Login login = new Login(interfaz);
         interfaz.mostrarPanel(login);
     }
     
+    // Método para mostrar el panel de ingreso de contraseña
     public void mostrarPassword() {
         Password password = new Password(interfaz, this); // Pasa el LoginController
         interfaz.mostrarPanel(password);
     }
 
-    
+    // Método para mostrar el panel de cambio de contraseña
     public void mostrarChangePassword(String correoRecuperacion) {
         ChangePassword changePasswordPanel = new ChangePassword(interfaz, correoRecuperacion, this); // Pasa el LoginController
         interfaz.mostrarPanel(changePasswordPanel);
     }
 
 
-        
+    // Método para realizar el inicio de sesión
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
         Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
@@ -61,7 +65,7 @@ public class LoginController {
         }
     }
 
-
+    // Método para mostrar el panel de registro
     public void mostrarSignup() {
         SignupController signupController = new SignupController(interfaz);
         signupController.mostrarSignup();

@@ -5,8 +5,10 @@
 package controller;
 
 /**
+ * Clase HibernateHelper para operaciones de Hibernate relacionadas con entidades de usuarios.
+ * Esta clase proporciona métodos para autenticación, creación, recuperación y actualización de usuarios.
  *
- * @author Carlos de los Dolores Macías
+ * Autor: Carlos de los Dolores Macías
  */
 import java.sql.Timestamp;
 import org.hibernate.Session;
@@ -19,20 +21,24 @@ import org.mindrot.jbcrypt.BCrypt;
 public class HibernateHelper {
     private final SessionFactory sessionFactory;
 
+    // Constructor que inicializa el SessionFactory de Hibernate
     public HibernateHelper() {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
+    // Método para obtener el ID de usuario basado en el correo electrónico y la contraseña encriptada
     public int obtenerIdUsuario(String email, String passwrdEncriptada) {
         int idUsuario = -1;
 
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
+            // Consulta del usuario con el correo electrónico proporcionado
             List<Usuarios> usuarios = session.createQuery("FROM Usuarios WHERE email = :email", Usuarios.class)
                     .setParameter("email", email)
                     .getResultList();
 
+            // Verificación de coincidencia de contraseña para cada usuario recuperado
             for (Usuarios usuario : usuarios) {
                 if (BCrypt.checkpw(passwrdEncriptada, usuario.getPasswrd())) {
                     idUsuario = usuario.getIdUsuario();
@@ -48,6 +54,7 @@ public class HibernateHelper {
         return idUsuario;
     }
     
+    // Método para crear un nuevo usuario en la base de datos
     public boolean crearUsuario(Usuarios usuario) {
         boolean creado = false;
 
@@ -61,7 +68,7 @@ public class HibernateHelper {
             // Establece la fecha y hora actual como última conexión
             usuario.setUltimaConexion(new Timestamp(System.currentTimeMillis()));
 
-            session.save(usuario);
+            session.save(usuario); // Guardando el usuario en la base de datos
 
             session.getTransaction().commit();
             creado = true;
@@ -72,6 +79,7 @@ public class HibernateHelper {
         return creado;
     }
 
+    // Método para recuperar un usuario por su correo electrónico
     public Usuarios obtenerUsuarioPorCorreo(String email) {
         Usuarios usuario = null;
 
@@ -90,6 +98,7 @@ public class HibernateHelper {
         return usuario;
     }
     
+    // Método para verificar si un correo electrónico dado existe en la base de datos
     public boolean existeCorreo(String correo) {
         boolean correoExiste = false;
 
@@ -111,6 +120,7 @@ public class HibernateHelper {
         return correoExiste;
     }
 
+    // Método para actualizar la contraseña de un usuario dado su correo electrónico
     public void actualizarPasswordPorCorreo(String correo, String nuevaPassword) throws Exception {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();

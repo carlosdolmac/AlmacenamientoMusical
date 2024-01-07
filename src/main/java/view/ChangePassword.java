@@ -9,15 +9,20 @@ import controller.LoginController;
 import javax.swing.JOptionPane;
 
 /**
+ * Panel para el cambio de contraseña.
+ * Permite al usuario cambiar su contraseña proporcionando el correo de recuperación.
  *
- * @author Carlos de los Dolores Macías
+ * Autor: Carlos de los Dolores Macías
  */
 public class ChangePassword extends javax.swing.JPanel {
     private HibernateHelper hibernateHelper;
     private String correoRecuperacion;
     private LoginController loginController;        
     /**
-     * Creates new form ChangePassword
+     * Crea un nuevo formulario ChangePassword.
+     * @param interfaz La interfaz principal.
+     * @param correoRecuperacion El correo electrónico de recuperación.
+     * @param loginController El controlador de inicio de sesión.
      */
     public ChangePassword(Interfaz interfaz, String correoRecuperacion, LoginController loginController) {
         initComponents();
@@ -34,31 +39,46 @@ public class ChangePassword extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         fondoChangePassword = new javax.swing.JPanel();
-        newPass = new javax.swing.JTextField();
-        newPass1 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
         modificarPass = new javax.swing.JButton();
         imagelogin = new javax.swing.JLabel();
         changeLabel = new javax.swing.JLabel();
         inicioLabel = new javax.swing.JLabel();
+        newPass1 = new javax.swing.JPasswordField();
+        newPass = new javax.swing.JPasswordField();
+
+        setBackground(new java.awt.Color(139, 243, 204));
+        setLayout(new java.awt.GridBagLayout());
 
         fondoChangePassword.setBackground(new java.awt.Color(139, 243, 204));
+        fondoChangePassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        newPass.setPreferredSize(new java.awt.Dimension(575, 47));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        fondoChangePassword.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 580, 20));
 
-        newPass1.setPreferredSize(new java.awt.Dimension(575, 47));
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        fondoChangePassword.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 580, 20));
 
+        modificarPass.setBackground(new java.awt.Color(91, 134, 229));
+        modificarPass.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        modificarPass.setForeground(new java.awt.Color(255, 255, 255));
         modificarPass.setText("Modificar");
         modificarPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarPassActionPerformed(evt);
             }
         });
+        fondoChangePassword.add(modificarPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 370, 125, 61));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
+        fondoChangePassword.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
         changeLabel.setText("Cambia tu contraseña");
+        fondoChangePassword.add(changeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 158, -1, -1));
 
         inicioLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
         inicioLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,64 +86,41 @@ public class ChangePassword extends javax.swing.JPanel {
                 inicioLabelMouseClicked(evt);
             }
         });
+        fondoChangePassword.add(inicioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 484, -1, -1));
 
-        javax.swing.GroupLayout fondoChangePasswordLayout = new javax.swing.GroupLayout(fondoChangePassword);
-        fondoChangePassword.setLayout(fondoChangePasswordLayout);
-        fondoChangePasswordLayout.setHorizontalGroup(
-            fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(changeLabel))
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(inicioLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(imagelogin)
-                .addGap(48, 48, 48))
-        );
-        fondoChangePasswordLayout.setVerticalGroup(
-            fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                .addGroup(fondoChangePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(changeLabel)
-                        .addGap(46, 46, 46)
-                        .addComponent(newPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(newPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(modificarPass, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(inicioLabel))
-                    .addGroup(fondoChangePasswordLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(imagelogin)))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
+        newPass1.setBackground(new java.awt.Color(139, 243, 204));
+        newPass1.setText("jPasswordField1");
+        newPass1.setBorder(null);
+        newPass1.setPreferredSize(new java.awt.Dimension(575, 47));
+        newPass1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                newPass1KeyPressed(evt);
+            }
+        });
+        fondoChangePassword.add(newPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 580, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoChangePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        newPass.setBackground(new java.awt.Color(139, 243, 204));
+        newPass.setBorder(null);
+        newPass.setPreferredSize(new java.awt.Dimension(575, 47));
+        newPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                newPassKeyPressed(evt);
+            }
+        });
+        fondoChangePassword.add(newPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 580, -1));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 81;
+        gridBagConstraints.ipady = 153;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(fondoChangePassword, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+        * Acción realizada al hacer clic en el botón 'Modificar'.
+        * Verifica si las contraseñas coinciden y realiza el cambio en la base de datos.
+        */
     private void modificarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPassActionPerformed
         String newPassword = newPass.getText();
         String confirmPassword = newPass1.getText();
@@ -157,10 +154,31 @@ public class ChangePassword extends javax.swing.JPanel {
             );
         }
     }//GEN-LAST:event_modificarPassActionPerformed
-
+    /**
+    * Acción realizada al hacer clic en la etiqueta 'Inicio'.
+    * Muestra el panel de inicio de sesión al hacer clic en la etiqueta 'Inicio'.
+    */
     private void inicioLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioLabelMouseClicked
        loginController.mostrarLogin();
     }//GEN-LAST:event_inicioLabelMouseClicked
+    /**
+    * Acción realizada al presionar una tecla en el campo de texto 'newPass1'.
+    * Si la tecla presionada es 'ENTER', se ejecuta el evento para modificar la contraseña.
+    */
+    private void newPass1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPass1KeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            modificarPassActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_newPass1KeyPressed
+    /**
+    * Acción realizada al presionar una tecla en el campo de texto 'newPass'.
+    * Si la tecla presionada es 'ENTER', se cambia el foco al campo 'newPass1'.
+    */
+    private void newPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPassKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            newPass1.requestFocus(); // Mueve el foco al campo 'newPass1'
+        }
+    }//GEN-LAST:event_newPassKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -168,8 +186,10 @@ public class ChangePassword extends javax.swing.JPanel {
     private javax.swing.JPanel fondoChangePassword;
     private javax.swing.JLabel imagelogin;
     private javax.swing.JLabel inicioLabel;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JButton modificarPass;
-    private javax.swing.JTextField newPass;
-    private javax.swing.JTextField newPass1;
+    private javax.swing.JPasswordField newPass;
+    private javax.swing.JPasswordField newPass1;
     // End of variables declaration//GEN-END:variables
 }

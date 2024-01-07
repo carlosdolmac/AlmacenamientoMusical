@@ -6,18 +6,21 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.LoginController;
+import java.awt.Color;
 
 
 /**
+ * La clase 'Login' representa el panel de inicio de sesión de la aplicación.
+ * Proporciona campos para correo electrónico, contraseña y acciones para el inicio de sesión, registro y recuperación de contraseña.
  *
- * @author Carlos de los Dolores Macías
+ * Autor: Carlos de los Dolores Macías
  */
 public class Login extends javax.swing.JPanel {
     private LoginController controller;
 
     public Login(Interfaz interfaz) {
-        this.controller = new LoginController(interfaz);
-        initComponents();
+        this.controller = new LoginController(interfaz); // Inicializa el controlador de inicio de sesión con la interfaz
+        initComponents(); // Inicializa los componentes del formulario
         
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
         passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
@@ -36,28 +39,40 @@ public class Login extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         fondo = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         signinLabel = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        passwrd = new javax.swing.JTextField();
         login = new javax.swing.JButton();
         signupLabel = new javax.swing.JLabel();
         recoverpassLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
         clickHere = new javax.swing.JLabel();
         signupHere = new javax.swing.JLabel();
+        passwrd = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(139, 243, 204));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+        setLayout(new java.awt.GridBagLayout());
 
         fondo.setBackground(new java.awt.Color(139, 243, 204));
         fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 580, 20));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 580, 20));
+
         signinLabel.setText("Sign in");
         fondo.add(signinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 158, -1, -1));
 
+        email.setBackground(new java.awt.Color(139, 243, 204));
+        email.setBorder(null);
         email.setPreferredSize(new java.awt.Dimension(575, 47));
         email.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -65,14 +80,6 @@ public class Login extends javax.swing.JPanel {
             }
         });
         fondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 220, -1, -1));
-
-        passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
-        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwrdKeyPressed(evt);
-            }
-        });
-        fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 279, -1, -1));
 
         login.setBackground(new java.awt.Color(91, 134, 229));
         login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -113,42 +120,66 @@ public class Login extends javax.swing.JPanel {
         });
         fondo.add(signupHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 449, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 1274, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        passwrd.setBackground(new java.awt.Color(139, 243, 204));
+        passwrd.setBorder(null);
+        passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
+        passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwrdKeyPressed(evt);
+            }
+        });
+        fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 42;
+        gridBagConstraints.ipady = 118;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 6);
+        add(fondo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * Ejecuta el inicio de sesión al hacer clic en el botón "Login".
+     * Obtiene el correo electrónico y la contraseña ingresados, y llama al método de controlador para el inicio de sesión.
+     */
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String correo = email.getText();
         String contraseña = passwrd.getText();
         controller.login(correo, contraseña);
     }//GEN-LAST:event_loginActionPerformed
 
+    /**
+     * Muestra la pantalla de registro al hacer clic en el enlace "Signup Here".
+     * Llama al método del controlador para mostrar la interfaz de registro.
+     * */
     private void signupHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupHereMouseClicked
         controller.mostrarSignup();
     }//GEN-LAST:event_signupHereMouseClicked
 
+    /**
+     * Muestra la pantalla de recuperación de contraseña al hacer clic en el enlace "Click Here".
+     * Llama al método del controlador para mostrar la interfaz de recuperación de contraseña.
+     */
     private void clickHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickHereMouseClicked
         controller.mostrarPassword();
     }//GEN-LAST:event_clickHereMouseClicked
 
+    /**
+     * Escucha el evento de tecla presionada en el campo de correo electrónico.
+     * Si la tecla presionada es 'Enter', cambia el foco al campo de contraseña ('passwrd').
+     */
     private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             passwrd.requestFocus(); // Mueve el foco al campo 'passwrd'
         }
     }//GEN-LAST:event_emailKeyPressed
 
+    /**
+     * Escucha el evento de tecla presionada en el campo de contraseña.
+     * Si la tecla presionada es 'Enter', ejecuta el inicio de sesión.
+     */
     private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             loginActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
@@ -161,8 +192,10 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton login;
-    private javax.swing.JTextField passwrd;
+    private javax.swing.JPasswordField passwrd;
     private javax.swing.JLabel recoverpassLabel;
     private javax.swing.JLabel signinLabel;
     private javax.swing.JLabel signupHere;
