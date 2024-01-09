@@ -35,7 +35,7 @@ public class EmailController {
     public static void enviarCorreoRecuperacion(String userEmail, String codigoRecuperacion) {
         // Configuración para el servidor SMTP (en este caso, Gmail)
         final String username = "cdm240715@gmail.com"; 
-        final String password = "znab eqnm veji nvqk"; 
+        final String password = "vcjq wgik jtyw bpwh"; 
 
         // Configuración de propiedades para la conexión con el servidor SMTP de Gmail
         Properties props = new Properties();
