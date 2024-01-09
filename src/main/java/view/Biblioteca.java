@@ -27,16 +27,64 @@ public class Biblioteca extends javax.swing.JPanel {
     private void initComponents() {
 
         fondoBiblioteca = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panelCanciones = new javax.swing.JPanel();
+        panelPlaylists = new javax.swing.JPanel();
+
+        fondoBiblioteca.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel1.setText("Biblioteca");
+
+        panelCanciones.setPreferredSize(new java.awt.Dimension(212, 152));
+
+        javax.swing.GroupLayout panelCancionesLayout = new javax.swing.GroupLayout(panelCanciones);
+        panelCanciones.setLayout(panelCancionesLayout);
+        panelCancionesLayout.setHorizontalGroup(
+            panelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 212, Short.MAX_VALUE)
+        );
+        panelCancionesLayout.setVerticalGroup(
+            panelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 152, Short.MAX_VALUE)
+        );
+
+        panelPlaylists.setPreferredSize(new java.awt.Dimension(212, 152));
+
+        javax.swing.GroupLayout panelPlaylistsLayout = new javax.swing.GroupLayout(panelPlaylists);
+        panelPlaylists.setLayout(panelPlaylistsLayout);
+        panelPlaylistsLayout.setHorizontalGroup(
+            panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 212, Short.MAX_VALUE)
+        );
+        panelPlaylistsLayout.setVerticalGroup(
+            panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 152, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout fondoBibliotecaLayout = new javax.swing.GroupLayout(fondoBiblioteca);
         fondoBiblioteca.setLayout(fondoBibliotecaLayout);
         fondoBibliotecaLayout.setHorizontalGroup(
             fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+            .addGroup(fondoBibliotecaLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoBibliotecaLayout.createSequentialGroup()
+                        .addComponent(panelCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(panelPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
         fondoBibliotecaLayout.setVerticalGroup(
             fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(fondoBibliotecaLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
+                .addGroup(fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -54,5 +102,8 @@ public class Biblioteca extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fondoBiblioteca;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel panelCanciones;
+    private javax.swing.JPanel panelPlaylists;
     // End of variables declaration//GEN-END:variables
 }

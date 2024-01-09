@@ -4,6 +4,7 @@
  */
 package view;
 //Placeholer para primera entrega
+import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
 import java.awt.BorderLayout;
@@ -32,6 +33,10 @@ public class Principal extends javax.swing.JPanel {
         iconLib.setIcon(new FlatSVGIcon("img/Library.svg"));
         iconArt.setIcon(new FlatSVGIcon("img/Artist.svg"));
         iconOut.setIcon(new FlatSVGIcon("img/Logout.svg"));
+        textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
+                new FlatSVGIcon( "img/lupa.svg" ) );
+        textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
+        textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10");
         
         mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
     }
@@ -75,6 +80,10 @@ public class Principal extends javax.swing.JPanel {
         iconOut = new javax.swing.JLabel();
         colocarPaneles = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        textFieldBusqueda = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 153, 0));
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -156,7 +165,7 @@ public class Principal extends javax.swing.JPanel {
         panelArtist.setPreferredSize(new java.awt.Dimension(256, 46));
 
         jLabelArtist.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelArtist.setText("Autor");
+        jLabelArtist.setText("Artist");
 
         javax.swing.GroupLayout panelArtistLayout = new javax.swing.GroupLayout(panelArtist);
         panelArtist.setLayout(panelArtistLayout);
@@ -167,7 +176,7 @@ public class Principal extends javax.swing.JPanel {
                 .addComponent(iconArt)
                 .addGap(26, 26, 26)
                 .addComponent(jLabelArtist)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         panelArtistLayout.setVerticalGroup(
             panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,24 +256,57 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.setLayout(colocarPanelesLayout);
         colocarPanelesLayout.setHorizontalGroup(
             colocarPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+            .addGap(0, 1023, Short.MAX_VALUE)
         );
         colocarPanelesLayout.setVerticalGroup(
             colocarPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        textFieldBusqueda.setBackground(new java.awt.Color(204, 255, 204));
+        textFieldBusqueda.setPreferredSize(new java.awt.Dimension(440, 38));
+
+        jLabel1.setText("Buenos días");
+
+        jLabel2.setText("fecha");
+
+        jLabel3.setText("hora");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel3)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(31, 31, 31))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 63, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(11, 11, 11)
+                            .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel3))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fondoDashboardLayout = new javax.swing.GroupLayout(fondoDashboard);
@@ -274,7 +316,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(fondoDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE))
+                .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE))
             .addGroup(fondoDashboardLayout.createSequentialGroup()
                 .addGap(255, 255, 255)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -308,6 +350,9 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel iconDash;
     private javax.swing.JLabel iconLib;
     private javax.swing.JLabel iconOut;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelArtist;
     private javax.swing.JLabel jLabelLibrary;
@@ -320,5 +365,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JPanel panelLibrary;
     private javax.swing.JPanel panelLogout;
+    private javax.swing.JTextField textFieldBusqueda;
     // End of variables declaration//GEN-END:variables
 }
