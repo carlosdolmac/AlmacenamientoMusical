@@ -42,8 +42,10 @@ public class EmailController {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com"); 
-        props.put("mail.smtp.port", "587"); 
-        props.put("mail.smtp.ssl.trust", "*");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.user", userEmail);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
         // Creación de la sesión utilizando la autenticación del usuario y contraseña proporcionados
         Session session = Session.getInstance(props, new Authenticator() {

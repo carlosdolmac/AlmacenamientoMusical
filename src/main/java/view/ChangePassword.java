@@ -89,7 +89,6 @@ public class ChangePassword extends javax.swing.JPanel {
         fondoChangePassword.add(inicioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 484, -1, -1));
 
         newPass1.setBackground(new java.awt.Color(139, 243, 204));
-        newPass1.setText("jPasswordField1");
         newPass1.setBorder(null);
         newPass1.setPreferredSize(new java.awt.Dimension(575, 47));
         newPass1.addKeyListener(new java.awt.event.KeyAdapter() {
