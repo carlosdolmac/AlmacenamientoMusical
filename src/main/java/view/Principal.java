@@ -20,6 +20,8 @@ import model.Usuarios;
 public class Principal extends javax.swing.JPanel {
     private HibernateHelper sqlHelper;
     private int idUsuario;
+    // Variable para controlar el estado de visibilidad del panel desplegable de la biblioteca
+    private boolean bibliotecaDesplegada = false;
     /**
      * Creates new form Dashboard
      */
@@ -39,6 +41,7 @@ public class Principal extends javax.swing.JPanel {
         textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10");
         
         mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
+        panelDesplegable.setVisible(false); //Por defecto se oculta el panelDesplegable
     }
     
     public void mostrarPanel(JPanel p) {
@@ -50,8 +53,6 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.revalidate(); // Obliga al panel a recalcular su diseño
         colocarPaneles.repaint(); // Solicita al panel que repinte sus componentes
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,14 +66,21 @@ public class Principal extends javax.swing.JPanel {
         fondoDashboard = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        panelLibrary = new javax.swing.JPanel();
-        jLabelLibrary = new javax.swing.JLabel();
+        panelBiblioteca = new javax.swing.JPanel();
+        jLabelBiblioteca = new javax.swing.JLabel();
         iconLib = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
-        panelDashboard = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        panelInicio = new javax.swing.JPanel();
+        jLabelInicio = new javax.swing.JLabel();
         iconDash = new javax.swing.JLabel();
-        panelArtist = new javax.swing.JPanel();
+        panelCerrarSesion = new javax.swing.JPanel();
+        jLabelCerrarSesion = new javax.swing.JLabel();
+        iconOut1 = new javax.swing.JLabel();
+        panelArtista = new javax.swing.JPanel();
+        jLabelArtist1 = new javax.swing.JLabel();
+        iconArt1 = new javax.swing.JLabel();
+        panelDesplegable = new javax.swing.JPanel();
+        panelListaCanciones = new javax.swing.JPanel();
         jLabelArtist = new javax.swing.JLabel();
         iconArt = new javax.swing.JLabel();
         panelLogout = new javax.swing.JPanel();
@@ -104,91 +112,152 @@ public class Principal extends javax.swing.JPanel {
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        panelLibrary.setBackground(new java.awt.Color(102, 0, 102));
-        panelLibrary.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelBiblioteca.setBackground(new java.awt.Color(79, 52, 90));
+        panelBiblioteca.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBibliotecaMouseClicked(evt);
+            }
+        });
 
-        jLabelLibrary.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLibrary.setText("Library");
+        jLabelBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBiblioteca.setText("Biblioteca");
 
-        javax.swing.GroupLayout panelLibraryLayout = new javax.swing.GroupLayout(panelLibrary);
-        panelLibrary.setLayout(panelLibraryLayout);
-        panelLibraryLayout.setHorizontalGroup(
-            panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLibraryLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelBibliotecaLayout = new javax.swing.GroupLayout(panelBiblioteca);
+        panelBiblioteca.setLayout(panelBibliotecaLayout);
+        panelBibliotecaLayout.setHorizontalGroup(
+            panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBibliotecaLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(iconLib)
                 .addGap(26, 26, 26)
-                .addComponent(jLabelLibrary)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addComponent(jLabelBiblioteca)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
-        panelLibraryLayout.setVerticalGroup(
-            panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLibraryLayout.createSequentialGroup()
+        panelBibliotecaLayout.setVerticalGroup(
+            panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBibliotecaLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconLib, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelLibrary))
+                    .addComponent(jLabelBiblioteca))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
 
-        panelDashboard.setBackground(new java.awt.Color(102, 0, 102));
-        panelDashboard.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelInicio.setBackground(new java.awt.Color(79, 52, 90));
+        panelInicio.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Dashboard");
+        jLabelInicio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelInicio.setText("Inicio");
 
-        javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
-        panelDashboard.setLayout(panelDashboardLayout);
-        panelDashboardLayout.setHorizontalGroup(
-            panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDashboardLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
+        panelInicio.setLayout(panelInicioLayout);
+        panelInicioLayout.setHorizontalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInicioLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(iconDash)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel6)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addComponent(jLabelInicio)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
-        panelDashboardLayout.setVerticalGroup(
-            panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDashboardLayout.createSequentialGroup()
+        panelInicioLayout.setVerticalGroup(
+            panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInicioLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconDash, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabelInicio))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelArtist.setBackground(new java.awt.Color(102, 0, 102));
-        panelArtist.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelCerrarSesion.setBackground(new java.awt.Color(79, 52, 90));
+        panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
+
+        jLabelCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCerrarSesion.setText("Log Out");
+
+        javax.swing.GroupLayout panelCerrarSesionLayout = new javax.swing.GroupLayout(panelCerrarSesion);
+        panelCerrarSesion.setLayout(panelCerrarSesionLayout);
+        panelCerrarSesionLayout.setHorizontalGroup(
+            panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCerrarSesionLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(iconOut1)
+                .addGap(26, 26, 26)
+                .addComponent(jLabelCerrarSesion)
+                .addContainerGap(171, Short.MAX_VALUE))
+        );
+        panelCerrarSesionLayout.setVerticalGroup(
+            panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCerrarSesionLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconOut1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelCerrarSesion))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        panelArtista.setBackground(new java.awt.Color(79, 52, 90));
+        panelArtista.setPreferredSize(new java.awt.Dimension(256, 46));
+
+        jLabelArtist1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelArtist1.setText("Artista");
+
+        javax.swing.GroupLayout panelArtistaLayout = new javax.swing.GroupLayout(panelArtista);
+        panelArtista.setLayout(panelArtistaLayout);
+        panelArtistaLayout.setHorizontalGroup(
+            panelArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(iconArt1)
+                .addGap(26, 26, 26)
+                .addComponent(jLabelArtist1)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+        panelArtistaLayout.setVerticalGroup(
+            panelArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistaLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconArt1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelArtist1))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        panelDesplegable.setBackground(new java.awt.Color(57, 37, 65));
+
+        panelListaCanciones.setBackground(new java.awt.Color(57, 37, 65));
+        panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
 
         jLabelArtist.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelArtist.setText("Artist");
+        jLabelArtist.setText("Lista de Canciones");
 
-        javax.swing.GroupLayout panelArtistLayout = new javax.swing.GroupLayout(panelArtist);
-        panelArtist.setLayout(panelArtistLayout);
-        panelArtistLayout.setHorizontalGroup(
-            panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelArtistLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelListaCancionesLayout = new javax.swing.GroupLayout(panelListaCanciones);
+        panelListaCanciones.setLayout(panelListaCancionesLayout);
+        panelListaCancionesLayout.setHorizontalGroup(
+            panelListaCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaCancionesLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(iconArt)
                 .addGap(26, 26, 26)
                 .addComponent(jLabelArtist)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
-        panelArtistLayout.setVerticalGroup(
-            panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelArtistLayout.createSequentialGroup()
+        panelListaCancionesLayout.setVerticalGroup(
+            panelListaCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListaCancionesLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelListaCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconArt, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelArtist))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelLogout.setBackground(new java.awt.Color(102, 0, 102));
+        panelLogout.setBackground(new java.awt.Color(57, 37, 65));
         panelLogout.setPreferredSize(new java.awt.Dimension(256, 46));
 
         jLabelLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,18 +284,41 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout panelDesplegableLayout = new javax.swing.GroupLayout(panelDesplegable);
+        panelDesplegable.setLayout(panelDesplegableLayout);
+        panelDesplegableLayout.setHorizontalGroup(
+            panelDesplegableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesplegableLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panelDesplegableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelListaCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        panelDesplegableLayout.setVerticalGroup(
+            panelDesplegableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesplegableLayout.createSequentialGroup()
+                .addComponent(panelListaCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabelUsername))
-            .addComponent(panelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabelUsername))
+                    .addComponent(panelBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelDesplegable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,16 +329,18 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(panelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelDesplegable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(424, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addComponent(panelCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         colocarPaneles.setBackground(new java.awt.Color(204, 255, 204));
@@ -342,28 +436,47 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void panelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseClicked
+        // Cambia el estado de visibilidad y actualiza los paneles
+        bibliotecaDesplegada = !bibliotecaDesplegada;
+        actualizarPaneles();
+    }//GEN-LAST:event_panelBibliotecaMouseClicked
+
+    private void actualizarPaneles() {
+        panelDesplegable.setVisible(bibliotecaDesplegada);
+
+        colocarPaneles.revalidate();
+        colocarPaneles.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel colocarPaneles;
     private javax.swing.JPanel fondoDashboard;
     private javax.swing.JLabel iconArt;
+    private javax.swing.JLabel iconArt1;
     private javax.swing.JLabel iconDash;
     private javax.swing.JLabel iconLib;
     private javax.swing.JLabel iconOut;
+    private javax.swing.JLabel iconOut1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelArtist;
-    private javax.swing.JLabel jLabelLibrary;
+    private javax.swing.JLabel jLabelArtist1;
+    private javax.swing.JLabel jLabelBiblioteca;
+    private javax.swing.JLabel jLabelCerrarSesion;
+    private javax.swing.JLabel jLabelInicio;
     private javax.swing.JLabel jLabelLogout;
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel panelArtist;
-    private javax.swing.JPanel panelDashboard;
-    private javax.swing.JPanel panelLibrary;
+    private javax.swing.JPanel panelArtista;
+    private javax.swing.JPanel panelBiblioteca;
+    private javax.swing.JPanel panelCerrarSesion;
+    private javax.swing.JPanel panelDesplegable;
+    private javax.swing.JPanel panelInicio;
+    private javax.swing.JPanel panelListaCanciones;
     private javax.swing.JPanel panelLogout;
     private javax.swing.JTextField textFieldBusqueda;
     // End of variables declaration//GEN-END:variables
