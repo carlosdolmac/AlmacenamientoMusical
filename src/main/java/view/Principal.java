@@ -42,6 +42,17 @@ public class Principal extends javax.swing.JPanel {
         
         mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
         panelDesplegable.setVisible(false); //Por defecto se oculta el panelDesplegable
+        
+        //Tamaños
+        labelMusicNocta.putClientProperty( "FlatLaf.styleClass", "h1" );
+        jLabelUsername.putClientProperty( "FlatLaf.styleClass", "h1" );
+        jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelLista.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelArtist.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelCerrarSesion.putClientProperty( "FlatLaf.styleClass", "h3" );
     }
     
     public void mostrarPanel(JPanel p) {
@@ -66,6 +77,8 @@ public class Principal extends javax.swing.JPanel {
         fondoDashboard = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        labelMusicNocta = new javax.swing.JLabel();
+        imgApp = new javax.swing.JLabel();
         panelBiblioteca = new javax.swing.JPanel();
         jLabelBiblioteca = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -78,14 +91,14 @@ public class Principal extends javax.swing.JPanel {
         jLabelCerrarSesion = new javax.swing.JLabel();
         iconOut1 = new javax.swing.JLabel();
         panelArtista = new javax.swing.JPanel();
-        jLabelArtist1 = new javax.swing.JLabel();
+        jLabelArtist = new javax.swing.JLabel();
         iconArt1 = new javax.swing.JLabel();
         panelDesplegable = new javax.swing.JPanel();
         panelListaCanciones = new javax.swing.JPanel();
-        jLabelArtist = new javax.swing.JLabel();
+        jLabelLista = new javax.swing.JLabel();
         iconArt = new javax.swing.JLabel();
         panelLogout = new javax.swing.JPanel();
-        jLabelLogout = new javax.swing.JLabel();
+        jLabelPlaylists = new javax.swing.JLabel();
         iconOut = new javax.swing.JLabel();
         colocarPaneles = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -102,15 +115,30 @@ public class Principal extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(57, 37, 65));
         jPanel2.setPreferredSize(new java.awt.Dimension(256, 60));
 
+        labelMusicNocta.setForeground(new java.awt.Color(255, 255, 255));
+        labelMusicNocta.setText("Music Nocta");
+
+        imgApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical2.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(imgApp)
+                .addGap(26, 26, 26)
+                .addComponent(labelMusicNocta)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMusicNocta)
+                    .addComponent(imgApp))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         panelBiblioteca.setBackground(new java.awt.Color(79, 52, 90));
@@ -211,8 +239,8 @@ public class Principal extends javax.swing.JPanel {
         panelArtista.setBackground(new java.awt.Color(79, 52, 90));
         panelArtista.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelArtist1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelArtist1.setText("Artista");
+        jLabelArtist.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelArtist.setText("Artista");
 
         javax.swing.GroupLayout panelArtistaLayout = new javax.swing.GroupLayout(panelArtista);
         panelArtista.setLayout(panelArtistaLayout);
@@ -222,7 +250,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(iconArt1)
                 .addGap(26, 26, 26)
-                .addComponent(jLabelArtist1)
+                .addComponent(jLabelArtist)
                 .addContainerGap(179, Short.MAX_VALUE))
         );
         panelArtistaLayout.setVerticalGroup(
@@ -231,7 +259,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(panelArtistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconArt1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelArtist1))
+                    .addComponent(jLabelArtist))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -240,8 +268,8 @@ public class Principal extends javax.swing.JPanel {
         panelListaCanciones.setBackground(new java.awt.Color(57, 37, 65));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelArtist.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelArtist.setText("Lista de Canciones");
+        jLabelLista.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLista.setText("Lista de Canciones");
 
         javax.swing.GroupLayout panelListaCancionesLayout = new javax.swing.GroupLayout(panelListaCanciones);
         panelListaCanciones.setLayout(panelListaCancionesLayout);
@@ -251,7 +279,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(iconArt)
                 .addGap(26, 26, 26)
-                .addComponent(jLabelArtist)
+                .addComponent(jLabelLista)
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         panelListaCancionesLayout.setVerticalGroup(
@@ -260,15 +288,15 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(panelListaCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconArt, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelArtist))
+                    .addComponent(jLabelLista))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
         panelLogout.setBackground(new java.awt.Color(57, 37, 65));
         panelLogout.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelLogout.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLogout.setText("Log Out");
+        jLabelPlaylists.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlaylists.setText("Playlists");
 
         javax.swing.GroupLayout panelLogoutLayout = new javax.swing.GroupLayout(panelLogout);
         panelLogout.setLayout(panelLogoutLayout);
@@ -278,7 +306,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(iconOut)
                 .addGap(26, 26, 26)
-                .addComponent(jLabelLogout)
+                .addComponent(jLabelPlaylists)
                 .addContainerGap(171, Short.MAX_VALUE))
         );
         panelLogoutLayout.setVerticalGroup(
@@ -287,7 +315,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconOut, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelLogout))
+                    .addComponent(jLabelPlaylists))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -465,20 +493,22 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel iconLib;
     private javax.swing.JLabel iconOut;
     private javax.swing.JLabel iconOut1;
+    private javax.swing.JLabel imgApp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelArtist;
-    private javax.swing.JLabel jLabelArtist1;
     private javax.swing.JLabel jLabelBiblioteca;
     private javax.swing.JLabel jLabelCerrarSesion;
     private javax.swing.JLabel jLabelInicio;
-    private javax.swing.JLabel jLabelLogout;
+    private javax.swing.JLabel jLabelLista;
+    private javax.swing.JLabel jLabelPlaylists;
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel labelMusicNocta;
     private javax.swing.JPanel panelArtista;
     private javax.swing.JPanel panelBiblioteca;
     private javax.swing.JPanel panelCerrarSesion;
