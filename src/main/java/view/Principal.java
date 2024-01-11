@@ -32,9 +32,9 @@ public class Principal extends javax.swing.JPanel {
         //numCanciones.setText(String.valueOf(obtenerNumeroCanciones())); // Actualizar el JLabel con el número de canciones
         
         iconDash.setIcon(new FlatSVGIcon("img/Dashboard.svg"));
-        iconLib.setIcon(new FlatSVGIcon("img/Library.svg"));
-        iconArt.setIcon(new FlatSVGIcon("img/Artist.svg"));
-        iconOut.setIcon(new FlatSVGIcon("img/Logout.svg"));
+        iconLib.setIcon(new FlatSVGIcon("img/biblio.svg"));
+        iconArt1.setIcon(new FlatSVGIcon("img/Artist.svg"));
+        iconOut1.setIcon(new FlatSVGIcon("img/Logout.svg"));
         textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
                 new FlatSVGIcon( "img/lupa.svg" ) );
         textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
@@ -68,6 +68,7 @@ public class Principal extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         panelBiblioteca = new javax.swing.JPanel();
         jLabelBiblioteca = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         iconLib = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
@@ -123,25 +124,31 @@ public class Principal extends javax.swing.JPanel {
         jLabelBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBiblioteca.setText("Biblioteca");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Vector.png"))); // NOI18N
+
         javax.swing.GroupLayout panelBibliotecaLayout = new javax.swing.GroupLayout(panelBiblioteca);
         panelBiblioteca.setLayout(panelBibliotecaLayout);
         panelBibliotecaLayout.setHorizontalGroup(
             panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBibliotecaLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(22, 22, 22)
                 .addComponent(iconLib)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelBiblioteca)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGap(79, 79, 79)
+                .addComponent(jLabel4))
         );
         panelBibliotecaLayout.setVerticalGroup(
             panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBibliotecaLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconLib, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelBiblioteca))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelBiblioteca)
+                        .addComponent(iconLib))
+                    .addGroup(panelBibliotecaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4))))
         );
 
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,9 +165,9 @@ public class Principal extends javax.swing.JPanel {
         panelInicioLayout.setHorizontalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInicioLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(25, 25, 25)
                 .addComponent(iconDash)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelInicio)
                 .addContainerGap(184, Short.MAX_VALUE))
         );
@@ -168,9 +175,9 @@ public class Principal extends javax.swing.JPanel {
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInicioLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconDash, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelInicio))
+                .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInicio)
+                    .addComponent(iconDash))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -461,6 +468,7 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelArtist;
     private javax.swing.JLabel jLabelArtist1;
     private javax.swing.JLabel jLabelBiblioteca;
