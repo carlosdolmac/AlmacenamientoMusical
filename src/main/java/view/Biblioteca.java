@@ -15,7 +15,7 @@ public class Biblioteca extends javax.swing.JPanel {
      */
     public Biblioteca() {
         initComponents();
-        labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         numCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h3" );
         numPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h4" );

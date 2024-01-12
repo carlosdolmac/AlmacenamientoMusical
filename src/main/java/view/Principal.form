@@ -185,6 +185,8 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelBibliotecaMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelBibliotecaMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelBibliotecaMouseExited"/>
               </Events>
 
               <Layout>
@@ -244,6 +246,11 @@
                   <Dimension value="[256, 46]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelInicioMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelInicioMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelInicioMouseExited"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -289,6 +296,10 @@
                   <Dimension value="[256, 46]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseExited"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -334,6 +345,10 @@
                   <Dimension value="[256, 46]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelArtistaMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelArtistaMouseExited"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -383,7 +398,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="panelLogout" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelPlaylists" min="-2" max="-2" attributes="0"/>
                               <Component id="panelListaCanciones" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -394,7 +409,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="panelListaCanciones" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="panelLogout" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelPlaylists" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -410,6 +425,10 @@
                       <Dimension value="[256, 46]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelListaCancionesMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelListaCancionesMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -446,7 +465,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="panelLogout">
+                <Container class="javax.swing.JPanel" name="panelPlaylists">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="89" green="cd" red="17" type="rgb"/>
@@ -455,6 +474,10 @@
                       <Dimension value="[256, 46]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelPlaylistsMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelPlaylistsMouseExited"/>
+                  </Events>
 
                   <Layout>
                     <DimensionLayout dim="0">

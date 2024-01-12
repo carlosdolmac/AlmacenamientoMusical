@@ -15,7 +15,8 @@ public class Inicio extends javax.swing.JPanel {
      */
     public Inicio() {
         initComponents();
-        jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
+        //Tamaños
+        jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h1" );
         jLabelDescripcion.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelIrABiblioteca.putClientProperty( "FlatLaf.styleClass", "h4" );
@@ -71,7 +72,7 @@ public class Inicio extends javax.swing.JPanel {
         jLabelDescripcion.setText("Un vistazo rápido a la biblioteca");
 
         panelLibrary.setBackground(new java.awt.Color(255, 255, 255));
-        panelLibrary.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(139, 243, 204), 2));
+        panelLibrary.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 243, 204), 2, true));
         panelLibrary.setPreferredSize(new java.awt.Dimension(456, 140));
 
         labelBiblioteca.setText("Biblioteca");
@@ -136,7 +137,7 @@ public class Inicio extends javax.swing.JPanel {
         );
 
         panelArtists.setBackground(new java.awt.Color(255, 255, 255));
-        panelArtists.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(139, 243, 204), 2));
+        panelArtists.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 243, 204), 2, true));
         panelArtists.setPreferredSize(new java.awt.Dimension(456, 140));
 
         labelArtistas.setText("Artistas");

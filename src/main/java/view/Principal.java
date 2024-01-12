@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +21,10 @@ import model.Usuarios;
 public class Principal extends javax.swing.JPanel {
     private HibernateHelper sqlHelper;
     private int idUsuario;
+    Color colorSeleccion = new Color(185, 253, 228); //Color al entrar en los paneles
+    Color colorSeleccion2 = new Color(139,243,204); //Color al salir de los paneles
+    Color colorSeleccion3 = new Color(23,205,137); //Color al salir de los paneles
+    
     // Variable para controlar el estado de visibilidad del panel desplegable de la biblioteca
     private boolean bibliotecaDesplegada = false;
     /**
@@ -39,14 +44,14 @@ public class Principal extends javax.swing.JPanel {
         textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
                 new FlatSVGIcon( "img/lupa.svg" ) );
         textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
-        textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10");
+        textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10"); //Redondeo
         
         mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
         panelDesplegable.setVisible(false); //Por defecto se oculta el panelDesplegable
         
         //Tamaños
         labelMusicNocta.putClientProperty( "FlatLaf.styleClass", "h1" );
-        jLabelUsername.putClientProperty( "FlatLaf.styleClass", "h1" );
+        jLabelUsername.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
@@ -99,7 +104,7 @@ public class Principal extends javax.swing.JPanel {
         panelListaCanciones = new javax.swing.JPanel();
         jLabelLista = new javax.swing.JLabel();
         iconArt = new javax.swing.JLabel();
-        panelLogout = new javax.swing.JPanel();
+        panelPlaylists = new javax.swing.JPanel();
         jLabelPlaylists = new javax.swing.JLabel();
         iconOut = new javax.swing.JLabel();
         colocarPaneles = new javax.swing.JPanel();
@@ -151,6 +156,12 @@ public class Principal extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelBibliotecaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBibliotecaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBibliotecaMouseExited(evt);
+            }
         });
 
         jLabelBiblioteca.setText("Biblioteca");
@@ -184,6 +195,17 @@ public class Principal extends javax.swing.JPanel {
 
         panelInicio.setBackground(new java.awt.Color(139, 243, 204));
         panelInicio.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelInicioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelInicioMouseExited(evt);
+            }
+        });
 
         jLabelInicio.setText("Inicio");
 
@@ -210,6 +232,14 @@ public class Principal extends javax.swing.JPanel {
 
         panelCerrarSesion.setBackground(new java.awt.Color(139, 243, 204));
         panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelCerrarSesionMouseExited(evt);
+            }
+        });
 
         jLabelCerrarSesion.setText("Log Out");
 
@@ -236,6 +266,14 @@ public class Principal extends javax.swing.JPanel {
 
         panelArtista.setBackground(new java.awt.Color(139, 243, 204));
         panelArtista.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelArtista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelArtistaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelArtistaMouseExited(evt);
+            }
+        });
 
         jLabelArtist.setText("Artista");
 
@@ -264,6 +302,14 @@ public class Principal extends javax.swing.JPanel {
 
         panelListaCanciones.setBackground(new java.awt.Color(23, 205, 137));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelListaCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelListaCancionesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelListaCancionesMouseExited(evt);
+            }
+        });
 
         jLabelLista.setText("Lista de Canciones");
 
@@ -288,27 +334,35 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelLogout.setBackground(new java.awt.Color(23, 205, 137));
-        panelLogout.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelPlaylists.setBackground(new java.awt.Color(23, 205, 137));
+        panelPlaylists.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelPlaylistsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelPlaylistsMouseExited(evt);
+            }
+        });
 
         jLabelPlaylists.setText("Playlists");
 
-        javax.swing.GroupLayout panelLogoutLayout = new javax.swing.GroupLayout(panelLogout);
-        panelLogout.setLayout(panelLogoutLayout);
-        panelLogoutLayout.setHorizontalGroup(
-            panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLogoutLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelPlaylistsLayout = new javax.swing.GroupLayout(panelPlaylists);
+        panelPlaylists.setLayout(panelPlaylistsLayout);
+        panelPlaylistsLayout.setHorizontalGroup(
+            panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPlaylistsLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(iconOut)
                 .addGap(26, 26, 26)
                 .addComponent(jLabelPlaylists)
                 .addContainerGap(171, Short.MAX_VALUE))
         );
-        panelLogoutLayout.setVerticalGroup(
-            panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLogoutLayout.createSequentialGroup()
+        panelPlaylistsLayout.setVerticalGroup(
+            panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPlaylistsLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconOut, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelPlaylists))
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -321,7 +375,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesplegableLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelDesplegableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelListaCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         panelDesplegableLayout.setVerticalGroup(
@@ -329,7 +383,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDesplegableLayout.createSequentialGroup()
                 .addComponent(panelListaCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -467,10 +521,66 @@ public class Principal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseClicked
+        mostrarPanel(new Biblioteca());
         // Cambia el estado de visibilidad y actualiza los paneles
         bibliotecaDesplegada = !bibliotecaDesplegada;
         actualizarPaneles();
     }//GEN-LAST:event_panelBibliotecaMouseClicked
+
+    private void panelInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseClicked
+        mostrarPanel(new Inicio());
+    }//GEN-LAST:event_panelInicioMouseClicked
+
+    //Eventos para los paneles cuando entra y sale el mouse de ellos (se cambiará el color)
+    private void panelInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseEntered
+        panelInicio.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelInicioMouseEntered
+
+    private void panelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseExited
+        panelInicio.setBackground(colorSeleccion2);
+    }//GEN-LAST:event_panelInicioMouseExited
+
+    private void panelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseEntered
+        panelBiblioteca.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelBibliotecaMouseEntered
+
+    private void panelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseExited
+        panelBiblioteca.setBackground(colorSeleccion2);
+    }//GEN-LAST:event_panelBibliotecaMouseExited
+
+    private void panelListaCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseExited
+        panelListaCanciones.setBackground(colorSeleccion3);
+    }//GEN-LAST:event_panelListaCancionesMouseExited
+
+    private void panelListaCancionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseEntered
+        panelListaCanciones.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelListaCancionesMouseEntered
+
+    private void panelPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseEntered
+        panelPlaylists.setBackground(colorSeleccion);
+        panelDesplegable.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelPlaylistsMouseEntered
+
+    private void panelPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseExited
+        panelPlaylists.setBackground(colorSeleccion3);
+        panelDesplegable.setBackground(colorSeleccion3);
+    }//GEN-LAST:event_panelPlaylistsMouseExited
+
+    private void panelArtistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArtistaMouseExited
+        panelArtista.setBackground(colorSeleccion2);
+    }//GEN-LAST:event_panelArtistaMouseExited
+
+    private void panelCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseExited
+        panelCerrarSesion.setBackground(colorSeleccion2);
+    }//GEN-LAST:event_panelCerrarSesionMouseExited
+
+    private void panelArtistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArtistaMouseEntered
+        panelArtista.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelArtistaMouseEntered
+
+    private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
+        panelCerrarSesion.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelCerrarSesionMouseEntered
 
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
@@ -510,7 +620,7 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JPanel panelDesplegable;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelListaCanciones;
-    private javax.swing.JPanel panelLogout;
+    private javax.swing.JPanel panelPlaylists;
     private javax.swing.JTextField textFieldBusqueda;
     // End of variables declaration//GEN-END:variables
 }
