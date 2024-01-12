@@ -41,7 +41,7 @@ public class Biblioteca extends javax.swing.JPanel {
         labelPlaylists = new javax.swing.JLabel();
         imgPlaylists = new javax.swing.JLabel();
 
-        fondoBiblioteca.setBackground(new java.awt.Color(204, 255, 204));
+        fondoBiblioteca.setBackground(new java.awt.Color(244, 246, 248));
 
         jLabel1.setText("Biblioteca");
 

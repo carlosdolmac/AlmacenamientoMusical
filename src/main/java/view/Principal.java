@@ -35,6 +35,7 @@ public class Principal extends javax.swing.JPanel {
         iconLib.setIcon(new FlatSVGIcon("img/biblio.svg"));
         iconArt1.setIcon(new FlatSVGIcon("img/Artist.svg"));
         iconOut1.setIcon(new FlatSVGIcon("img/Logout.svg"));
+        iconDesplegable.setIcon(new FlatSVGIcon("img/flechaAbajo.svg"));
         textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
                 new FlatSVGIcon( "img/lupa.svg" ) );
         textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
@@ -53,6 +54,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelArtist.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelCerrarSesion.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelBuenos.putClientProperty( "FlatLaf.styleClass", "h3" );
     }
     
     public void mostrarPanel(JPanel p) {
@@ -81,7 +83,7 @@ public class Principal extends javax.swing.JPanel {
         imgApp = new javax.swing.JLabel();
         panelBiblioteca = new javax.swing.JPanel();
         jLabelBiblioteca = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        iconDesplegable = new javax.swing.JLabel();
         iconLib = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
@@ -103,19 +105,18 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         textFieldBusqueda = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelBuenos = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 153, 0));
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jPanel1.setBackground(new java.awt.Color(79, 52, 90));
+        jPanel1.setBackground(new java.awt.Color(139, 243, 204));
 
-        jPanel2.setBackground(new java.awt.Color(57, 37, 65));
+        jPanel2.setBackground(new java.awt.Color(23, 205, 137));
         jPanel2.setPreferredSize(new java.awt.Dimension(256, 60));
 
-        labelMusicNocta.setForeground(new java.awt.Color(255, 255, 255));
         labelMusicNocta.setText("Music Nocta");
 
         imgApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical2.png"))); // NOI18N
@@ -126,22 +127,25 @@ public class Principal extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(imgApp)
-                .addGap(26, 26, 26)
+                .addComponent(imgApp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(labelMusicNocta)
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelMusicNocta)
-                    .addComponent(imgApp))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(labelMusicNocta))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(imgApp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        panelBiblioteca.setBackground(new java.awt.Color(79, 52, 90));
+        panelBiblioteca.setBackground(new java.awt.Color(139, 243, 204));
         panelBiblioteca.setPreferredSize(new java.awt.Dimension(256, 46));
         panelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,10 +153,7 @@ public class Principal extends javax.swing.JPanel {
             }
         });
 
-        jLabelBiblioteca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBiblioteca.setText("Biblioteca");
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Vector.png"))); // NOI18N
 
         javax.swing.GroupLayout panelBibliotecaLayout = new javax.swing.GroupLayout(panelBiblioteca);
         panelBiblioteca.setLayout(panelBibliotecaLayout);
@@ -164,7 +165,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelBiblioteca)
                 .addGap(79, 79, 79)
-                .addComponent(jLabel4))
+                .addComponent(iconDesplegable))
         );
         panelBibliotecaLayout.setVerticalGroup(
             panelBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,16 +177,14 @@ public class Principal extends javax.swing.JPanel {
                         .addComponent(iconLib))
                     .addGroup(panelBibliotecaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel4))))
+                        .addComponent(iconDesplegable))))
         );
 
-        jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username");
 
-        panelInicio.setBackground(new java.awt.Color(79, 52, 90));
+        panelInicio.setBackground(new java.awt.Color(139, 243, 204));
         panelInicio.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelInicio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInicio.setText("Inicio");
 
         javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
@@ -209,10 +208,9 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelCerrarSesion.setBackground(new java.awt.Color(79, 52, 90));
+        panelCerrarSesion.setBackground(new java.awt.Color(139, 243, 204));
         panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCerrarSesion.setText("Log Out");
 
         javax.swing.GroupLayout panelCerrarSesionLayout = new javax.swing.GroupLayout(panelCerrarSesion);
@@ -236,10 +234,9 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelArtista.setBackground(new java.awt.Color(79, 52, 90));
+        panelArtista.setBackground(new java.awt.Color(139, 243, 204));
         panelArtista.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelArtist.setForeground(new java.awt.Color(255, 255, 255));
         jLabelArtist.setText("Artista");
 
         javax.swing.GroupLayout panelArtistaLayout = new javax.swing.GroupLayout(panelArtista);
@@ -263,12 +260,11 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelDesplegable.setBackground(new java.awt.Color(57, 37, 65));
+        panelDesplegable.setBackground(new java.awt.Color(23, 205, 137));
 
-        panelListaCanciones.setBackground(new java.awt.Color(57, 37, 65));
+        panelListaCanciones.setBackground(new java.awt.Color(23, 205, 137));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelLista.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLista.setText("Lista de Canciones");
 
         javax.swing.GroupLayout panelListaCancionesLayout = new javax.swing.GroupLayout(panelListaCanciones);
@@ -292,10 +288,9 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelLogout.setBackground(new java.awt.Color(57, 37, 65));
+        panelLogout.setBackground(new java.awt.Color(23, 205, 137));
         panelLogout.setPreferredSize(new java.awt.Dimension(256, 46));
 
-        jLabelPlaylists.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPlaylists.setText("Playlists");
 
         javax.swing.GroupLayout panelLogoutLayout = new javax.swing.GroupLayout(panelLogout);
@@ -378,7 +373,7 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        colocarPaneles.setBackground(new java.awt.Color(204, 255, 204));
+        colocarPaneles.setBackground(new java.awt.Color(244, 246, 248));
         colocarPaneles.setPreferredSize(new java.awt.Dimension(1042, 720));
 
         javax.swing.GroupLayout colocarPanelesLayout = new javax.swing.GroupLayout(colocarPaneles);
@@ -394,10 +389,10 @@ public class Principal extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        textFieldBusqueda.setBackground(new java.awt.Color(204, 255, 204));
+        textFieldBusqueda.setBackground(new java.awt.Color(244, 246, 248));
         textFieldBusqueda.setPreferredSize(new java.awt.Dimension(440, 38));
 
-        jLabel1.setText("Buenos días");
+        jLabelBuenos.setText("Buenos días");
 
         jLabel2.setText("fecha");
 
@@ -418,7 +413,7 @@ public class Principal extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelBuenos)
                         .addGap(31, 31, 31))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -432,7 +427,7 @@ public class Principal extends javax.swing.JPanel {
                             .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabel1)
+                            .addComponent(jLabelBuenos)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel3))))
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -490,16 +485,16 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel iconArt;
     private javax.swing.JLabel iconArt1;
     private javax.swing.JLabel iconDash;
+    private javax.swing.JLabel iconDesplegable;
     private javax.swing.JLabel iconLib;
     private javax.swing.JLabel iconOut;
     private javax.swing.JLabel iconOut1;
     private javax.swing.JLabel imgApp;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelArtist;
     private javax.swing.JLabel jLabelBiblioteca;
+    private javax.swing.JLabel jLabelBuenos;
     private javax.swing.JLabel jLabelCerrarSesion;
     private javax.swing.JLabel jLabelInicio;
     private javax.swing.JLabel jLabelLista;

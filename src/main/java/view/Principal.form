@@ -65,7 +65,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="5a" green="34" red="4f" type="rgb"/>
+              <Color blue="cc" green="f3" red="8b" type="rgb"/>
             </Property>
           </Properties>
 
@@ -122,7 +122,7 @@
             <Container class="javax.swing.JPanel" name="jPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="41" green="25" red="39" type="rgb"/>
+                  <Color blue="89" green="cd" red="17" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[256, 60]"/>
@@ -134,8 +134,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="imgApp" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="imgApp" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="labelMusicNocta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="108" max="32767" attributes="0"/>
                       </Group>
@@ -143,11 +143,16 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelMusicNocta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="imgApp" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="labelMusicNocta" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="imgApp" min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
@@ -157,9 +162,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="labelMusicNocta">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Music Nocta"/>
                   </Properties>
                 </Component>
@@ -175,7 +177,7 @@
             <Container class="javax.swing.JPanel" name="panelBiblioteca">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5a" green="34" red="4f" type="rgb"/>
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[256, 46]"/>
@@ -194,7 +196,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabelBiblioteca" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="iconDesplegable" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -209,7 +211,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="iconDesplegable" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -219,18 +221,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelBiblioteca">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Biblioteca"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/img/Vector.png"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="iconDesplegable">
                 </Component>
                 <Component class="javax.swing.JLabel" name="iconLib">
                 </Component>
@@ -238,16 +232,13 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabelUsername">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Username"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="panelInicio">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5a" green="34" red="4f" type="rgb"/>
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[256, 46]"/>
@@ -282,9 +273,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelInicio">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Inicio"/>
                   </Properties>
                 </Component>
@@ -295,7 +283,7 @@
             <Container class="javax.swing.JPanel" name="panelCerrarSesion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5a" green="34" red="4f" type="rgb"/>
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[256, 46]"/>
@@ -330,9 +318,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelCerrarSesion">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Log Out"/>
                   </Properties>
                 </Component>
@@ -343,7 +328,7 @@
             <Container class="javax.swing.JPanel" name="panelArtista">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5a" green="34" red="4f" type="rgb"/>
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[256, 46]"/>
@@ -378,9 +363,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelArtist">
                   <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Artista"/>
                   </Properties>
                 </Component>
@@ -391,7 +373,7 @@
             <Container class="javax.swing.JPanel" name="panelDesplegable">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="41" green="25" red="39" type="rgb"/>
+                  <Color blue="89" green="cd" red="17" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -422,7 +404,7 @@
                 <Container class="javax.swing.JPanel" name="panelListaCanciones">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="41" green="25" red="39" type="rgb"/>
+                      <Color blue="89" green="cd" red="17" type="rgb"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[256, 46]"/>
@@ -457,9 +439,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabelLista">
                       <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Lista de Canciones"/>
                       </Properties>
                     </Component>
@@ -470,7 +449,7 @@
                 <Container class="javax.swing.JPanel" name="panelLogout">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="41" green="25" red="39" type="rgb"/>
+                      <Color blue="89" green="cd" red="17" type="rgb"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[256, 46]"/>
@@ -505,9 +484,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabelPlaylists">
                       <Properties>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Playlists"/>
                       </Properties>
                     </Component>
@@ -522,7 +498,7 @@
         <Container class="javax.swing.JPanel" name="colocarPaneles">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+              <Color blue="f8" green="f6" red="f4" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1042, 720]"/>
@@ -564,7 +540,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelBuenos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -583,7 +559,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelBuenos" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -598,14 +574,14 @@
             <Component class="javax.swing.JTextField" name="textFieldBusqueda">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="ff" red="cc" type="rgb"/>
+                  <Color blue="f8" green="f6" red="f4" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[440, 38]"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jLabelBuenos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buenos d&#xed;as"/>
               </Properties>
