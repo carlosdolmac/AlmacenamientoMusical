@@ -15,6 +15,11 @@ public class Biblioteca extends javax.swing.JPanel {
      */
     public Biblioteca() {
         initComponents();
+        labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h4" );
+        labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h4" );
     }
 
     /**
@@ -27,23 +32,23 @@ public class Biblioteca extends javax.swing.JPanel {
     private void initComponents() {
 
         fondoBiblioteca = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelBiblioteca = new javax.swing.JLabel();
         panelCanciones = new javax.swing.JPanel();
         panelVerLista = new javax.swing.JPanel();
         labelVerLista = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         labelCancionesGuardadas = new javax.swing.JLabel();
+        numCancionesGuardadas = new javax.swing.JLabel();
         imgCanciones = new javax.swing.JLabel();
         panelPlaylists = new javax.swing.JPanel();
         panelVerPlaylists = new javax.swing.JPanel();
         labelVerPlaylists = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         labelPlaylists = new javax.swing.JLabel();
+        numPlaylists = new javax.swing.JLabel();
         imgPlaylists = new javax.swing.JLabel();
 
         fondoBiblioteca.setBackground(new java.awt.Color(244, 246, 248));
 
-        jLabel1.setText("Biblioteca");
+        labelBiblioteca.setText("Biblioteca");
 
         panelCanciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 51)));
         panelCanciones.setPreferredSize(new java.awt.Dimension(212, 152));
@@ -69,9 +74,9 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel4.setText("Canciones Guardadas");
+        labelCancionesGuardadas.setText("Canciones Guardadas");
 
-        labelCancionesGuardadas.setText("0");
+        numCancionesGuardadas.setText("0");
 
         imgCanciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/song.png"))); // NOI18N
 
@@ -84,10 +89,10 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addGroup(panelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCancionesLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jLabel4))
+                        .addComponent(labelCancionesGuardadas))
                     .addGroup(panelCancionesLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addComponent(labelCancionesGuardadas))
+                        .addComponent(numCancionesGuardadas))
                     .addGroup(panelCancionesLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(imgCanciones)))
@@ -99,9 +104,9 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addComponent(imgCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelCancionesGuardadas)
+                .addComponent(numCancionesGuardadas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(labelCancionesGuardadas)
                 .addGap(18, 18, 18)
                 .addComponent(panelVerLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -130,9 +135,9 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel5.setText("Playlists");
+        labelPlaylists.setText("Playlists");
 
-        labelPlaylists.setText("0");
+        numPlaylists.setText("0");
 
         imgPlaylists.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/playlist 1.png"))); // NOI18N
 
@@ -146,10 +151,10 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addGroup(panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(imgPlaylists)
                     .addGroup(panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5)
+                        .addComponent(labelPlaylists)
                         .addGroup(panelPlaylistsLayout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(labelPlaylists))))
+                            .addComponent(numPlaylists))))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         panelPlaylistsLayout.setVerticalGroup(
@@ -158,9 +163,9 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(imgPlaylists)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(labelPlaylists)
+                .addComponent(numPlaylists)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(labelPlaylists)
                 .addGap(18, 18, 18)
                 .addComponent(panelVerPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -176,14 +181,14 @@ public class Biblioteca extends javax.swing.JPanel {
                         .addComponent(panelCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(panelPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                    .addComponent(labelBiblioteca))
                 .addContainerGap(500, Short.MAX_VALUE))
         );
         fondoBibliotecaLayout.setVerticalGroup(
             fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoBibliotecaLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jLabel1)
+                .addComponent(labelBiblioteca)
                 .addGap(40, 40, 40)
                 .addGroup(fondoBibliotecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,13 +213,13 @@ public class Biblioteca extends javax.swing.JPanel {
     private javax.swing.JPanel fondoBiblioteca;
     private javax.swing.JLabel imgCanciones;
     private javax.swing.JLabel imgPlaylists;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel labelBiblioteca;
     private javax.swing.JLabel labelCancionesGuardadas;
     private javax.swing.JLabel labelPlaylists;
     private javax.swing.JLabel labelVerLista;
     private javax.swing.JLabel labelVerPlaylists;
+    private javax.swing.JLabel numCancionesGuardadas;
+    private javax.swing.JLabel numPlaylists;
     private javax.swing.JPanel panelCanciones;
     private javax.swing.JPanel panelPlaylists;
     private javax.swing.JPanel panelVerLista;

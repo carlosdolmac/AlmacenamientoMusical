@@ -58,8 +58,8 @@
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="panelArtists" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelDescripcion" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelInicio" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -71,9 +71,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelInicio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDescripcion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelLibrary" min="-2" max="-2" attributes="0"/>
@@ -89,12 +89,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLabelInicio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jLabelDescripcion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Un vistazo r&#xe1;pido a la biblioteca"/>
           </Properties>
@@ -107,7 +107,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="2">
-                  <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                  <Color PropertyName="color" blue="cc" green="f3" red="8b" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -124,22 +124,29 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelBiblioteca" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelIrABiblioteca" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="93" max="32767" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="labelTodasLasCanciones" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labelTusPlaylists" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelNumTotalCanciones" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="numTodasLasCanciones" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="133" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelTusPlaylists" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
+                              <Component id="numTusPlaylists" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -149,19 +156,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelBiblioteca" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelIrABiblioteca" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelTodasLasCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTusPlaylists" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTodasLasCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTusPlaylists" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNumTotalCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTusPlaylists" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
@@ -174,29 +181,34 @@
                 <Property name="text" type="java.lang.String" value="Biblioteca"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="labelIrABiblioteca">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ir a la bilioteca"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTodasLasCanciones">
+            <Component class="javax.swing.JLabel" name="numTodasLasCanciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="labelNumTotalCanciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero total de canciones guardadas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="labelTusPlaylists">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tus Playlists"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTusPlaylists">
+            <Component class="javax.swing.JLabel" name="numTusPlaylists">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
@@ -211,7 +223,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="2">
-                  <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                  <Color PropertyName="color" blue="cc" green="f3" red="8b" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -230,22 +242,22 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelArtistas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelIrAArtistas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNumArtistas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="152" max="32767" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNumCancionesArtistas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="labelTotalArtistas" min="-2" max="-2" attributes="0"/>
+                      <Component id="numTotalArtistas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labelCancionesArtista" min="-2" max="-2" attributes="0"/>
+                      <Component id="numCancionesArtista" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -256,19 +268,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelIrAArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelTotalArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCancionesArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTotalArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numCancionesArtista" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNumArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNumCancionesArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
@@ -281,29 +293,34 @@
                 <Property name="text" type="java.lang.String" value="Artistas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="labelIrAArtistas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ir a Artistas"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="f3" red="8b" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="labelNumArtistas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero total de Artistas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="labelNumCancionesArtistas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero de canciones"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTotalArtistas">
+            <Component class="javax.swing.JLabel" name="numTotalArtistas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelCancionesArtista">
+            <Component class="javax.swing.JLabel" name="numCancionesArtista">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>

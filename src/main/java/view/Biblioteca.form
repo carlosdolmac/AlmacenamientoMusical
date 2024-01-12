@@ -44,7 +44,7 @@
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="panelPlaylists" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelBiblioteca" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="500" max="32767" attributes="0"/>
               </Group>
@@ -54,7 +54,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelBiblioteca" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelCanciones" min="-2" max="-2" attributes="0"/>
@@ -66,7 +66,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="labelBiblioteca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Biblioteca"/>
           </Properties>
@@ -93,11 +93,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCancionesGuardadas" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="labelCancionesGuardadas" min="-2" max="-2" attributes="0"/>
+                              <Component id="numCancionesGuardadas" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
@@ -114,9 +114,9 @@
                       <EmptySpace pref="11" max="32767" attributes="0"/>
                       <Component id="imgCanciones" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelCancionesGuardadas" min="-2" max="-2" attributes="0"/>
+                      <Component id="numCancionesGuardadas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCancionesGuardadas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="panelVerLista" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -159,12 +159,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="labelCancionesGuardadas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Canciones Guardadas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelCancionesGuardadas">
+            <Component class="javax.swing.JLabel" name="numCancionesGuardadas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
@@ -201,10 +201,10 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="imgPlaylists" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPlaylists" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="labelPlaylists" min="-2" max="-2" attributes="0"/>
+                                  <Component id="numPlaylists" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -218,9 +218,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="imgPlaylists" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
-                      <Component id="labelPlaylists" min="-2" max="-2" attributes="0"/>
+                      <Component id="numPlaylists" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPlaylists" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="panelVerPlaylists" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -263,12 +263,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="labelPlaylists">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Playlists"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelPlaylists">
+            <Component class="javax.swing.JLabel" name="numPlaylists">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>

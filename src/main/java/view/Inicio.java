@@ -15,6 +15,20 @@ public class Inicio extends javax.swing.JPanel {
      */
     public Inicio() {
         initComponents();
+        jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelDescripcion.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelIrABiblioteca.putClientProperty( "FlatLaf.styleClass", "h4" );
+        labelArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelIrAArtistas.putClientProperty( "FlatLaf.styleClass", "h4" );
+        labelNumTotalCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelTusPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTodasLasCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTusPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelNumArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelNumCancionesArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTotalArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numCancionesArtista.putClientProperty( "FlatLaf.styleClass", "h3" );
     }
 
     /**
@@ -27,24 +41,24 @@ public class Inicio extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelInicio = new javax.swing.JLabel();
+        jLabelDescripcion = new javax.swing.JLabel();
         panelLibrary = new javax.swing.JPanel();
         labelBiblioteca = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelIrABiblioteca = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        labelTodasLasCanciones = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        numTodasLasCanciones = new javax.swing.JLabel();
+        labelNumTotalCanciones = new javax.swing.JLabel();
         labelTusPlaylists = new javax.swing.JLabel();
+        numTusPlaylists = new javax.swing.JLabel();
         panelArtists = new javax.swing.JPanel();
         labelArtistas = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        labelIrAArtistas = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        labelTotalArtistas = new javax.swing.JLabel();
-        labelCancionesArtista = new javax.swing.JLabel();
+        labelNumArtistas = new javax.swing.JLabel();
+        labelNumCancionesArtistas = new javax.swing.JLabel();
+        numTotalArtistas = new javax.swing.JLabel();
+        numCancionesArtista = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaListaCanciones = new javax.swing.JTable();
@@ -52,25 +66,27 @@ public class Inicio extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(244, 246, 248));
         jPanel1.setPreferredSize(new java.awt.Dimension(1023, 660));
 
-        jLabel1.setText("Inicio");
+        jLabelInicio.setText("Inicio");
 
-        jLabel2.setText("Un vistazo rápido a la biblioteca");
+        jLabelDescripcion.setText("Un vistazo rápido a la biblioteca");
 
         panelLibrary.setBackground(new java.awt.Color(255, 255, 255));
-        panelLibrary.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        panelLibrary.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(139, 243, 204), 2));
         panelLibrary.setPreferredSize(new java.awt.Dimension(456, 140));
 
         labelBiblioteca.setText("Biblioteca");
 
-        jLabel5.setText("Ir a la bilioteca");
+        labelIrABiblioteca.setText("Ir a la bilioteca");
 
-        labelTodasLasCanciones.setText("0");
+        jSeparator1.setForeground(new java.awt.Color(139, 243, 204));
 
-        jLabel8.setText("Número total de canciones guardadas");
+        numTodasLasCanciones.setText("0");
 
-        jLabel9.setText("Tus Playlists");
+        labelNumTotalCanciones.setText("Número total de canciones guardadas");
 
-        labelTusPlaylists.setText("0");
+        labelTusPlaylists.setText("Tus Playlists");
+
+        numTusPlaylists.setText("0");
 
         javax.swing.GroupLayout panelLibraryLayout = new javax.swing.GroupLayout(panelLibrary);
         panelLibrary.setLayout(panelLibraryLayout);
@@ -81,20 +97,23 @@ public class Inicio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(labelBiblioteca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(labelIrABiblioteca)
                 .addContainerGap())
             .addGroup(panelLibraryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(89, 89, 89))
-            .addGroup(panelLibraryLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(labelTodasLasCanciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelTusPlaylists)
-                .addGap(116, 116, 116))
+                .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLibraryLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelNumTotalCanciones))
+                    .addGroup(panelLibraryLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(numTodasLasCanciones)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTusPlaylists)
+                    .addGroup(panelLibraryLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(numTusPlaylists)))
+                .addGap(49, 49, 49))
         );
         panelLibraryLayout.setVerticalGroup(
             panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,35 +121,37 @@ public class Inicio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelBiblioteca)
-                    .addComponent(jLabel5))
+                    .addComponent(labelIrABiblioteca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTodasLasCanciones)
-                    .addComponent(labelTusPlaylists))
+                    .addComponent(numTodasLasCanciones)
+                    .addComponent(numTusPlaylists))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(labelNumTotalCanciones)
+                    .addComponent(labelTusPlaylists))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
         panelArtists.setBackground(new java.awt.Color(255, 255, 255));
-        panelArtists.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        panelArtists.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(139, 243, 204), 2));
         panelArtists.setPreferredSize(new java.awt.Dimension(456, 140));
 
         labelArtistas.setText("Artistas");
 
-        jLabel6.setText("Ir a Artistas");
+        labelIrAArtistas.setText("Ir a Artistas");
 
-        jLabel10.setText("Número total de Artistas");
+        jSeparator2.setForeground(new java.awt.Color(139, 243, 204));
 
-        jLabel11.setText("Número de canciones");
+        labelNumArtistas.setText("Número total de Artistas");
 
-        labelTotalArtistas.setText("0");
+        labelNumCancionesArtistas.setText("Número de canciones");
 
-        labelCancionesArtista.setText("0");
+        numTotalArtistas.setText("0");
+
+        numCancionesArtista.setText("0");
 
         javax.swing.GroupLayout panelArtistsLayout = new javax.swing.GroupLayout(panelArtists);
         panelArtists.setLayout(panelArtistsLayout);
@@ -143,18 +164,18 @@ public class Inicio extends javax.swing.JPanel {
                     .addGroup(panelArtistsLayout.createSequentialGroup()
                         .addComponent(labelArtistas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
+                        .addComponent(labelIrAArtistas)
                         .addContainerGap())
                     .addGroup(panelArtistsLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(labelNumArtistas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
+                        .addComponent(labelNumCancionesArtistas)
                         .addGap(49, 49, 49))))
             .addGroup(panelArtistsLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(labelTotalArtistas)
+                .addComponent(numTotalArtistas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelCancionesArtista)
+                .addComponent(numCancionesArtista)
                 .addGap(106, 106, 106))
         );
         panelArtistsLayout.setVerticalGroup(
@@ -163,17 +184,17 @@ public class Inicio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelArtistas)
-                    .addComponent(jLabel6))
+                    .addComponent(labelIrAArtistas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTotalArtistas)
-                    .addComponent(labelCancionesArtista))
+                    .addComponent(numTotalArtistas)
+                    .addComponent(numCancionesArtista))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(labelNumArtistas)
+                    .addComponent(labelNumCancionesArtistas))
                 .addGap(34, 34, 34))
         );
 
@@ -213,17 +234,17 @@ public class Inicio extends javax.swing.JPanel {
                                 .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(panelArtists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabelDescripcion)
+                            .addComponent(jLabelInicio))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jLabel1)
+                .addComponent(jLabelInicio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(jLabelDescripcion)
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,25 +270,25 @@ public class Inicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDescripcion;
+    private javax.swing.JLabel jLabelInicio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelArtistas;
     private javax.swing.JLabel labelBiblioteca;
-    private javax.swing.JLabel labelCancionesArtista;
-    private javax.swing.JLabel labelTodasLasCanciones;
-    private javax.swing.JLabel labelTotalArtistas;
+    private javax.swing.JLabel labelIrAArtistas;
+    private javax.swing.JLabel labelIrABiblioteca;
+    private javax.swing.JLabel labelNumArtistas;
+    private javax.swing.JLabel labelNumCancionesArtistas;
+    private javax.swing.JLabel labelNumTotalCanciones;
     private javax.swing.JLabel labelTusPlaylists;
+    private javax.swing.JLabel numCancionesArtista;
+    private javax.swing.JLabel numTodasLasCanciones;
+    private javax.swing.JLabel numTotalArtistas;
+    private javax.swing.JLabel numTusPlaylists;
     private javax.swing.JPanel panelArtists;
     private javax.swing.JPanel panelLibrary;
     private javax.swing.JTable tablaListaCanciones;
