@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JPanel {
         iconOut1.setIcon(new FlatSVGIcon("img/Logout.svg"));
         iconDesplegable.setIcon(new FlatSVGIcon("img/flechaAbajo.svg"));
         textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
-                new FlatSVGIcon( "img/lupa.svg" ) );
+                new FlatSVGIcon( "img/Lupa.svg" ) );
         textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
         textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10"); //Redondeo
         
