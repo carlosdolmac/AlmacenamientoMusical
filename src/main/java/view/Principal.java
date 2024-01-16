@@ -303,6 +303,9 @@ public class Principal extends javax.swing.JPanel {
         panelListaCanciones.setBackground(new java.awt.Color(23, 205, 137));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
         panelListaCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelListaCancionesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelListaCancionesMouseEntered(evt);
             }
@@ -581,6 +584,10 @@ public class Principal extends javax.swing.JPanel {
     private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
         panelCerrarSesion.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelCerrarSesionMouseEntered
+
+    private void panelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseClicked
+        mostrarPanel(new ListaDeCanciones());
+    }//GEN-LAST:event_panelListaCancionesMouseClicked
 
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
