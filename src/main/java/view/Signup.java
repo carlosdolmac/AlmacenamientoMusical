@@ -29,11 +29,11 @@ public class Signup extends javax.swing.JPanel {
         this.interfaz = interfaz; // Guardar la referencia a Interfaz
         initComponents();
         
-        name.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Name" ); //Placeholder
-        surname.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Surname" ); //Placeholder
-        username.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Username" ); //Placeholder
+        name.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Nombre" ); //Placeholder
+        surname.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Apellido" ); //Placeholder
+        username.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Nombre de Usuario" ); //Placeholder
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
-        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
+        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
         createAccountLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
     }
 
@@ -87,7 +87,7 @@ public class Signup extends javax.swing.JPanel {
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         fondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 580, 20));
 
-        createAccountLabel.setText("Create Account");
+        createAccountLabel.setText("Crea una cuenta");
         fondo.add(createAccountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 33, -1, -1));
 
         email.setBackground(new java.awt.Color(139, 243, 204));
@@ -103,7 +103,7 @@ public class Signup extends javax.swing.JPanel {
         createAccount.setBackground(new java.awt.Color(91, 134, 229));
         createAccount.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createAccount.setForeground(new java.awt.Color(255, 255, 255));
-        createAccount.setText("Create Account");
+        createAccount.setText("Regístrate");
         createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createAccount.setPreferredSize(new java.awt.Dimension(575, 60));
         createAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class Signup extends javax.swing.JPanel {
         });
         fondo.add(createAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 502, -1, -1));
 
-        accountLabel.setText("Already have an account?");
+        accountLabel.setText("¿Ya tienes una cuenta?");
         fondo.add(accountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 580, -1, -1));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
@@ -150,14 +150,14 @@ public class Signup extends javax.swing.JPanel {
         fondo.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 92, -1, -1));
 
         loginLabel.setForeground(new java.awt.Color(0, 51, 153));
-        loginLabel.setText(" Login");
+        loginLabel.setText("Inicia Sesión");
         loginLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginLabelMouseClicked(evt);
             }
         });
-        fondo.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 580, -1, -1));
+        fondo.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, -1, -1));
 
         passwrd.setBackground(new java.awt.Color(139, 243, 204));
         passwrd.setBorder(null);

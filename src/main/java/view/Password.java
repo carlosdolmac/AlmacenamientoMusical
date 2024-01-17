@@ -222,7 +222,7 @@ public class Password extends javax.swing.JPanel {
      */
     private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            code.requestFocus(); // Mueve el foco al campo 'code'
+            enviarBtnActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
         }
     }//GEN-LAST:event_emailKeyPressed
     

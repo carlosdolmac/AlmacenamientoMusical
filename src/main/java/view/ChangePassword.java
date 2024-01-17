@@ -4,6 +4,7 @@
  */
 package view;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
 import controller.LoginController;
 import javax.swing.JOptionPane;
@@ -29,6 +30,9 @@ public class ChangePassword extends javax.swing.JPanel {
         this.correoRecuperacion = correoRecuperacion; // Guarda el correo recuperado en esta clase
         hibernateHelper = new HibernateHelper(); // Inicializa HibernateHelper
         this.loginController = loginController; // Inicializa el loginController
+        
+        newPass.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
+        newPass1.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Repite la contraseña" ); //Placeholder
     }
 
     /**

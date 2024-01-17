@@ -23,12 +23,12 @@ public class Login extends javax.swing.JPanel {
         initComponents(); // Inicializa los componentes del formulario
         
         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
-        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Password" ); //Placeholder
+        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
         signinLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
         
-        signupLabel.setText("<html>Don’t have an account?</html>");
-        signupHere.setText("<html><em>Signup Here</em></html>");
-        clickHere.setText("<html><em>Click Here</em></html>");
+        signupLabel.setText("<html>¿No tienes una cuenta?</html>");
+        signupHere.setText("<html><em>Regístrate Aquí</em></html>");
+        clickHere.setText("<html><em>Haz Click Aquí</em></html>");
     }
 
     /**
@@ -68,7 +68,7 @@ public class Login extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 580, 20));
 
-        signinLabel.setText("Sign in");
+        signinLabel.setText("Inicia Sesión");
         fondo.add(signinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 158, -1, -1));
 
         email.setBackground(new java.awt.Color(139, 243, 204));
@@ -84,7 +84,7 @@ public class Login extends javax.swing.JPanel {
         login.setBackground(new java.awt.Color(91, 134, 229));
         login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
-        login.setText("Login");
+        login.setText("Inicia Sesión");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.setPreferredSize(new java.awt.Dimension(575, 60));
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -94,27 +94,27 @@ public class Login extends javax.swing.JPanel {
         });
         fondo.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 370, -1, -1));
 
-        signupLabel.setText("Don’t have an account?");
+        signupLabel.setText("¿No tienes una cuenta?");
         fondo.add(signupLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 449, -1, -1));
 
-        recoverpassLabel.setText("Don’t remember your password?");
-        fondo.add(recoverpassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 465, -1, -1));
+        recoverpassLabel.setText("¿No recuerdas tu contraseña?");
+        fondo.add(recoverpassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
 
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
         fondo.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
         clickHere.setForeground(new java.awt.Color(0, 51, 153));
-        clickHere.setText("Click Here");
+        clickHere.setText("Haz Click Aquí");
         clickHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clickHere.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clickHereMouseClicked(evt);
             }
         });
-        fondo.add(clickHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 465, -1, -1));
+        fondo.add(clickHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
 
         signupHere.setForeground(new java.awt.Color(0, 51, 153));
-        signupHere.setText("Signup Here");
+        signupHere.setText("Regístrate Aquí");
         signupHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signupHere.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

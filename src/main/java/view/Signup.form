@@ -105,7 +105,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="createAccountLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Create Account"/>
+            <Property name="text" type="java.lang.String" value="Crea una cuenta"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -145,7 +145,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Create Account"/>
+            <Property name="text" type="java.lang.String" value="Reg&#xed;strate"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -164,7 +164,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="accountLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Already have an account?"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Ya tienes una cuenta?"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -252,7 +252,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="33" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" Login"/>
+            <Property name="text" type="java.lang.String" value="Inicia Sesi&#xf3;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -262,7 +262,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="392" y="580" width="-1" height="-1"/>
+              <AbsoluteConstraints x="380" y="580" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
