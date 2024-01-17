@@ -85,6 +85,7 @@ public class Password extends javax.swing.JPanel {
         enviarBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         enviarBtn.setForeground(new java.awt.Color(255, 255, 255));
         enviarBtn.setText("Enviar Código");
+        enviarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enviarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enviarBtnActionPerformed(evt);
@@ -96,6 +97,7 @@ public class Password extends javax.swing.JPanel {
         continuarBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         continuarBtn.setForeground(new java.awt.Color(255, 255, 255));
         continuarBtn.setText("Continuar");
+        continuarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continuarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continuarBtnActionPerformed(evt);
@@ -120,6 +122,7 @@ public class Password extends javax.swing.JPanel {
         fondoPassword.add(changeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 158, -1, -1));
 
         inicioImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
+        inicioImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicioImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inicioImgMouseClicked(evt);

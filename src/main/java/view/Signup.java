@@ -104,6 +104,7 @@ public class Signup extends javax.swing.JPanel {
         createAccount.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createAccount.setForeground(new java.awt.Color(255, 255, 255));
         createAccount.setText("Create Account");
+        createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         createAccount.setPreferredSize(new java.awt.Dimension(575, 60));
         createAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +151,7 @@ public class Signup extends javax.swing.JPanel {
 
         loginLabel.setForeground(new java.awt.Color(0, 51, 153));
         loginLabel.setText(" Login");
+        loginLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginLabelMouseClicked(evt);

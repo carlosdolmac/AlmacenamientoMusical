@@ -85,6 +85,7 @@ public class Login extends javax.swing.JPanel {
         login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Login");
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.setPreferredSize(new java.awt.Dimension(575, 60));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +105,7 @@ public class Login extends javax.swing.JPanel {
 
         clickHere.setForeground(new java.awt.Color(0, 51, 153));
         clickHere.setText("Click Here");
+        clickHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clickHere.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clickHereMouseClicked(evt);
@@ -113,6 +115,7 @@ public class Login extends javax.swing.JPanel {
 
         signupHere.setForeground(new java.awt.Color(0, 51, 153));
         signupHere.setText("Signup Here");
+        signupHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signupHere.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signupHereMouseClicked(evt);

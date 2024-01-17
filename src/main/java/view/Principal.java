@@ -151,6 +151,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelBiblioteca.setBackground(new java.awt.Color(139, 243, 204));
+        panelBiblioteca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBiblioteca.setPreferredSize(new java.awt.Dimension(256, 46));
         panelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,6 +195,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelUsername.setText("Username");
 
         panelInicio.setBackground(new java.awt.Color(139, 243, 204));
+        panelInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelInicio.setPreferredSize(new java.awt.Dimension(256, 46));
         panelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -231,6 +233,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelCerrarSesion.setBackground(new java.awt.Color(139, 243, 204));
+        panelCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
         panelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -265,6 +268,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelArtista.setBackground(new java.awt.Color(139, 243, 204));
+        panelArtista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelArtista.setPreferredSize(new java.awt.Dimension(256, 46));
         panelArtista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -301,6 +305,7 @@ public class Principal extends javax.swing.JPanel {
         panelDesplegable.setBackground(new java.awt.Color(23, 205, 137));
 
         panelListaCanciones.setBackground(new java.awt.Color(23, 205, 137));
+        panelListaCanciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
         panelListaCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,6 +343,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelPlaylists.setBackground(new java.awt.Color(23, 205, 137));
+        panelPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelPlaylists.setPreferredSize(new java.awt.Dimension(256, 46));
         panelPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

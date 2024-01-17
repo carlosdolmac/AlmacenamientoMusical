@@ -85,12 +85,14 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         borrarCancion.setForeground(new java.awt.Color(255, 255, 255));
         borrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mas.png"))); // NOI18N
         borrarCancion.setText("Borrar Canción");
+        borrarCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         AnadirCancion.setBackground(new java.awt.Color(146, 78, 188));
         AnadirCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         AnadirCancion.setForeground(new java.awt.Color(255, 255, 255));
         AnadirCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mas.png"))); // NOI18N
         AnadirCancion.setText("Añadir Canción");
+        AnadirCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
