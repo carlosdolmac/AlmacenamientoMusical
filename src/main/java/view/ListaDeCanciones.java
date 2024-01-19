@@ -4,6 +4,8 @@
  */
 package view;
 
+import com.formdev.flatlaf.FlatClientProperties;
+
 /**
  *
  * @author Alumno
@@ -18,6 +20,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelLista.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
+        buscarCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Canción" ); //Placeholder
     }
 
     /**
@@ -35,7 +38,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         labelDescripcion = new javax.swing.JLabel();
         buscarCancion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCanciones = new javax.swing.JTable();
         borrarCancion = new javax.swing.JButton();
         AnadirCancion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -52,7 +55,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         buscarCancion.setBackground(new java.awt.Color(244, 246, 248));
         buscarCancion.setPreferredSize(new java.awt.Dimension(340, 38));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCanciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,13 +74,13 @@ public class ListaDeCanciones extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMinimumSize(new java.awt.Dimension(944, 438));
-        jTable1.setPreferredSize(new java.awt.Dimension(944, 438));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        tablaCanciones.setMinimumSize(new java.awt.Dimension(944, 438));
+        tablaCanciones.setPreferredSize(new java.awt.Dimension(944, 438));
+        jScrollPane1.setViewportView(tablaCanciones);
+        if (tablaCanciones.getColumnModel().getColumnCount() > 0) {
+            tablaCanciones.getColumnModel().getColumn(0).setResizable(false);
+            tablaCanciones.getColumnModel().getColumn(1).setResizable(false);
+            tablaCanciones.getColumnModel().getColumn(3).setResizable(false);
         }
 
         borrarCancion.setBackground(new java.awt.Color(139, 243, 204));
@@ -100,45 +103,45 @@ public class ListaDeCanciones extends javax.swing.JPanel {
             fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoListaLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(fondoListaLayout.createSequentialGroup()
+                        .addComponent(labelBiblioteca)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(20, 20, 20)
+                        .addComponent(labelLista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(borrarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(AnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelDescripcion)
                     .addComponent(buscarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(fondoListaLayout.createSequentialGroup()
-                            .addComponent(labelBiblioteca)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel1)
-                            .addGap(20, 20, 20)
-                            .addComponent(labelLista)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(borrarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(59, 59, 59)
-                            .addComponent(AnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58))
         );
         fondoListaLayout.setVerticalGroup(
             fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoListaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoListaLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(46, 46, 46)
                         .addComponent(labelBiblioteca))
                     .addGroup(fondoListaLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(60, 60, 60)
                         .addComponent(jLabel1))
                     .addGroup(fondoListaLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(labelLista))
-                    .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(AnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(borrarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addGroup(fondoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelLista)
+                            .addComponent(AnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(borrarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(6, 6, 6)
                 .addComponent(labelDescripcion)
                 .addGap(16, 16, 16)
                 .addComponent(buscarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -161,9 +164,9 @@ public class ListaDeCanciones extends javax.swing.JPanel {
     private javax.swing.JPanel fondoLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelBiblioteca;
     private javax.swing.JLabel labelDescripcion;
     private javax.swing.JLabel labelLista;
+    private javax.swing.JTable tablaCanciones;
     // End of variables declaration//GEN-END:variables
 }
