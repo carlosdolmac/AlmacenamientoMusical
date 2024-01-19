@@ -80,17 +80,15 @@ public class ListaDeCanciones extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        borrarCancion.setBackground(new java.awt.Color(146, 78, 188));
+        borrarCancion.setBackground(new java.awt.Color(139, 243, 204));
         borrarCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        borrarCancion.setForeground(new java.awt.Color(255, 255, 255));
-        borrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mas.png"))); // NOI18N
+        borrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         borrarCancion.setText("Borrar Canción");
         borrarCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        AnadirCancion.setBackground(new java.awt.Color(146, 78, 188));
+        AnadirCancion.setBackground(new java.awt.Color(139, 243, 204));
         AnadirCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        AnadirCancion.setForeground(new java.awt.Color(255, 255, 255));
-        AnadirCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mas.png"))); // NOI18N
+        AnadirCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         AnadirCancion.setText("Añadir Canción");
         AnadirCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
