@@ -4,7 +4,7 @@
  */
 package controller;
 
-import view.AnadirCancion;
+import view.AnadirCancion1;
 import view.ListaDeCanciones;
 import view.Principal;
 
@@ -22,7 +22,7 @@ public class PrincipalController {
      * Método para mostrar la ventana de añadir canción.
      */
     public void mostrarAnadirCancion() {
-        AnadirCancion anadirCancion = new AnadirCancion();
+        AnadirCancion1 anadirCancion = new AnadirCancion1();
         principal.mostrarPanel(anadirCancion);
     }
 

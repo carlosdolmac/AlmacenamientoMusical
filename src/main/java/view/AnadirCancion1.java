@@ -9,10 +9,10 @@ package view;
  *
  * @author Alumno
  */
-public class AnadirCancionAPlaylist extends javax.swing.JPanel {
+public class AnadirCancion1 extends javax.swing.JPanel {
 
     /** Creates new form AnadirCancionAPlaylist */
-    public AnadirCancionAPlaylist() {
+    public AnadirCancion1() {
         initComponents();
     }
 
