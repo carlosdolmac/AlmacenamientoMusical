@@ -9,7 +9,7 @@ import controller.PrincipalController;
 
 /**
  *
- * @author Alumno
+ * @author Carlos de los Dolores Macías
  */
 public class ListaDeCanciones extends javax.swing.JPanel {
     private PrincipalController principalController;

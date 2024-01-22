@@ -8,7 +8,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 
 /**
  *
- * @author Alumno
+ * @author Carlos de los Dolores Macías
  */
 public class Playlists extends javax.swing.JPanel {
 

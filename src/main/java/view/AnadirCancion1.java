@@ -9,7 +9,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 
 /**
  *
- * @author Alumno
+ * @author Carlos de los Dolores Macías
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
 

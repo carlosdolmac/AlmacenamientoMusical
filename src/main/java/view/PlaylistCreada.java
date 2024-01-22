@@ -6,7 +6,7 @@ package view;
 
 /**
  *
- * @author Alumno
+ * @author Carlos de los Dolores Macías
  */
 public class PlaylistCreada extends javax.swing.JPanel {
 
