@@ -5,6 +5,8 @@
 
 package view;
 
+import com.formdev.flatlaf.FlatClientProperties;
+
 /**
  *
  * @author Alumno
@@ -14,6 +16,12 @@ public class AnadirCancion1 extends javax.swing.JPanel {
     /** Creates new form AnadirCancionAPlaylist */
     public AnadirCancion1() {
         initComponents();
+        labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
+        labelLista.putClientProperty( "FlatLaf.styleClass", "h1" );
+        labelAnadirCancion.putClientProperty( "FlatLaf.styleClass", "h1" );
+        artista.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Selena Gomez" ); //Placeholder
+        nombreCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Who Says" ); //Placeholder
+        idCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "0001" ); //Placeholder
     }
 
     /** This method is called from within the constructor to
@@ -34,6 +42,12 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         labelNombre = new javax.swing.JLabel();
         nombreCancion = new javax.swing.JTextField();
         guardarCancion = new javax.swing.JButton();
+        idCancion = new javax.swing.JTextField();
+        labelNombre1 = new javax.swing.JLabel();
+        artista = new javax.swing.JTextField();
+        labelNombre2 = new javax.swing.JLabel();
+        labelNombre3 = new javax.swing.JLabel();
+        playlist = new javax.swing.JComboBox<>();
 
         fondoAnadirCancionAPlaylist.setBackground(new java.awt.Color(244, 246, 248));
 
@@ -43,7 +57,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
         labelLista.setForeground(new java.awt.Color(153, 153, 153));
-        labelLista.setText("Playlist");
+        labelLista.setText("Lista de Canciones");
 
         labelAnadirCancion.setText("Añadir Canción");
 
@@ -59,6 +73,21 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         guardarCancion.setText("Guardar Canción");
         guardarCancion.setPreferredSize(new java.awt.Dimension(162, 46));
 
+        idCancion.setBackground(new java.awt.Color(244, 246, 248));
+        idCancion.setPreferredSize(new java.awt.Dimension(340, 38));
+
+        labelNombre1.setText("ID de la canción");
+
+        artista.setBackground(new java.awt.Color(244, 246, 248));
+        artista.setPreferredSize(new java.awt.Dimension(340, 38));
+
+        labelNombre2.setText("Artista");
+
+        labelNombre3.setText("Playlist (Opcional)");
+
+        playlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        playlist.setPreferredSize(new java.awt.Dimension(340, 38));
+
         javax.swing.GroupLayout fondoAnadirCancionAPlaylistLayout = new javax.swing.GroupLayout(fondoAnadirCancionAPlaylist);
         fondoAnadirCancionAPlaylist.setLayout(fondoAnadirCancionAPlaylistLayout);
         fondoAnadirCancionAPlaylistLayout.setHorizontalGroup(
@@ -66,20 +95,33 @@ public class AnadirCancion1 extends javax.swing.JPanel {
             .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guardarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
-                        .addComponent(labelBiblioteca)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(20, 20, 20)
-                        .addComponent(labelLista)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2)
-                        .addGap(17, 17, 17)
-                        .addComponent(labelAnadirCancion))
-                    .addComponent(labelNombre)
-                    .addComponent(nombreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(604, Short.MAX_VALUE))
+                        .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(guardarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
+                                .addComponent(labelBiblioteca)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1)
+                                .addGap(20, 20, 20)
+                                .addComponent(labelLista)
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel2)
+                                .addGap(17, 17, 17)
+                                .addComponent(labelAnadirCancion)))
+                        .addContainerGap(619, Short.MAX_VALUE))
+                    .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
+                        .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombre)
+                            .addComponent(nombreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNombre3)
+                            .addComponent(playlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombre1)
+                            .addComponent(idCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNombre2)
+                            .addComponent(artista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(130, 130, 130))))
         );
         fondoAnadirCancionAPlaylistLayout.setVerticalGroup(
             fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,8 +145,21 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                         .addComponent(jLabel2))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(labelAnadirCancion)))
-                .addGap(162, 162, 162)
+                        .addComponent(labelAnadirCancion))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelNombre1)
+                        .addGap(18, 18, 18)
+                        .addComponent(idCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
+                .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre2)
+                    .addComponent(labelNombre3))
+                .addGap(18, 18, 18)
+                .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(artista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
                 .addComponent(guardarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -123,15 +178,21 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField artista;
     private javax.swing.JPanel fondoAnadirCancionAPlaylist;
     private javax.swing.JButton guardarCancion;
+    private javax.swing.JTextField idCancion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelAnadirCancion;
     private javax.swing.JLabel labelBiblioteca;
     private javax.swing.JLabel labelLista;
     private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelNombre1;
+    private javax.swing.JLabel labelNombre2;
+    private javax.swing.JLabel labelNombre3;
     private javax.swing.JTextField nombreCancion;
+    private javax.swing.JComboBox<String> playlist;
     // End of variables declaration//GEN-END:variables
 
 }
