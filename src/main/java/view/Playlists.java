@@ -20,7 +20,7 @@ public class Playlists extends javax.swing.JPanel {
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
-        buscarPlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Canción" ); //Placeholder
+        buscarPlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Playlist" ); //Placeholder
     }
 
     /**
@@ -40,6 +40,10 @@ public class Playlists extends javax.swing.JPanel {
         buscarPlaylist = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPlaylists = new javax.swing.JTable();
+        borrarPlaylist = new javax.swing.JButton();
+        anadirPlaylist = new javax.swing.JButton();
+
+        fondoPlaylists.setBackground(new java.awt.Color(244, 246, 248));
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
@@ -50,21 +54,41 @@ public class Playlists extends javax.swing.JPanel {
 
         labelDescripcion.setText("Lista de playlists que has guardado");
 
-        buscarPlaylist.setBackground(new java.awt.Color(244, 246, 248));
+        buscarPlaylist.setBackground(new java.awt.Color(227, 236, 227));
         buscarPlaylist.setPreferredSize(new java.awt.Dimension(340, 38));
 
         tablaPlaylists.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre Playlist", "Numero Canciones", "Vista Detallada"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablaPlaylists);
+
+        borrarPlaylist.setBackground(new java.awt.Color(139, 243, 204));
+        borrarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        borrarPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
+        borrarPlaylist.setText("Borrar Playlist");
+        borrarPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        anadirPlaylist.setBackground(new java.awt.Color(139, 243, 204));
+        anadirPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        anadirPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
+        anadirPlaylist.setText("Añadir Playlist");
+        anadirPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout fondoPlaylistsLayout = new javax.swing.GroupLayout(fondoPlaylists);
         fondoPlaylists.setLayout(fondoPlaylistsLayout);
@@ -75,32 +99,42 @@ public class Playlists extends javax.swing.JPanel {
                 .addGroup(fondoPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelDescripcion)
                     .addComponent(buscarPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(fondoPlaylistsLayout.createSequentialGroup()
-                        .addComponent(labelBiblioteca)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(20, 20, 20)
-                        .addComponent(labelPlaylists))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(fondoPlaylistsLayout.createSequentialGroup()
+                            .addComponent(labelBiblioteca)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel1)
+                            .addGap(22, 22, 22)
+                            .addComponent(labelPlaylists)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(borrarPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(59, 59, 59)
+                            .addComponent(anadirPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         fondoPlaylistsLayout.setVerticalGroup(
             fondoPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoPlaylistsLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
                 .addGroup(fondoPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelBiblioteca)
                     .addGroup(fondoPlaylistsLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1))
-                    .addComponent(labelPlaylists))
-                .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)
+                        .addGroup(fondoPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPlaylists)
+                            .addComponent(anadirPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(borrarPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelBiblioteca))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoPlaylistsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(31, 31, 31)))
                 .addComponent(labelDescripcion)
                 .addGap(16, 16, 16)
                 .addComponent(buscarPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -117,6 +151,8 @@ public class Playlists extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton anadirPlaylist;
+    private javax.swing.JButton borrarPlaylist;
     private javax.swing.JTextField buscarPlaylist;
     private javax.swing.JPanel fondoPlaylists;
     private javax.swing.JLabel jLabel1;

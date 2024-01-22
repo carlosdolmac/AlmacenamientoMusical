@@ -7,6 +7,8 @@ package view;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
+import controller.LoginController;
+import controller.PrincipalController;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -19,6 +21,7 @@ import model.Usuarios;
  * @author Carlos de los Dolores Macías
  */
 public class Principal extends javax.swing.JPanel {
+    private PrincipalController principalController;
     private HibernateHelper sqlHelper;
     private int idUsuario;
     Color colorSeleccion = new Color(185, 253, 228); //Color al entrar en los paneles
@@ -32,6 +35,7 @@ public class Principal extends javax.swing.JPanel {
      */
     public Principal(int idUsuario) {
         initComponents();
+        principalController = new PrincipalController(this);
         this.idUsuario = idUsuario;
         sqlHelper = new HibernateHelper();
         //numCanciones.setText(String.valueOf(obtenerNumeroCanciones())); // Actualizar el JLabel con el número de canciones
@@ -346,6 +350,9 @@ public class Principal extends javax.swing.JPanel {
         panelPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelPlaylists.setPreferredSize(new java.awt.Dimension(256, 46));
         panelPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelPlaylistsMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelPlaylistsMouseEntered(evt);
             }
@@ -452,7 +459,7 @@ public class Principal extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        textFieldBusqueda.setBackground(new java.awt.Color(244, 246, 248));
+        textFieldBusqueda.setBackground(new java.awt.Color(227, 236, 227));
         textFieldBusqueda.setPreferredSize(new java.awt.Dimension(440, 38));
 
         jLabelBuenos.setText("Buenos días");
@@ -589,8 +596,12 @@ public class Principal extends javax.swing.JPanel {
     }//GEN-LAST:event_panelCerrarSesionMouseEntered
 
     private void panelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseClicked
-        mostrarPanel(new ListaDeCanciones());
+        principalController.mostrarListaDeCanciones();
     }//GEN-LAST:event_panelListaCancionesMouseClicked
+
+    private void panelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseClicked
+        mostrarPanel(new Playlists());
+    }//GEN-LAST:event_panelPlaylistsMouseClicked
 
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
