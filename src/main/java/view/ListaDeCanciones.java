@@ -55,7 +55,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
 
         labelListaCanciones.setText("Lista de Canciones");
 
-        labelDescripcion.setText("Lista de playlists que has guardado");
+        labelDescripcion.setText("Lista de Canciones que has guardado");
 
         buscarCancion.setBackground(new java.awt.Color(227, 236, 227));
         buscarCancion.setPreferredSize(new java.awt.Dimension(340, 38));
