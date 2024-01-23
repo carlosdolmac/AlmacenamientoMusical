@@ -11,7 +11,6 @@ package view;
  */
 public class AnadirCancionAPlaylist extends javax.swing.JPanel {
 
-    /** Creates new form AnadirCancionAPlaylist */
     public AnadirCancionAPlaylist() {
         initComponents();
     }

@@ -80,7 +80,11 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ponerPaneles;
     // End of variables declaration//GEN-END:variables
-    // Método mostrarPanel para mostrar los paneles.
+    
+    /**
+     * Método para mostrar los paneles.
+     * @param p este argumento es el panel que se quiera mostrar
+     */
     public void mostrarPanel(JPanel p) {
         ponerPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
         ponerPaneles.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda

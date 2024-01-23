@@ -27,8 +27,8 @@ public class Login extends javax.swing.JPanel {
         signinLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
         
         signupLabel.setText("<html>¿No tienes una cuenta?</html>");
-        signupHere.setText("<html><em>Regístrate Aquí</em></html>");
-        clickHere.setText("<html><em>Haz Click Aquí</em></html>");
+        registrateAqui.setText("<html><em>Regístrate Aquí</em></html>");
+        clickAqui.setText("<html><em>Haz Click Aquí</em></html>");
     }
 
     /**
@@ -50,8 +50,8 @@ public class Login extends javax.swing.JPanel {
         signupLabel = new javax.swing.JLabel();
         recoverpassLabel = new javax.swing.JLabel();
         imagelogin = new javax.swing.JLabel();
-        clickHere = new javax.swing.JLabel();
-        signupHere = new javax.swing.JLabel();
+        clickAqui = new javax.swing.JLabel();
+        registrateAqui = new javax.swing.JLabel();
         passwrd = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(139, 243, 204));
@@ -103,25 +103,25 @@ public class Login extends javax.swing.JPanel {
         imagelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notamusical1.png"))); // NOI18N
         fondo.add(imagelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 84, -1, -1));
 
-        clickHere.setForeground(new java.awt.Color(0, 51, 153));
-        clickHere.setText("Haz Click Aquí");
-        clickHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        clickHere.addMouseListener(new java.awt.event.MouseAdapter() {
+        clickAqui.setForeground(new java.awt.Color(0, 51, 153));
+        clickAqui.setText("Haz Click Aquí");
+        clickAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        clickAqui.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clickHereMouseClicked(evt);
+                clickAquiMouseClicked(evt);
             }
         });
-        fondo.add(clickHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
+        fondo.add(clickAqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
 
-        signupHere.setForeground(new java.awt.Color(0, 51, 153));
-        signupHere.setText("Regístrate Aquí");
-        signupHere.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        signupHere.addMouseListener(new java.awt.event.MouseAdapter() {
+        registrateAqui.setForeground(new java.awt.Color(0, 51, 153));
+        registrateAqui.setText("Regístrate Aquí");
+        registrateAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrateAqui.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signupHereMouseClicked(evt);
+                registrateAquiMouseClicked(evt);
             }
         });
-        fondo.add(signupHere, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 449, -1, -1));
+        fondo.add(registrateAqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 449, -1, -1));
 
         passwrd.setBackground(new java.awt.Color(139, 243, 204));
         passwrd.setBorder(null);
@@ -154,20 +154,20 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_loginActionPerformed
 
     /**
-     * Muestra la pantalla de registro al hacer clic en el enlace "Signup Here".
+     * Muestra la pantalla de registro al hacer clic en "Registrate Aquí".
      * Llama al método del controlador para mostrar la interfaz de registro.
      * */
-    private void signupHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupHereMouseClicked
+    private void registrateAquiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrateAquiMouseClicked
         controller.mostrarSignup();
-    }//GEN-LAST:event_signupHereMouseClicked
+    }//GEN-LAST:event_registrateAquiMouseClicked
 
     /**
-     * Muestra la pantalla de recuperación de contraseña al hacer clic en el enlace "Click Here".
+     * Muestra la pantalla de recuperación de contraseña al hacer clic en "Haz Click Aquí".
      * Llama al método del controlador para mostrar la interfaz de recuperación de contraseña.
      */
-    private void clickHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickHereMouseClicked
+    private void clickAquiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAquiMouseClicked
         controller.mostrarPassword();
-    }//GEN-LAST:event_clickHereMouseClicked
+    }//GEN-LAST:event_clickAquiMouseClicked
 
     /**
      * Escucha el evento de tecla presionada en el campo de correo electrónico.
@@ -191,7 +191,7 @@ public class Login extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel clickHere;
+    private javax.swing.JLabel clickAqui;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel imagelogin;
@@ -200,8 +200,8 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JButton login;
     private javax.swing.JPasswordField passwrd;
     private javax.swing.JLabel recoverpassLabel;
+    private javax.swing.JLabel registrateAqui;
     private javax.swing.JLabel signinLabel;
-    private javax.swing.JLabel signupHere;
     private javax.swing.JLabel signupLabel;
     // End of variables declaration//GEN-END:variables
 }

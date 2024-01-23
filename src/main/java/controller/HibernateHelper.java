@@ -26,7 +26,12 @@ public class HibernateHelper {
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
-    // Método para obtener el ID de usuario basado en el correo electrónico y la contraseña encriptada
+    /**
+     * Método para obtener el ID de usuario basado en el correo electrónico y la contraseña encriptada
+     * @param email email del usuario
+     * @param passwrdEncriptada contraseña encriptada del usuario
+     * @return devuelve el id del usuario
+     */
     public int obtenerIdUsuario(String email, String passwrdEncriptada) {
         int idUsuario = -1;
 
@@ -54,7 +59,11 @@ public class HibernateHelper {
         return idUsuario;
     }
     
-    // Método para crear un nuevo usuario en la base de datos
+    /**
+     * Método para crear un nuevo usuario en la base de datos
+     * @param usuario se pasa el usuario que se quiera crear
+     * @return devuelve el usuario creado
+     */
     public boolean crearUsuario(Usuarios usuario) {
         boolean creado = false;
 
@@ -79,7 +88,11 @@ public class HibernateHelper {
         return creado;
     }
 
-    // Método para recuperar un usuario por su correo electrónico
+    /**
+     * Método para recuperar un usuario por su correo electrónico
+     * @param email este argumento es el email del usuario
+     * @return devuelve el usuario asociado al email
+     */
     public Usuarios obtenerUsuarioPorCorreo(String email) {
         Usuarios usuario = null;
 
@@ -98,7 +111,11 @@ public class HibernateHelper {
         return usuario;
     }
     
-    // Método para verificar si un correo electrónico dado existe en la base de datos
+    /**
+     * Método para verificar si un correo electrónico dado existe en la base de datos
+     * @param correo este argumento es el correo del usuario
+     * @return devuelve si existe el correo
+     */
     public boolean existeCorreo(String correo) {
         boolean correoExiste = false;
 
@@ -120,7 +137,12 @@ public class HibernateHelper {
         return correoExiste;
     }
 
-    // Método para actualizar la contraseña de un usuario dado su correo electrónico
+    /**
+     * Método para actualizar la contraseña de un usuario dado su correo electrónico
+     * @param correo este argumento es el correo del usuario
+     * @param nuevaPassword este argumento es la nueva contraseña
+     * @throws Exception en caso de que el correo no exista
+     */
     public void actualizarPasswordPorCorreo(String correo, String nuevaPassword) throws Exception {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();

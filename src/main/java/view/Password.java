@@ -33,7 +33,10 @@ public class Password extends javax.swing.JPanel {
          continuarBtn.setEnabled(false);
     }
 
-    // Método para obtener el código de recuperación desde fuera de la clase
+    /**
+     * Método para obtener el código de recuperacion desde fuera de la clase
+     * @return devuelve el codigo de recuperacion
+     */
     public String getCodigoRecuperacion() {
         return codigoRecuperacion;
     }

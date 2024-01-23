@@ -157,6 +157,10 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al hacer clic en el botón 'anadirCancion'.
+     * Se muestra un nuevo panel para añadir la canción
+     */
     private void anadirCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_anadirCancionMouseClicked
         principalController.mostrarAnadirCancion();
     }//GEN-LAST:event_anadirCancionMouseClicked

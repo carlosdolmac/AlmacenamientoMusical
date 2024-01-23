@@ -9,15 +9,22 @@ import view.ListaDeCanciones;
 import view.Principal;
 
 /**
+ * Controlador para la gestión de la página Principal
+ * Se encarga de mostrar los distintos paneles del panel Principal
  *
- * @author Alumno
+ * Autor: Carlos de los Dolores Macías
  */
 public class PrincipalController {
     private Principal principal;
 
+    /**
+     * 
+     * @param principal Este argumento es el jpanel Principal
+     */
     public PrincipalController(Principal principal) {
         this.principal = principal;
     }
+    
     /**
      * Método para mostrar la ventana de añadir canción.
      */
@@ -27,7 +34,7 @@ public class PrincipalController {
     }
 
     /**
-     * Método para mostrar la lista de canciones.
+     * Método para mostrar el panel lista de canciones.
      */
     public void mostrarListaDeCanciones() {
         ListaDeCanciones listaDeCanciones = new ListaDeCanciones(this);

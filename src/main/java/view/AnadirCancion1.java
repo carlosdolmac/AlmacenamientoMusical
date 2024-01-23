@@ -13,7 +13,6 @@ import com.formdev.flatlaf.FlatClientProperties;
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
 
-    /** Creates new form AnadirCancionAPlaylist */
     public AnadirCancion1() {
         initComponents();
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );

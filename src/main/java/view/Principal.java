@@ -30,8 +30,10 @@ public class Principal extends javax.swing.JPanel {
     
     // Variable para controlar el estado de visibilidad del panel desplegable de la biblioteca
     private boolean bibliotecaDesplegada = false;
+    
     /**
-     * Creates new form Dashboard
+     * 
+     * @param idUsuario este argumento es el id del usuario
      */
     public Principal(int idUsuario) {
         initComponents();
@@ -66,6 +68,10 @@ public class Principal extends javax.swing.JPanel {
         jLabelBuenos.putClientProperty( "FlatLaf.styleClass", "h3" );
     }
     
+    /**
+     * Método para mostrar los paneles.
+     * @param p este argumento es el panel que se quiera mostrar
+     */
     public void mostrarPanel(JPanel p) {
         colocarPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
         colocarPaneles.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda

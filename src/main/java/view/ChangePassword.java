@@ -122,10 +122,11 @@ public class ChangePassword extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         add(fondoChangePassword, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+    
     /**
-        * Acción realizada al hacer clic en el botón 'Modificar'.
-        * Verifica si las contraseñas coinciden y realiza el cambio en la base de datos.
-        */
+    * Acción realizada al hacer clic en el botón 'Modificar'.
+    * Verifica si las contraseñas coinciden y realiza el cambio en la base de datos.
+    */
     private void modificarPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPassActionPerformed
         String newPassword = newPass.getText();
         String confirmPassword = newPass1.getText();
@@ -159,6 +160,7 @@ public class ChangePassword extends javax.swing.JPanel {
             );
         }
     }//GEN-LAST:event_modificarPassActionPerformed
+    
     /**
     * Acción realizada al hacer clic en la etiqueta 'Inicio'.
     * Muestra el panel de inicio de sesión al hacer clic en la etiqueta 'Inicio'.
@@ -166,6 +168,7 @@ public class ChangePassword extends javax.swing.JPanel {
     private void inicioLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioLabelMouseClicked
        loginController.mostrarLogin();
     }//GEN-LAST:event_inicioLabelMouseClicked
+    
     /**
     * Acción realizada al presionar una tecla en el campo de texto 'newPass1'.
     * Si la tecla presionada es 'ENTER', se ejecuta el evento para modificar la contraseña.
@@ -175,6 +178,7 @@ public class ChangePassword extends javax.swing.JPanel {
             modificarPassActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
         }
     }//GEN-LAST:event_newPass1KeyPressed
+    
     /**
     * Acción realizada al presionar una tecla en el campo de texto 'newPass'.
     * Si la tecla presionada es 'ENTER', se cambia el foco al campo 'newPass1'.

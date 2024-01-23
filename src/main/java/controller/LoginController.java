@@ -26,26 +26,37 @@ public class LoginController {
         this.interfaz = interfaz;
     }
 
-    // Método para mostrar el panel de inicio de sesión
+    /**
+     * Método para mostrar el panel de inicio de sesión
+     */
     public void mostrarLogin() {
         Login login = new Login(interfaz);
         interfaz.mostrarPanel(login);
     }
     
-    // Método para mostrar el panel de ingreso de contraseña
+    /**
+     * Método para mostrar el panel de ingreso de contraseña
+     */
     public void mostrarPassword() {
         Password password = new Password(interfaz, this); // Pasa el LoginController
         interfaz.mostrarPanel(password);
     }
 
-    // Método para mostrar el panel de cambio de contraseña
+    /**
+     * Método para mostrar el panel de cambio de contraseña
+     * @param correoRecuperacion Este argumento es el correo del usuario
+     */
     public void mostrarChangePassword(String correoRecuperacion) {
         ChangePassword changePasswordPanel = new ChangePassword(interfaz, correoRecuperacion, this); // Pasa el LoginController
         interfaz.mostrarPanel(changePasswordPanel);
     }
 
 
-    // Método para realizar el inicio de sesión
+    /**
+     * Método para realizar el inicio de sesión
+     * @param correo este argumento es el correo del usuario
+     * @param contraseña este argumento es la contraseña del usuario
+     */
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
         Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
@@ -65,7 +76,9 @@ public class LoginController {
         }
     }
 
-    // Método para mostrar el panel de registro
+    /**
+     * // Método para mostrar el panel de registro
+     */
     public void mostrarSignup() {
         SignupController signupController = new SignupController(interfaz);
         signupController.mostrarSignup();

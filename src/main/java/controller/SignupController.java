@@ -20,13 +20,23 @@ public class SignupController {
         this.interfaz = interfaz;
     }
 
-    // Método para mostrar el panel de registro
+    /**
+     * Método para mostrar el panel de registro
+     */
     public void mostrarSignup() {
         Signup signupPanel = new Signup(interfaz);
         interfaz.mostrarPanel(signupPanel);
     }
 
-    // Método para crear un nuevo usuario en la base de datos
+    /**
+     * Método para crear un nuevo usuario en la base de datos
+     * @param nombre nombre real del usuario
+     * @param apellidos apellidos del usuario
+     * @param nombreUsuario nombre del usuario (username)
+     * @param correo correo electrónico del usuario
+     * @param password contraseña que quiera poner el usuario
+     * @return devuelve la creación del usuario con Hibernate
+     */
     public boolean crearNuevoUsuario(String nombre, String apellidos, String nombreUsuario, String correo, String password) {
         HibernateHelper hibernateHelper = new HibernateHelper();
         Usuarios nuevoUsuario = new Usuarios();
