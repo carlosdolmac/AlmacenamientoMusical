@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import java.util.List;
+import model.Canciones;
 import model.Usuarios;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -166,5 +167,25 @@ public class HibernateHelper {
             e.printStackTrace();
             throw e;
         }
+    }
+    
+    /**
+     * Método para obtener todas las canciones de la base de datos
+     * @return Lista de todas las canciones
+     */
+    public List<Canciones> obtenerTodasLasCanciones() {
+        List<Canciones> canciones = null;
+
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            canciones = session.createQuery("FROM Canciones", Canciones.class).list();
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return canciones;
     }
 }

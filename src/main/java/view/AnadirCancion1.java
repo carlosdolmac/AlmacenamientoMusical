@@ -6,13 +6,15 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.PrincipalController;
+import java.awt.Color;
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
-
+private PrincipalController principalController;
     public AnadirCancion1() {
         initComponents();
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
@@ -57,6 +59,17 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         labelLista.setForeground(new java.awt.Color(153, 153, 153));
         labelLista.setText("Lista de Canciones");
+        labelLista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelListaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelListaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelListaMouseExited(evt);
+            }
+        });
 
         labelAnadirCancion.setText("Añadir Canción");
 
@@ -107,7 +120,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                                 .addComponent(jLabel2)
                                 .addGap(17, 17, 17)
                                 .addComponent(labelAnadirCancion)))
-                        .addContainerGap(619, Short.MAX_VALUE))
+                        .addContainerGap(647, Short.MAX_VALUE))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelNombre)
@@ -174,6 +187,18 @@ public class AnadirCancion1 extends javax.swing.JPanel {
             .addComponent(fondoAnadirCancionAPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
+        principalController.mostrarListaDeCanciones();
+    }//GEN-LAST:event_labelListaMouseClicked
+
+    private void labelListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseEntered
+        labelLista.setForeground(Color.black);
+    }//GEN-LAST:event_labelListaMouseEntered
+
+    private void labelListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseExited
+        labelLista.setForeground(Color.GRAY);
+    }//GEN-LAST:event_labelListaMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,14 +7,10 @@ package view;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
-import controller.LoginController;
 import controller.PrincipalController;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.sql.SQLException;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import model.Usuarios;
 
 /**
  *

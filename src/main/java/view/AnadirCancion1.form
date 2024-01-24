@@ -54,7 +54,7 @@
                                   <Component id="labelAnadirCancion" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="619" max="32767" attributes="0"/>
+                          <EmptySpace pref="647" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -151,6 +151,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Lista de Canciones"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseExited"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelAnadirCancion">
           <Properties>

@@ -4,17 +4,24 @@
  */
 package view;
 
+import controller.HibernateHelper;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Canciones;
+
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class Inicio extends javax.swing.JPanel {
-
+    private HibernateHelper sqlHelper;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        sqlHelper = new HibernateHelper();
+        cargarTodasLasCanciones();
         //Tamaños
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h1" );
         jLabelDescripcion.putClientProperty( "FlatLaf.styleClass", "h3" );
@@ -32,6 +39,23 @@ public class Inicio extends javax.swing.JPanel {
         numCancionesArtista.putClientProperty( "FlatLaf.styleClass", "h3" );
     }
 
+    private void cargarTodasLasCanciones() {
+        // Obtener todas las canciones desde la base de datos
+        List<Canciones> canciones = sqlHelper.obtenerTodasLasCanciones();
+        
+        // Llenar la tabla con los datos de las canciones
+        DefaultTableModel model = (DefaultTableModel) tablaListaCanciones.getModel();
+        model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
+        
+        for (Canciones cancion : canciones) {
+            // Agregar cada canción como una fila en la tabla
+            model.addRow(new Object[] {
+                cancion.getNombreCancion(),
+                cancion.getIdCancion(),
+                cancion.getArtistas()
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
