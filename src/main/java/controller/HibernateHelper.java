@@ -179,7 +179,7 @@ public class HibernateHelper {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            canciones = session.createQuery("FROM Canciones", Canciones.class).list();
+            canciones = session.createQuery("FROM Canciones c JOIN FETCH c.artistas", Canciones.class).list();
 
             session.getTransaction().commit();
         } catch (Exception e) {

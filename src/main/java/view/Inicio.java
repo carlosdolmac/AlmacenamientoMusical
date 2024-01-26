@@ -42,20 +42,21 @@ public class Inicio extends javax.swing.JPanel {
     private void cargarTodasLasCanciones() {
         // Obtener todas las canciones desde la base de datos
         List<Canciones> canciones = sqlHelper.obtenerTodasLasCanciones();
-        
+
         // Llenar la tabla con los datos de las canciones
         DefaultTableModel model = (DefaultTableModel) tablaListaCanciones.getModel();
         model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
-        
+
         for (Canciones cancion : canciones) {
             // Agregar cada canción como una fila en la tabla
             model.addRow(new Object[] {
                 cancion.getNombreCancion(),
                 cancion.getIdCancion(),
-                cancion.getArtistas()
+                cancion.getArtistas().getNombreArtista()  // Corregir esta línea
             });
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
