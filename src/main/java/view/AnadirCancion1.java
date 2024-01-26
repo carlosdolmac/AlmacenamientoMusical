@@ -14,7 +14,8 @@ import java.awt.Color;
  * @author Carlos de los Dolores Macías
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
-private PrincipalController principalController;
+    private PrincipalController principalController;
+    
     public AnadirCancion1(PrincipalController principalController) {
         initComponents();
         this.principalController = principalController;
@@ -55,6 +56,17 @@ private PrincipalController principalController;
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseExited(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
@@ -200,6 +212,18 @@ private PrincipalController principalController;
     private void labelListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseExited
         labelLista.setForeground(Color.GRAY);
     }//GEN-LAST:event_labelListaMouseExited
+
+    private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
+        principalController.mostrarBiblioteca();
+    }//GEN-LAST:event_labelBibliotecaMouseClicked
+
+    private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
+        labelBiblioteca.setForeground(Color.black);
+    }//GEN-LAST:event_labelBibliotecaMouseEntered
+
+    private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
+        labelBiblioteca.setForeground(Color.gray);
+    }//GEN-LAST:event_labelBibliotecaMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

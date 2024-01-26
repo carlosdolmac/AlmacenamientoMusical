@@ -536,7 +536,7 @@ public class Principal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseClicked
-        mostrarPanel(new Biblioteca());
+        principalController.mostrarBiblioteca();
         // Cambia el estado de visibilidad y actualiza los paneles
         bibliotecaDesplegada = !bibliotecaDesplegada;
         actualizarPaneles();

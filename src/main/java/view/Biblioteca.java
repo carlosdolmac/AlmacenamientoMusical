@@ -4,17 +4,20 @@
  */
 package view;
 
+import controller.PrincipalController;
+
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class Biblioteca extends javax.swing.JPanel {
-
+    private PrincipalController principalController;    
     /**
      * Creates new form Biblioteca
      */
-    public Biblioteca() {
+    public Biblioteca(PrincipalController principalController) {
         initComponents();
+        this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         numCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h3" );
         numPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );

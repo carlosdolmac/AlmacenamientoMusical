@@ -5,6 +5,7 @@
 package controller;
 
 import view.AnadirCancion1;
+import view.Biblioteca;
 import view.ListaDeCanciones;
 import view.Principal;
 
@@ -39,5 +40,10 @@ public class PrincipalController {
     public void mostrarListaDeCanciones() {
         ListaDeCanciones listaDeCanciones = new ListaDeCanciones(this);
         principal.mostrarPanel(listaDeCanciones);
+    }
+    
+    public void mostrarBiblioteca() {
+        Biblioteca biblioteca = new Biblioteca(this);
+        principal.mostrarPanel(biblioteca);
     }
 }

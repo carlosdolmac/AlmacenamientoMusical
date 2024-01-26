@@ -6,6 +6,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.PrincipalController;
+import java.awt.Color;
 
 /**
  *
@@ -18,8 +19,8 @@ public class ListaDeCanciones extends javax.swing.JPanel {
      * Creates new form ListaDeCanciones
      */
     public ListaDeCanciones(PrincipalController principalController) {
-        this.principalController = principalController;
         initComponents();
+        this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelListaCanciones.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
@@ -50,6 +51,17 @@ public class ListaDeCanciones extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseExited(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
@@ -164,6 +176,18 @@ public class ListaDeCanciones extends javax.swing.JPanel {
     private void anadirCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_anadirCancionMouseClicked
         principalController.mostrarAnadirCancion();
     }//GEN-LAST:event_anadirCancionMouseClicked
+
+    private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
+       labelBiblioteca.setForeground(Color.black);
+    }//GEN-LAST:event_labelBibliotecaMouseEntered
+
+    private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
+        labelBiblioteca.setForeground(Color.gray);
+    }//GEN-LAST:event_labelBibliotecaMouseExited
+
+    private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
+        principalController.mostrarBiblioteca();
+    }//GEN-LAST:event_labelBibliotecaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
