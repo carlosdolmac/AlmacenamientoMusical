@@ -15,8 +15,9 @@ import java.awt.Color;
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
 private PrincipalController principalController;
-    public AnadirCancion1() {
+    public AnadirCancion1(PrincipalController principalController) {
         initComponents();
+        this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelLista.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelAnadirCancion.putClientProperty( "FlatLaf.styleClass", "h1" );

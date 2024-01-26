@@ -29,7 +29,7 @@ public class PrincipalController {
      * Método para mostrar la ventana de añadir canción.
      */
     public void mostrarAnadirCancion() {
-        AnadirCancion1 anadirCancion = new AnadirCancion1();
+        AnadirCancion1 anadirCancion = new AnadirCancion1(this); // Pasa 'this' como argumento
         principal.mostrarPanel(anadirCancion);
     }
 
