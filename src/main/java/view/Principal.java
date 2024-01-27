@@ -242,6 +242,9 @@ public class Principal extends javax.swing.JPanel {
         panelCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
         panelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelCerrarSesionMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelCerrarSesionMouseEntered(evt);
             }
@@ -604,6 +607,10 @@ public class Principal extends javax.swing.JPanel {
     private void panelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseClicked
         mostrarPanel(new Playlists());
     }//GEN-LAST:event_panelPlaylistsMouseClicked
+
+    private void panelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelCerrarSesionMouseClicked
 
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
