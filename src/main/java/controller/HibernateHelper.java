@@ -358,4 +358,67 @@ public class HibernateHelper {
         return null;
     }
 
+    public int obtenerNumeroCanciones() {
+        try (Session session = sessionFactory.openSession()) {
+            // Realizar la consulta para contar el número total de canciones
+            Query<Long> query = session.createQuery("SELECT COUNT(*) FROM Canciones", Long.class);
+            Long count = query.uniqueResult();
+            
+            return count != null ? count.intValue() : 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    public int obtenerNumeroArtistas() {
+        try (Session session = sessionFactory.openSession()) {
+            // Realizar la consulta para contar el número total de canciones
+            Query<Long> query = session.createQuery("SELECT COUNT(*) FROM Artistas", Long.class);
+            Long count = query.uniqueResult();
+            
+            return count != null ? count.intValue() : 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    public int obtenerNumeroCancionesPorUsuarioActual() {
+        try (Session session = sessionFactory.openSession()) {
+            // Obtener el usuario actual desde la sesión
+            Usuarios usuarioActual = SessionManager.getUsuarioActual();
+
+            if (usuarioActual != null) {
+                // Realizar la consulta para contar el número total de canciones asociadas al usuario
+                Query<Long> query = session.createQuery("SELECT COUNT(c) FROM Canciones c WHERE c.usuarios = :usuario", Long.class);
+                query.setParameter("usuario", usuarioActual);
+                Long count = query.uniqueResult();
+
+                return count != null ? count.intValue() : 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+    
+    public int obtenerNumeroPlaylistsUsuarioActual() {
+        try (Session session = sessionFactory.openSession()) {
+            // Obtener el usuario actual desde la sesión
+            Usuarios usuarioActual = SessionManager.getUsuarioActual();
+
+            // Realizar la consulta para contar el número total de playlists asociadas al usuario actual
+            Query<Long> query = session.createQuery("SELECT COUNT(*) FROM Playlists p WHERE p.usuarios = :usuario", Long.class);
+            query.setParameter("usuario", usuarioActual);
+            Long count = query.uniqueResult();
+
+            return count != null ? count.intValue() : 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 }

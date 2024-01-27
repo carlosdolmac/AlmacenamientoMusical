@@ -31,12 +31,16 @@ public class Inicio extends javax.swing.JPanel {
         labelIrAArtistas.putClientProperty( "FlatLaf.styleClass", "h4" );
         labelNumTotalCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelTusPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
-        numTodasLasCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTusCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
         numTusPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelNumArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelNumCancionesArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
         numTotalArtistas.putClientProperty( "FlatLaf.styleClass", "h3" );
-        numCancionesArtista.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTotalCanciones.putClientProperty( "FlatLaf.styleClass", "h3" );
+        numTotalCanciones.setText(String.valueOf(sqlHelper.obtenerNumeroCanciones())); // Actualiza el JLabel con el número de canciones
+        numTotalArtistas.setText(String.valueOf(sqlHelper.obtenerNumeroArtistas())); // Actualiza el JLabel con el número de artistas
+        numTusCanciones.setText(String.valueOf(sqlHelper.obtenerNumeroCancionesPorUsuarioActual())); // Actualiza el JLabel con el número de tus canciones
+        numTusPlaylists.setText(String.valueOf(sqlHelper.obtenerNumeroPlaylistsUsuarioActual())); // Actualiza el JLabel con el número de tus playlists
     }
 
     private void cargarTodasLasCanciones() {
@@ -73,7 +77,7 @@ public class Inicio extends javax.swing.JPanel {
         labelBiblioteca = new javax.swing.JLabel();
         labelIrABiblioteca = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        numTodasLasCanciones = new javax.swing.JLabel();
+        numTusCanciones = new javax.swing.JLabel();
         labelNumTotalCanciones = new javax.swing.JLabel();
         labelTusPlaylists = new javax.swing.JLabel();
         numTusPlaylists = new javax.swing.JLabel();
@@ -84,7 +88,7 @@ public class Inicio extends javax.swing.JPanel {
         labelNumArtistas = new javax.swing.JLabel();
         labelNumCancionesArtistas = new javax.swing.JLabel();
         numTotalArtistas = new javax.swing.JLabel();
-        numCancionesArtista = new javax.swing.JLabel();
+        numTotalCanciones = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaListaCanciones = new javax.swing.JTable();
@@ -106,7 +110,7 @@ public class Inicio extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(139, 243, 204));
 
-        numTodasLasCanciones.setText("0");
+        numTusCanciones.setText("0");
 
         labelNumTotalCanciones.setText("Número total de canciones guardadas");
 
@@ -132,7 +136,7 @@ public class Inicio extends javax.swing.JPanel {
                         .addComponent(labelNumTotalCanciones))
                     .addGroup(panelLibraryLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(numTodasLasCanciones)))
+                        .addComponent(numTusCanciones)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTusPlaylists)
@@ -152,7 +156,7 @@ public class Inicio extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numTodasLasCanciones)
+                    .addComponent(numTusCanciones)
                     .addComponent(numTusPlaylists))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,7 +181,7 @@ public class Inicio extends javax.swing.JPanel {
 
         numTotalArtistas.setText("0");
 
-        numCancionesArtista.setText("0");
+        numTotalCanciones.setText("0");
 
         javax.swing.GroupLayout panelArtistsLayout = new javax.swing.GroupLayout(panelArtists);
         panelArtists.setLayout(panelArtistsLayout);
@@ -201,7 +205,7 @@ public class Inicio extends javax.swing.JPanel {
                 .addGap(45, 45, 45)
                 .addComponent(numTotalArtistas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(numCancionesArtista)
+                .addComponent(numTotalCanciones)
                 .addGap(106, 106, 106))
         );
         panelArtistsLayout.setVerticalGroup(
@@ -216,7 +220,7 @@ public class Inicio extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numTotalArtistas)
-                    .addComponent(numCancionesArtista))
+                    .addComponent(numTotalCanciones))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNumArtistas)
@@ -311,9 +315,9 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JLabel labelNumCancionesArtistas;
     private javax.swing.JLabel labelNumTotalCanciones;
     private javax.swing.JLabel labelTusPlaylists;
-    private javax.swing.JLabel numCancionesArtista;
-    private javax.swing.JLabel numTodasLasCanciones;
     private javax.swing.JLabel numTotalArtistas;
+    private javax.swing.JLabel numTotalCanciones;
+    private javax.swing.JLabel numTusCanciones;
     private javax.swing.JLabel numTusPlaylists;
     private javax.swing.JPanel panelArtists;
     private javax.swing.JPanel panelLibrary;

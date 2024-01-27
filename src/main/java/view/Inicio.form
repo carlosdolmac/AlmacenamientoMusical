@@ -135,7 +135,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="numTodasLasCanciones" min="-2" max="-2" attributes="0"/>
+                              <Component id="numTusCanciones" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="133" max="32767" attributes="0"/>
@@ -162,7 +162,7 @@
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="numTodasLasCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTusCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="numTusPlaylists" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -193,7 +193,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="numTodasLasCanciones">
+            <Component class="javax.swing.JLabel" name="numTusCanciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
@@ -257,7 +257,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="numTotalArtistas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="numCancionesArtista" min="-2" max="-2" attributes="0"/>
+                      <Component id="numTotalCanciones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -275,7 +275,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="numTotalArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="numCancionesArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTotalCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -320,7 +320,7 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="numCancionesArtista">
+            <Component class="javax.swing.JLabel" name="numTotalCanciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>

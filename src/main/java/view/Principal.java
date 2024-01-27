@@ -37,7 +37,6 @@ public class Principal extends javax.swing.JPanel {
         principalController = new PrincipalController(this);
         this.idUsuario = idUsuario;
         sqlHelper = new HibernateHelper();
-        //numCanciones.setText(String.valueOf(obtenerNumeroCanciones())); // Actualizar el JLabel con el número de canciones
         
         iconDash.setIcon(new FlatSVGIcon("img/Dashboard.svg"));
         iconLib.setIcon(new FlatSVGIcon("img/biblio.svg"));
