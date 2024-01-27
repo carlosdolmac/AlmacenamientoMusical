@@ -18,6 +18,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 import model.Artistas;
 import model.Canciones;
+import model.Playlists;
 import model.Usuarios;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -193,13 +194,13 @@ public class HibernateHelper {
         return canciones;
     }
     
-    public void agregarCancion(String nombreCancion, String playlist, String artistaNombre) {
+    public void agregarCancion(String nombreCancion, Integer idPlaylist, String artistaNombre) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
 
             try {
                 // Obtener el usuario actual (debes implementar este método según tu lógica)
-                Usuarios usuario = obtenerUsuarioActual(); 
+                Usuarios usuario = obtenerUsuarioActual();
 
                 // Verificar si el artista ya existe
                 Artistas artista = obtenerArtistaPorNombre(artistaNombre);
@@ -209,8 +210,8 @@ public class HibernateHelper {
                     session.save(artista);
                 }
 
-                // Crear la canción
-                Canciones cancion = new Canciones(usuario, null, artista, nombreCancion);
+                // Crear la canción y asignar el idPlaylist si no es null
+                Canciones cancion = new Canciones(usuario, idPlaylist != null ? obtenerPlaylistPorId(idPlaylist) : null, artista, nombreCancion);
                 session.save(cancion);
 
                 transaction.commit();
@@ -224,6 +225,7 @@ public class HibernateHelper {
             e.printStackTrace();
         }
     }
+
     
     private Usuarios obtenerUsuarioActual() {
         return SessionManager.getUsuarioActual();
@@ -273,5 +275,57 @@ public class HibernateHelper {
         return nombresPlaylists;
     }
 
+    public Integer obtenerIdPlaylistPorNombre(String nombrePlaylist) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            // Obtener el ID del usuario actual
+            Integer idUsuarioActual = SessionManager.getIdUsuarioActual();
+
+            if (idUsuarioActual != null) {
+                // Consulta para obtener el ID de la playlist por su nombre y el ID del usuario
+                String queryString = "SELECT p.idPlaylist FROM Playlists p WHERE p.usuarios.idUsuario = :idUsuario AND p.nombrePlaylist = :nombrePlaylist";
+                Query<Integer> query = session.createQuery(queryString, Integer.class);
+                query.setParameter("idUsuario", idUsuarioActual);
+                query.setParameter("nombrePlaylist", nombrePlaylist);
+
+                Integer idPlaylist = query.uniqueResult();
+
+                transaction.commit();
+                return idPlaylist;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public Playlists obtenerPlaylistPorId(Integer idPlaylist) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Consulta para obtener la instancia de Playlists por su idPlaylist
+                String queryString = "FROM Playlists p WHERE p.idPlaylist = :idPlaylist";
+                Query<Playlists> query = session.createQuery(queryString, Playlists.class);
+                query.setParameter("idPlaylist", idPlaylist);
+
+                Playlists playlist = query.uniqueResult();
+
+                transaction.commit();
+                return playlist;
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 }

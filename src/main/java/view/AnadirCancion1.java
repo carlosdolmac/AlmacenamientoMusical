@@ -10,6 +10,7 @@ import controller.HibernateHelper;
 import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -256,11 +257,29 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         String playlistSeleccionada = (String) playlist.getSelectedItem();
 
         try {
+            Integer idPlaylist = null;
+
+            if (playlistSeleccionada != null && !playlistSeleccionada.equals("null")) {
+                // Solo intentar obtener el ID si la playlist seleccionada no es "null"
+                idPlaylist = hibernateHelper.obtenerIdPlaylistPorNombre(playlistSeleccionada);
+            }
+
             // Llamar al método del controlador para guardar la canción
-            hibernateHelper.agregarCancion(nombreCancionAdd, playlistSeleccionada, artistaAdd);
+            hibernateHelper.agregarCancion(nombreCancionAdd, idPlaylist, artistaAdd);
+
+            // Limpiar campos después de agregar la canción
+            nombreCancion.setText("");
+            artista.setText("");
+            playlist.setSelectedIndex(0); // Esto establecerá la selección en la primera opción (posiblemente "null")
+
+            // Mostrar mensaje de éxito
+            JOptionPane.showMessageDialog(this, "Canción agregada exitosamente.");
 
         } catch (Exception e) {
             e.printStackTrace();
+
+            // Mostrar mensaje de error general
+            JOptionPane.showMessageDialog(this, "Error al agregar la canción. Por favor, inténtalo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_guardarCancionActionPerformed
 
