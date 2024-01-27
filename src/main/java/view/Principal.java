@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.HibernateHelper;
 import controller.PrincipalController;
+import controller.SessionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -609,7 +610,7 @@ public class Principal extends javax.swing.JPanel {
     }//GEN-LAST:event_panelPlaylistsMouseClicked
 
     private void panelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseClicked
-        // TODO add your handling code here:
+        SessionManager.setUsuarioActual(null);
     }//GEN-LAST:event_panelCerrarSesionMouseClicked
 
     private void actualizarPaneles() {
