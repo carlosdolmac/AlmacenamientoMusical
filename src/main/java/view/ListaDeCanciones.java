@@ -5,14 +5,19 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.HibernateHelper;
 import controller.PrincipalController;
 import java.awt.Color;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Canciones;
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class ListaDeCanciones extends javax.swing.JPanel {
+    HibernateHelper hibernateHelper = new HibernateHelper();
     private PrincipalController principalController;
     
     /**
@@ -25,6 +30,9 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         labelListaCanciones.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
         buscarCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Canción" ); //Placeholder
+        
+         // Llenar la tabla con las canciones al inicializar
+        llenarTablaCanciones();
     }
 
     /**
@@ -188,6 +196,28 @@ public class ListaDeCanciones extends javax.swing.JPanel {
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
+
+    /**
+     * Llena la tabla de canciones con la información de la base de datos.
+     * Se invoca al inicializar la interfaz y después de agregar/borrar una canción.
+     */
+    private void llenarTablaCanciones() {
+    // Obtener las canciones del usuario actual desde el controlador
+    List<Canciones> canciones = hibernateHelper.obtenerCancionesUsuarioActual();
+
+    // Llenar la tabla con los datos de las canciones del usuario actual
+    DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+    model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
+
+    for (Canciones cancion : canciones) {
+        // Agregar cada canción como una fila en la tabla
+        model.addRow(new Object[] {
+            cancion.getNombreCancion(),
+            cancion.getIdCancion(),
+            cancion.getArtistas().getNombreArtista()  // Ajustar esta línea según tu modelo
+        });
+    }
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

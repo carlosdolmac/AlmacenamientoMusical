@@ -327,5 +327,35 @@ public class HibernateHelper {
 
         return null;
     }
+    
+    public List<Canciones> obtenerCancionesUsuarioActual() {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Obtener el usuario actual desde la sesión
+                Usuarios usuarioActual = SessionManager.getUsuarioActual();
+
+                // Consultar las canciones asociadas al usuario actual
+                String queryString = "SELECT c FROM Canciones c JOIN FETCH c.artistas WHERE c.usuarios = :usuario";
+                Query<Canciones> query = session.createQuery(queryString, Canciones.class);
+                query.setParameter("usuario", usuarioActual);
+
+                List<Canciones> canciones = query.getResultList();
+
+                transaction.commit();
+                return canciones;
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 }
