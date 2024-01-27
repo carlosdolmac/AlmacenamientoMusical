@@ -15,6 +15,7 @@ public class Canciones implements java.io.Serializable {
 	public Canciones() {
 	}
 
+        
 	public Canciones(Usuarios usuarios, Playlists playlists, Artistas artistas, String nombreCancion) {
 		this.usuarios = usuarios;
 		this.playlists = playlists;

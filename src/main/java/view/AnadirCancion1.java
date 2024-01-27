@@ -6,14 +6,17 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.HibernateHelper;
 import controller.PrincipalController;
 import java.awt.Color;
+import java.util.List;
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
+    HibernateHelper hibernateHelper = new HibernateHelper();
     private PrincipalController principalController;
     
     public AnadirCancion1(PrincipalController principalController) {
@@ -25,6 +28,22 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         artista.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Selena Gomez" ); //Placeholder
         nombreCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Who Says" ); //Placeholder
         idCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "0001" ); //Placeholder
+        
+        // Cargar playlists desde la base de datos
+        cargarPlaylists();
+    }
+    
+    private void cargarPlaylists() {
+        // Obtener la lista de playlists desde la base de datos
+        List<String> playlists = hibernateHelper.obtenerNombresPlaylists();
+
+        // Limpiar el JComboBox
+        playlist.removeAllItems();
+
+        // Agregar las playlists al JComboBox
+        for (String playlistNombre : playlists) {
+            playlist.addItem(playlistNombre);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -97,6 +116,11 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         guardarCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         guardarCancion.setText("Guardar Canción");
         guardarCancion.setPreferredSize(new java.awt.Dimension(162, 46));
+        guardarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarCancionActionPerformed(evt);
+            }
+        });
 
         idCancion.setBackground(new java.awt.Color(244, 246, 248));
         idCancion.setPreferredSize(new java.awt.Dimension(340, 38));
@@ -110,7 +134,8 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         labelNombre3.setText("Playlist (Opcional)");
 
-        playlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        playlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {})
+        );
         playlist.setPreferredSize(new java.awt.Dimension(340, 38));
 
         javax.swing.GroupLayout fondoAnadirCancionAPlaylistLayout = new javax.swing.GroupLayout(fondoAnadirCancionAPlaylist);
@@ -224,6 +249,20 @@ public class AnadirCancion1 extends javax.swing.JPanel {
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
+
+    private void guardarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCancionActionPerformed
+        String nombreCancionAdd = nombreCancion.getText();
+        String artistaAdd = artista.getText();
+        String playlistSeleccionada = (String) playlist.getSelectedItem();
+
+        try {
+            // Llamar al método del controlador para guardar la canción
+            hibernateHelper.agregarCancion(nombreCancionAdd, playlistSeleccionada, artistaAdd);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_guardarCancionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -52,11 +52,6 @@ public class LoginController {
     }
 
 
-    /**
-     * Método para realizar el inicio de sesión
-     * @param correo este argumento es el correo del usuario
-     * @param contraseña este argumento es la contraseña del usuario
-     */
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
         Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
@@ -65,6 +60,10 @@ public class LoginController {
             String hashAlmacenado = usuario.getPasswrd();
             if (BCrypt.checkpw(contraseña, hashAlmacenado)) {
                 // Contraseña correcta, inicia sesión
+                // Guardar información del usuario en la sesión
+                SessionManager.setUsuarioActual(usuario);
+
+                // Mostrar el panel o realizar otras acciones después del inicio de sesión exitoso
                 interfaz.mostrarDashboard(usuario.getIdUsuario());
             } else {
                 // Contraseña incorrecta
@@ -75,6 +74,7 @@ public class LoginController {
             JOptionPane.showMessageDialog(interfaz, "Usuario no encontrado. Por favor, verifica tus credenciales.");
         }
     }
+
 
     /**
      * // Método para mostrar el panel de registro

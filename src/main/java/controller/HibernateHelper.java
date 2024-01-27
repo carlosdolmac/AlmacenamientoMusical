@@ -11,12 +11,16 @@ package controller;
  * Autor: Carlos de los Dolores Macías
  */
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import java.util.List;
+import model.Artistas;
 import model.Canciones;
 import model.Usuarios;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class HibernateHelper {
@@ -188,4 +192,86 @@ public class HibernateHelper {
 
         return canciones;
     }
+    
+    public void agregarCancion(String nombreCancion, String playlist, String artistaNombre) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Obtener el usuario actual (debes implementar este método según tu lógica)
+                Usuarios usuario = obtenerUsuarioActual(); 
+
+                // Verificar si el artista ya existe
+                Artistas artista = obtenerArtistaPorNombre(artistaNombre);
+                if (artista == null) {
+                    // Si no existe, crea un nuevo artista
+                    artista = new Artistas(artistaNombre);
+                    session.save(artista);
+                }
+
+                // Crear la canción
+                Canciones cancion = new Canciones(usuario, null, artista, nombreCancion);
+                session.save(cancion);
+
+                transaction.commit();
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private Usuarios obtenerUsuarioActual() {
+        return SessionManager.getUsuarioActual();
+    }
+
+    private Artistas obtenerArtistaPorNombre(String nombre) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("FROM Artistas WHERE nombreArtista = :nombre", Artistas.class)
+                    .setParameter("nombre", nombre)
+                    .uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    /**
+     * Obtiene la lista de nombres de playlists del usuario actual desde la base de datos.
+     * @return Lista de nombres de playlists.
+     */
+    public List<String> obtenerNombresPlaylists() {
+        List<String> nombresPlaylists = new ArrayList<>();
+
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            // Obtener el ID del usuario actual
+            Integer idUsuarioActual = SessionManager.getIdUsuarioActual();
+
+            // Agregar la opción "null" como la primera opción
+            nombresPlaylists.add(null);
+
+            if (idUsuarioActual != null) {
+                // Consulta para obtener los nombres de las playlists del usuario actual
+                String queryString = "SELECT p.nombrePlaylist FROM Playlists p WHERE p.usuarios.idUsuario = :idUsuario";
+                Query<String> query = session.createQuery(queryString, String.class);
+                query.setParameter("idUsuario", idUsuarioActual);
+
+                nombresPlaylists.addAll(query.getResultList());
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return nombresPlaylists;
+    }
+
+
 }

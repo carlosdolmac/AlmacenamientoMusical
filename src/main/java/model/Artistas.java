@@ -17,6 +17,9 @@ public class Artistas implements java.io.Serializable {
 	public Artistas() {
 	}
 
+        public Artistas(String nombreArtista) {
+            this.nombreArtista = nombreArtista;
+        }
 	public Artistas(String nombreArtista, Integer edad, Set cancioneses) {
 		this.nombreArtista = nombreArtista;
 		this.edad = edad;
