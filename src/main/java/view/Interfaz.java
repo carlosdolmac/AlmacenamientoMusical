@@ -16,12 +16,21 @@ import javax.swing.JPanel;
  * Autor: Carlos de los Dolores Macías
  */
 public class Interfaz extends javax.swing.JFrame {
+    private static Interfaz instancia;
 
     public Interfaz() {
         initComponents();
         setLocationRelativeTo(null); // Establece la ubicación de la ventana en el centro de la pantalla
         LoginController loginController = new LoginController(this);
         loginController.mostrarLogin(); // Muestra el panel de inicio de sesión al iniciar la aplicación
+    }
+    
+    // Método para obtener la instancia única de la clase Interfaz
+    public static Interfaz getInstance() {
+        if (instancia == null) {
+            instancia = new Interfaz();
+        }
+        return instancia;
     }
 
     /**

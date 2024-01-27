@@ -78,6 +78,16 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.revalidate(); // Obliga al panel a recalcular su diseño
         colocarPaneles.repaint(); // Solicita al panel que repinte sus componentes
     }
+    
+    public void mostrarPanel1(JPanel p) {
+        fondoDashboard.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
+        fondoDashboard.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda
+
+        fondoDashboard.add(p, BorderLayout.CENTER); // Agrega el panel al centro para que se ajuste al tamaño del contenedor
+
+        fondoDashboard.revalidate(); // Obliga al panel a recalcular su diseño
+        fondoDashboard.repaint(); // Solicita al panel que repinte sus componentes
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -611,6 +621,9 @@ public class Principal extends javax.swing.JPanel {
 
     private void panelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseClicked
         SessionManager.setUsuarioActual(null);
+        // Obtener la instancia de la Interfaz y mostrar el panel Login
+        Interfaz interfaz = Interfaz.getInstance();
+        mostrarPanel1(new Login(interfaz));
     }//GEN-LAST:event_panelCerrarSesionMouseClicked
 
     private void actualizarPaneles() {
