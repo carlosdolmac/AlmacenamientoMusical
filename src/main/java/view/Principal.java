@@ -620,11 +620,7 @@ public class Principal extends javax.swing.JPanel {
     }//GEN-LAST:event_panelPlaylistsMouseClicked
 
     private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
-        System.exit(1);
-        SessionManager.setUsuarioActual(null);
-        // Obtener la instancia de la Interfaz y mostrar el panel Login
-        Interfaz interfaz = Interfaz.getInstance();
-        mostrarPanel1(new Login(interfaz));
+        System.exit(0);
     }//GEN-LAST:event_panelSalirMouseClicked
 
     private void actualizarPaneles() {
