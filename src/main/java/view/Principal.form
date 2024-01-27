@@ -80,7 +80,7 @@
                               <Component id="jLabelUsername" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="panelBiblioteca" min="-2" max="-2" attributes="0"/>
-                          <Component id="panelCerrarSesion" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelSalir" min="-2" max="-2" attributes="0"/>
                           <Component id="panelInicio" min="-2" max="-2" attributes="0"/>
                           <Component id="panelArtista" min="-2" max="-2" attributes="0"/>
                           <Component id="panelDesplegable" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="panelCerrarSesion" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelSalir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="panelArtista" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -293,7 +293,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelCerrarSesion">
+            <Container class="javax.swing.JPanel" name="panelSalir">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="f3" red="8b" type="rgb"/>
@@ -306,9 +306,9 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelCerrarSesionMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelSalirMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelSalirMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelSalirMouseExited"/>
               </Events>
 
               <Layout>
@@ -319,7 +319,7 @@
                           <Component id="iconOut1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabelCerrarSesion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="171" max="32767" attributes="0"/>
+                          <EmptySpace pref="190" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -339,7 +339,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelCerrarSesion">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Log Out"/>
+                    <Property name="text" type="java.lang.String" value="Salir"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="iconOut1">

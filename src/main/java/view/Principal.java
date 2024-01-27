@@ -111,7 +111,7 @@ public class Principal extends javax.swing.JPanel {
         panelInicio = new javax.swing.JPanel();
         jLabelInicio = new javax.swing.JLabel();
         iconDash = new javax.swing.JLabel();
-        panelCerrarSesion = new javax.swing.JPanel();
+        panelSalir = new javax.swing.JPanel();
         jLabelCerrarSesion = new javax.swing.JLabel();
         iconOut1 = new javax.swing.JLabel();
         panelArtista = new javax.swing.JPanel();
@@ -249,39 +249,39 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        panelCerrarSesion.setBackground(new java.awt.Color(139, 243, 204));
-        panelCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelCerrarSesion.setPreferredSize(new java.awt.Dimension(256, 46));
-        panelCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelSalir.setBackground(new java.awt.Color(139, 243, 204));
+        panelSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelSalir.setPreferredSize(new java.awt.Dimension(256, 46));
+        panelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelCerrarSesionMouseClicked(evt);
+                panelSalirMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelCerrarSesionMouseEntered(evt);
+                panelSalirMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelCerrarSesionMouseExited(evt);
+                panelSalirMouseExited(evt);
             }
         });
 
-        jLabelCerrarSesion.setText("Log Out");
+        jLabelCerrarSesion.setText("Salir");
 
-        javax.swing.GroupLayout panelCerrarSesionLayout = new javax.swing.GroupLayout(panelCerrarSesion);
-        panelCerrarSesion.setLayout(panelCerrarSesionLayout);
-        panelCerrarSesionLayout.setHorizontalGroup(
-            panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCerrarSesionLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelSalirLayout = new javax.swing.GroupLayout(panelSalir);
+        panelSalir.setLayout(panelSalirLayout);
+        panelSalirLayout.setHorizontalGroup(
+            panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalirLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(iconOut1)
                 .addGap(26, 26, 26)
                 .addComponent(jLabelCerrarSesion)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
-        panelCerrarSesionLayout.setVerticalGroup(
-            panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCerrarSesionLayout.createSequentialGroup()
+        panelSalirLayout.setVerticalGroup(
+            panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalirLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panelCerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconOut1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelCerrarSesion))
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -430,7 +430,7 @@ public class Principal extends javax.swing.JPanel {
                         .addGap(99, 99, 99)
                         .addComponent(jLabelUsername))
                     .addComponent(panelBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelDesplegable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -454,7 +454,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(panelCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -599,17 +599,17 @@ public class Principal extends javax.swing.JPanel {
         panelArtista.setBackground(colorSeleccion2);
     }//GEN-LAST:event_panelArtistaMouseExited
 
-    private void panelCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseExited
-        panelCerrarSesion.setBackground(colorSeleccion2);
-    }//GEN-LAST:event_panelCerrarSesionMouseExited
+    private void panelSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseExited
+        panelSalir.setBackground(colorSeleccion2);
+    }//GEN-LAST:event_panelSalirMouseExited
 
     private void panelArtistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArtistaMouseEntered
         panelArtista.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelArtistaMouseEntered
 
-    private void panelCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseEntered
-        panelCerrarSesion.setBackground(colorSeleccion);
-    }//GEN-LAST:event_panelCerrarSesionMouseEntered
+    private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
+        panelSalir.setBackground(colorSeleccion);
+    }//GEN-LAST:event_panelSalirMouseEntered
 
     private void panelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseClicked
         principalController.mostrarListaDeCanciones();
@@ -619,12 +619,13 @@ public class Principal extends javax.swing.JPanel {
         mostrarPanel(new Playlists());
     }//GEN-LAST:event_panelPlaylistsMouseClicked
 
-    private void panelCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCerrarSesionMouseClicked
+    private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
+        System.exit(1);
         SessionManager.setUsuarioActual(null);
         // Obtener la instancia de la Interfaz y mostrar el panel Login
         Interfaz interfaz = Interfaz.getInstance();
         mostrarPanel1(new Login(interfaz));
-    }//GEN-LAST:event_panelCerrarSesionMouseClicked
+    }//GEN-LAST:event_panelSalirMouseClicked
 
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
@@ -660,11 +661,11 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel labelMusicNocta;
     private javax.swing.JPanel panelArtista;
     private javax.swing.JPanel panelBiblioteca;
-    private javax.swing.JPanel panelCerrarSesion;
     private javax.swing.JPanel panelDesplegable;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelListaCanciones;
     private javax.swing.JPanel panelPlaylists;
+    private javax.swing.JPanel panelSalir;
     private javax.swing.JTextField textFieldBusqueda;
     // End of variables declaration//GEN-END:variables
 }
