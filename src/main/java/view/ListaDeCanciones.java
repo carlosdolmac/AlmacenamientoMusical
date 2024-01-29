@@ -59,6 +59,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.setToolTipText("Si pulsas te lleva a la Biblioteca");
         labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelBibliotecaMouseClicked(evt);
@@ -74,6 +75,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
         labelListaCanciones.setText("Lista de Canciones");
+        labelListaCanciones.setToolTipText("");
 
         labelDescripcion.setText("Lista de Canciones que has guardado");
 
@@ -105,12 +107,14 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         borrarCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         borrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         borrarCancion.setText("Borrar Canción");
+        borrarCancion.setToolTipText("Selecciona una canción de la tabla y al pulsar aquí se borrará");
         borrarCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         anadirCancion.setBackground(new java.awt.Color(139, 243, 204));
         anadirCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         anadirCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         anadirCancion.setText("Añadir Canción");
+        anadirCancion.setToolTipText("Pulsar para ir a la ventana de Añadir Canción");
         anadirCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         anadirCancion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

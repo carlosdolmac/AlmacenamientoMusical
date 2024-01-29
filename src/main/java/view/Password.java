@@ -125,6 +125,7 @@ public class Password extends javax.swing.JPanel {
         fondoPassword.add(changeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 158, -1, -1));
 
         inicioImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
+        inicioImg.setToolTipText("Al hacer click aquí te llevara a la pantalla de Login");
         inicioImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicioImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

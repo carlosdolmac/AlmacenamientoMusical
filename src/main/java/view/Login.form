@@ -164,6 +164,7 @@
               <Color blue="99" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Haz Click Aqu&#xed;"/>
+            <Property name="toolTipText" type="java.lang.String" value="Pulsa para ir a la pantalla de cambio de contrase&#xf1;a"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -183,6 +184,7 @@
               <Color blue="99" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reg&#xed;strate Aqu&#xed;"/>
+            <Property name="toolTipText" type="java.lang.String" value="Pulssa para ir a la pantalla de registro"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>

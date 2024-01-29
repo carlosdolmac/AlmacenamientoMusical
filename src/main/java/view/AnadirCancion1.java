@@ -73,6 +73,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.setToolTipText("Te lleva a la biblioteca");
         labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelBibliotecaMouseClicked(evt);
@@ -89,6 +90,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         labelLista.setForeground(new java.awt.Color(153, 153, 153));
         labelLista.setText("Lista de Canciones");
+        labelLista.setToolTipText("Te lleva a la lista de canciones");
         labelLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelListaMouseClicked(evt);
@@ -113,6 +115,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         guardarCancion.setBackground(new java.awt.Color(139, 243, 204));
         guardarCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         guardarCancion.setText("Guardar Canción");
+        guardarCancion.setToolTipText("Pulsa para guardar la canción");
         guardarCancion.setPreferredSize(new java.awt.Dimension(162, 46));
         guardarCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +132,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         playlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {})
         );
+        playlist.setToolTipText("Puedes no seleccionar una Playlist");
         playlist.setPreferredSize(new java.awt.Dimension(340, 38));
 
         javax.swing.GroupLayout fondoAnadirCancionAPlaylistLayout = new javax.swing.GroupLayout(fondoAnadirCancionAPlaylist);

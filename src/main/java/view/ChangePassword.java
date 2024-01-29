@@ -71,6 +71,7 @@ public class ChangePassword extends javax.swing.JPanel {
         modificarPass.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         modificarPass.setForeground(new java.awt.Color(255, 255, 255));
         modificarPass.setText("Modificar");
+        modificarPass.setToolTipText("Pulsa para modificar la contraseña");
         modificarPass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificarPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +87,7 @@ public class ChangePassword extends javax.swing.JPanel {
         fondoChangePassword.add(changeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 158, -1, -1));
 
         inicioLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio (1).png"))); // NOI18N
+        inicioLabel.setToolTipText("Al hacer click aquí te llevará a la pantalla de Login");
         inicioLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicioLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

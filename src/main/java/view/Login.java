@@ -105,6 +105,7 @@ public class Login extends javax.swing.JPanel {
 
         clickAqui.setForeground(new java.awt.Color(0, 51, 153));
         clickAqui.setText("Haz Click Aquí");
+        clickAqui.setToolTipText("Pulsa para ir a la pantalla de cambio de contraseña");
         clickAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clickAqui.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,6 +116,7 @@ public class Login extends javax.swing.JPanel {
 
         registrateAqui.setForeground(new java.awt.Color(0, 51, 153));
         registrateAqui.setText("Regístrate Aquí");
+        registrateAqui.setToolTipText("Pulssa para ir a la pantalla de registro");
         registrateAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrateAqui.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

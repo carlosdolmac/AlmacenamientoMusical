@@ -167,6 +167,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelBiblioteca.setBackground(new java.awt.Color(139, 243, 204));
+        panelBiblioteca.setToolTipText("Muestra la pantalla de Biblioteca");
         panelBiblioteca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBiblioteca.setPreferredSize(new java.awt.Dimension(256, 46));
         panelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,6 +212,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelUsername.setText("Username");
 
         panelInicio.setBackground(new java.awt.Color(139, 243, 204));
+        panelInicio.setToolTipText("Muestra la pantalla de Inicio");
         panelInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelInicio.setPreferredSize(new java.awt.Dimension(256, 46));
         panelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,6 +251,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelSalir.setBackground(new java.awt.Color(139, 243, 204));
+        panelSalir.setToolTipText("Cierra la aplicación");
         panelSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSalir.setPreferredSize(new java.awt.Dimension(256, 46));
         panelSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,6 +327,7 @@ public class Principal extends javax.swing.JPanel {
         panelDesplegable.setBackground(new java.awt.Color(23, 205, 137));
 
         panelListaCanciones.setBackground(new java.awt.Color(23, 205, 137));
+        panelListaCanciones.setToolTipText("Muestra la pantalla de Lista de Canciones");
         panelListaCanciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelListaCanciones.setPreferredSize(new java.awt.Dimension(256, 46));
         panelListaCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,6 +366,7 @@ public class Principal extends javax.swing.JPanel {
         );
 
         panelPlaylists.setBackground(new java.awt.Color(23, 205, 137));
+        panelPlaylists.setToolTipText("Muestra la pantalla de Playlists");
         panelPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelPlaylists.setPreferredSize(new java.awt.Dimension(256, 46));
         panelPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {

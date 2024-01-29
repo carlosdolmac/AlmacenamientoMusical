@@ -97,6 +97,7 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Biblioteca"/>
+            <Property name="toolTipText" type="java.lang.String" value="Si pulsas te lleva a la Biblioteca"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelBibliotecaMouseClicked"/>
@@ -114,6 +115,7 @@
         <Component class="javax.swing.JLabel" name="labelListaCanciones">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lista de Canciones"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelDescripcion">
@@ -166,6 +168,7 @@
               <Image iconType="3" name="/img/Mas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Borrar Canci&#xf3;n"/>
+            <Property name="toolTipText" type="java.lang.String" value="Selecciona una canci&#xf3;n de la tabla y al pulsar aqu&#xed; se borrar&#xe1;"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -183,6 +186,7 @@
               <Image iconType="3" name="/img/Mas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir Canci&#xf3;n"/>
+            <Property name="toolTipText" type="java.lang.String" value="Pulsar para ir a la ventana de A&#xf1;adir Canci&#xf3;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>

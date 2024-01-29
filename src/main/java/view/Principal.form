@@ -179,6 +179,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Muestra la pantalla de Biblioteca"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -245,6 +246,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Muestra la pantalla de Inicio"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -298,6 +300,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="f3" red="8b" type="rgb"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Cierra la aplicaci&#xf3;n"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -434,6 +437,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="89" green="cd" red="17" type="rgb"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Muestra la pantalla de Lista de Canciones"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>
@@ -487,6 +491,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="89" green="cd" red="17" type="rgb"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Muestra la pantalla de Playlists"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
                     </Property>

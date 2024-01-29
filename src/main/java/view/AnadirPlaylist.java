@@ -38,11 +38,13 @@ public class AnadirPlaylist extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.setToolTipText("Al pulsar te lleva a Biblioteca");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
         labelLista.setForeground(new java.awt.Color(153, 153, 153));
         labelLista.setText("Playlist");
+        labelLista.setToolTipText("Al pulsar te lleva a  Playlist");
 
         labelAnadirPlaylist.setText("Añadir Playlist");
 
@@ -56,6 +58,7 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         guardarPlaylist.setBackground(new java.awt.Color(139, 243, 204));
         guardarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         guardarPlaylist.setText("Guardar Playlist");
+        guardarPlaylist.setToolTipText("Pulsa para guardar la playlist");
         guardarPlaylist.setPreferredSize(new java.awt.Dimension(162, 46));
 
         javax.swing.GroupLayout fondoAnadirCancionAPlaylistLayout = new javax.swing.GroupLayout(fondoAnadirCancionAPlaylist);
