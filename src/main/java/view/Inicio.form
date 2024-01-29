@@ -124,7 +124,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelBiblioteca" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labelIrABiblioteca" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPlaylists" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -156,7 +156,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelBiblioteca" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelIrABiblioteca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlaylists" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -181,9 +181,9 @@
                 <Property name="text" type="java.lang.String" value="Biblioteca"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelIrABiblioteca">
+            <Component class="javax.swing.JLabel" name="labelPlaylists">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ir a la bilioteca"/>
+                <Property name="text" type="java.lang.String" value="Playlists"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -242,7 +242,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelArtistas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labelIrAArtistas" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTotalCanciones" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -268,7 +268,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelIrAArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTotalCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -293,9 +293,9 @@
                 <Property name="text" type="java.lang.String" value="Artistas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelIrAArtistas">
+            <Component class="javax.swing.JLabel" name="labelTotalCanciones">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ir a Artistas"/>
+                <Property name="text" type="java.lang.String" value="Total Canciones"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
