@@ -5,18 +5,23 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.HibernateHelper;
+import controller.PrincipalController;
+import java.awt.Color;
 
 /**
  *
  * @author Carlos de los Dolores Macías
  */
 public class Playlists extends javax.swing.JPanel {
-
+    HibernateHelper hibernateHelper = new HibernateHelper();
+    private PrincipalController principalController;
     /**
      * Creates new form Playlists
      */
-    public Playlists() {
+    public Playlists(PrincipalController principalController) {
         initComponents();
+        this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
@@ -47,6 +52,18 @@ public class Playlists extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelBibliotecaMouseExited(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
@@ -89,6 +106,11 @@ public class Playlists extends javax.swing.JPanel {
         anadirPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         anadirPlaylist.setText("Añadir Playlist");
         anadirPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        anadirPlaylist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                anadirPlaylistMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoPlaylistsLayout = new javax.swing.GroupLayout(fondoPlaylists);
         fondoPlaylists.setLayout(fondoPlaylistsLayout);
@@ -148,6 +170,22 @@ public class Playlists extends javax.swing.JPanel {
             .addComponent(fondoPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void anadirPlaylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_anadirPlaylistMouseClicked
+        principalController.mostrarAnadirPlaylist();
+    }//GEN-LAST:event_anadirPlaylistMouseClicked
+
+    private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
+        principalController.mostrarBiblioteca();
+    }//GEN-LAST:event_labelBibliotecaMouseClicked
+
+    private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
+        labelBiblioteca.setForeground(Color.black);
+    }//GEN-LAST:event_labelBibliotecaMouseEntered
+
+    private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
+        labelBiblioteca.setForeground(Color.gray);
+    }//GEN-LAST:event_labelBibliotecaMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

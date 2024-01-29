@@ -60,6 +60,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
         labelBiblioteca.setToolTipText("Si pulsas te lleva a la Biblioteca");
+        labelBiblioteca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelBibliotecaMouseClicked(evt);

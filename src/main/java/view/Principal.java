@@ -620,7 +620,7 @@ public class Principal extends javax.swing.JPanel {
     }//GEN-LAST:event_panelListaCancionesMouseClicked
 
     private void panelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseClicked
-        mostrarPanel(new Playlists());
+        principalController.mostrarPlaylists();
     }//GEN-LAST:event_panelPlaylistsMouseClicked
 
     private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked

@@ -5,8 +5,10 @@
 package controller;
 
 import view.AnadirCancion1;
+import view.AnadirPlaylist;
 import view.Biblioteca;
 import view.ListaDeCanciones;
+import view.Playlists;
 import view.Principal;
 
 /**
@@ -33,6 +35,11 @@ public class PrincipalController {
         AnadirCancion1 anadirCancion = new AnadirCancion1(this); // Pasa 'this' como argumento
         principal.mostrarPanel(anadirCancion);
     }
+    
+    public void mostrarAnadirPlaylist() {
+        AnadirPlaylist anadirPlaylist = new AnadirPlaylist(this); // Pasa 'this' como argumento
+        principal.mostrarPanel(anadirPlaylist);
+    }
 
     /**
      * Método para mostrar el panel lista de canciones.
@@ -40,6 +47,11 @@ public class PrincipalController {
     public void mostrarListaDeCanciones() {
         ListaDeCanciones listaDeCanciones = new ListaDeCanciones(this);
         principal.mostrarPanel(listaDeCanciones);
+    }
+    
+    public void mostrarPlaylists() {
+        Playlists playlists = new Playlists(this);
+        principal.mostrarPanel(playlists);
     }
     
     public void mostrarBiblioteca() {

@@ -5,6 +5,7 @@
 package view;
 
 import controller.PrincipalController;
+import java.awt.Color;
 
 /**
  *
@@ -59,6 +60,18 @@ public class Biblioteca extends javax.swing.JPanel {
         panelVerLista.setBackground(new java.awt.Color(204, 255, 204));
 
         labelVerLista.setText("Ver Lista Completa");
+        labelVerLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelVerLista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelVerListaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelVerListaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelVerListaMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVerListaLayout = new javax.swing.GroupLayout(panelVerLista);
         panelVerLista.setLayout(panelVerListaLayout);
@@ -120,6 +133,18 @@ public class Biblioteca extends javax.swing.JPanel {
         panelVerPlaylists.setBackground(new java.awt.Color(204, 255, 204));
 
         labelVerPlaylists.setText("Ver Playlists");
+        labelVerPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelVerPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelVerPlaylistsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelVerPlaylistsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelVerPlaylistsMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVerPlaylistsLayout = new javax.swing.GroupLayout(panelVerPlaylists);
         panelVerPlaylists.setLayout(panelVerPlaylistsLayout);
@@ -210,6 +235,30 @@ public class Biblioteca extends javax.swing.JPanel {
             .addComponent(fondoBiblioteca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void labelVerListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseClicked
+        principalController.mostrarListaDeCanciones();
+    }//GEN-LAST:event_labelVerListaMouseClicked
+
+    private void labelVerPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseClicked
+        principalController.mostrarPlaylists();
+    }//GEN-LAST:event_labelVerPlaylistsMouseClicked
+
+    private void labelVerListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseEntered
+       labelVerLista.setForeground(Color.blue);
+    }//GEN-LAST:event_labelVerListaMouseEntered
+
+    private void labelVerListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseExited
+        labelVerLista.setForeground(Color.black);
+    }//GEN-LAST:event_labelVerListaMouseExited
+
+    private void labelVerPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseEntered
+        labelVerPlaylists.setForeground(Color.blue);
+    }//GEN-LAST:event_labelVerPlaylistsMouseEntered
+
+    private void labelVerPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseExited
+        labelVerPlaylists.setForeground(Color.black);
+    }//GEN-LAST:event_labelVerPlaylistsMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

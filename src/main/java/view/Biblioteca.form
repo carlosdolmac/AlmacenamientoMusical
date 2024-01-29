@@ -155,7 +155,15 @@
                 <Component class="javax.swing.JLabel" name="labelVerLista">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Lista Completa"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerListaMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerListaMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerListaMouseExited"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -259,7 +267,15 @@
                 <Component class="javax.swing.JLabel" name="labelVerPlaylists">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Playlists"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerPlaylistsMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerPlaylistsMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelVerPlaylistsMouseExited"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

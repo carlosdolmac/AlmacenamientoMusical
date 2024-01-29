@@ -102,7 +102,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Biblioteca"/>
             <Property name="toolTipText" type="java.lang.String" value="Al pulsar te lleva a Biblioteca"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelBibliotecaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelBibliotecaMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelBibliotecaMouseExited"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -118,7 +126,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Playlist"/>
             <Property name="toolTipText" type="java.lang.String" value="Al pulsar te lleva a  Playlist"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelListaMouseExited"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelAnadirPlaylist">
           <Properties>
@@ -142,6 +158,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f8" green="f6" red="f4" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Introduce el nombre que quieras ponerle a tu Playlist"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[340, 38]"/>
             </Property>
@@ -157,6 +174,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar Playlist"/>
             <Property name="toolTipText" type="java.lang.String" value="Pulsa para guardar la playlist"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[162, 46]"/>
             </Property>
