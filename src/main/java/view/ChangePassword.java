@@ -7,6 +7,7 @@ package view;
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
 import controller.LoginController;
+import controller.MensajesInternacionales;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,8 +32,10 @@ public class ChangePassword extends javax.swing.JPanel {
         hibernateHelper = new HibernateHelper(); // Inicializa HibernateHelper
         this.loginController = loginController; // Inicializa el loginController
         
-        newPass.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
-        newPass1.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Repite la contraseña" ); //Placeholder
+        changeLabel.setText(MensajesInternacionales.obtenerMensaje("label.cambia"));
+        modificarPass.setText(MensajesInternacionales.obtenerMensaje("button.modificar"));
+        newPass.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
+        newPass1.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.repitepassword"));
     }
 
     /**

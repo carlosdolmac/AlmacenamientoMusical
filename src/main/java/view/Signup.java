@@ -6,6 +6,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.SignupController;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -29,12 +30,16 @@ public class Signup extends javax.swing.JPanel {
         this.interfaz = interfaz; // Guardar la referencia a Interfaz
         initComponents();
         
-        name.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Nombre" ); //Placeholder
-        surname.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Apellido" ); //Placeholder
-        username.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Nombre de Usuario" ); //Placeholder
-        email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
-        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
-        createAccountLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
+        name.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.nombre"));
+        surname.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.apellido"));
+        username.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.nombreUsuario"));
+        email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
+        passwrd.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
+        createAccountLabel.putClientProperty("FlatLaf.styleClass", "h1");
+        accountLabel.setText(MensajesInternacionales.obtenerMensaje("label.account"));
+        loginLabel.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
+        createAccountLabel.setText(MensajesInternacionales.obtenerMensaje("label.createaccount"));
+        createAccount.setText(MensajesInternacionales.obtenerMensaje("label.createaccount"));
     }
 
     /**

@@ -5,8 +5,12 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import controller.AppState;
 import controller.LoginController;
+import controller.MensajesInternacionales;
 import java.awt.Color;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 /**
@@ -17,18 +21,15 @@ import java.awt.Color;
  */
 public class Login extends javax.swing.JPanel {
     private LoginController controller;
+    private ResourceBundle resourceBundle;
 
     public Login(Interfaz interfaz) {
         this.controller = new LoginController(interfaz); // Inicializa el controlador de inicio de sesión con la interfaz
         initComponents(); // Inicializa los componentes del formulario
-        
-        email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Email" ); //Placeholder
-        passwrd.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Contraseña" ); //Placeholder
-        signinLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
-        
-        signupLabel.setText("<html>¿No tienes una cuenta?</html>");
-        registrateAqui.setText("<html><em>Regístrate Aquí</em></html>");
-        clickAqui.setText("<html><em>Haz Click Aquí</em></html>");
+        // Cargar el ResourceBundle por defecto (español)
+        resourceBundle = ResourceBundle.getBundle("messages", new Locale("es"));
+        updateUIWithInternationalization();
+    
     }
 
     /**
@@ -53,6 +54,7 @@ public class Login extends javax.swing.JPanel {
         clickAqui = new javax.swing.JLabel();
         registrateAqui = new javax.swing.JLabel();
         passwrd = new javax.swing.JPasswordField();
+        idiomas = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(139, 243, 204));
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -135,6 +137,14 @@ public class Login extends javax.swing.JPanel {
         });
         fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
+        idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "es", "en" }));
+        idiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idiomasActionPerformed(evt);
+            }
+        });
+        fondo.add(idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -191,11 +201,35 @@ public class Login extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_passwrdKeyPressed
 
+    private void idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomasActionPerformed
+        String idiomaSeleccionado = idiomas.getSelectedItem().toString();
+        Locale nuevoLocale;
+
+        if (idiomaSeleccionado.equals("es")) {
+            nuevoLocale = new Locale("es");
+        } else if (idiomaSeleccionado.equals("en")) {
+            nuevoLocale = new Locale("en");
+        } else {
+            // Manejar cualquier otro idioma que puedas tener
+            nuevoLocale = new Locale("es");
+        }
+
+        // Cambiar el idioma a nivel global
+        AppState.setCurrentLocale(nuevoLocale);
+
+        // Cambiar el idioma utilizando el nuevo mecanismo en MensajesInternacionales
+        MensajesInternacionales.cambiarIdioma(nuevoLocale.getLanguage());
+
+        // Actualizar los textos en la interfaz con los nuevos mensajes internacionales
+        updateUIWithInternationalization();
+    }//GEN-LAST:event_idiomasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel clickAqui;
     private javax.swing.JTextField email;
     private javax.swing.JPanel fondo;
+    private javax.swing.JComboBox<String> idiomas;
     private javax.swing.JLabel imagelogin;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -206,4 +240,18 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel signinLabel;
     private javax.swing.JLabel signupLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void updateUIWithInternationalization() {
+        
+        email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
+        passwrd.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
+        signinLabel.putClientProperty("FlatLaf.styleClass", "h1");
+        signupLabel.setText(MensajesInternacionales.obtenerMensaje("label.noCuenta"));
+        signinLabel.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
+        registrateAqui.setText(MensajesInternacionales.obtenerMensaje("label.registrateAqui"));
+        clickAqui.setText(MensajesInternacionales.obtenerMensaje("label.hazClickAqui"));
+        login.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
+        
+        
+    }
 }
