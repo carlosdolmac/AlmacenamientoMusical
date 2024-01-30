@@ -9,6 +9,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
 import controller.PrincipalController;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -99,6 +100,11 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         guardarPlaylist.setToolTipText("Pulsa para guardar la playlist");
         guardarPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         guardarPlaylist.setPreferredSize(new java.awt.Dimension(162, 46));
+        guardarPlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarPlaylistActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fondoAnadirCancionAPlaylistLayout = new javax.swing.GroupLayout(fondoAnadirCancionAPlaylist);
         fondoAnadirCancionAPlaylist.setLayout(fondoAnadirCancionAPlaylistLayout);
@@ -163,7 +169,7 @@ public class AnadirPlaylist extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
-        principalController.mostrarListaDeCanciones();
+        principalController.mostrarPlaylists();
     }//GEN-LAST:event_labelListaMouseClicked
 
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
@@ -185,6 +191,32 @@ public class AnadirPlaylist extends javax.swing.JPanel {
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
+
+    private void guardarPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPlaylistActionPerformed
+        String nombrePlaylistTexto = nombrePlaylist.getText(); // Obtener el nombre de la playlist desde el campo de texto
+
+        if (nombrePlaylistTexto != null && !nombrePlaylistTexto.isEmpty()) {
+            // Verificar que el nombre de la playlist no esté vacío
+
+            try {
+                boolean guardadoExitoso = hibernateHelper.guardarPlaylist(nombrePlaylistTexto);
+
+                if (guardadoExitoso) {
+                    // Mostrar un mensaje de éxito si la playlist se guardó correctamente
+                    JOptionPane.showMessageDialog(this, "Playlist guardada exitosamente");
+                } else {
+                    // Mostrar un mensaje de error si hubo algún problema al guardar la playlist
+                    JOptionPane.showMessageDialog(this, "Error al guardar la playlist");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error al guardar la playlist");
+            }
+        } else {
+            // Mostrar un mensaje de error si el nombre de la playlist está vacío
+            JOptionPane.showMessageDialog(this, "El nombre de la playlist no puede estar vacío");
+        }
+    }//GEN-LAST:event_guardarPlaylistActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

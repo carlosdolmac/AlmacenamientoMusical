@@ -91,7 +91,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nombre Playlist", "Numero Canciones", "Vista Detallada"
+                "Nombre Canción", "Numero Canciones", "Artista"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -110,6 +110,11 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         borrarCancion.setText("Borrar Canción");
         borrarCancion.setToolTipText("Selecciona una canción de la tabla y al pulsar aquí se borrará");
         borrarCancion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        borrarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarCancionActionPerformed(evt);
+            }
+        });
 
         anadirCancion.setBackground(new java.awt.Color(139, 243, 204));
         anadirCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -202,27 +207,56 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
+    private void borrarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarCancionActionPerformed
+        // Obtener la fila seleccionada
+        int selectedRow = tablaCanciones.getSelectedRow();
+
+        // Verificar si se seleccionó una fila
+        if (selectedRow != -1) {
+            // Obtener el nombre de la canción en la fila seleccionada
+            String nombreCancion = (String) tablaCanciones.getValueAt(selectedRow, 0);
+
+            // Confirmar la eliminación
+            int confirmacion = javax.swing.JOptionPane.showConfirmDialog(this, "¿Seguro que quieres borrar la canción?", "Confirmar Borrado", javax.swing.JOptionPane.YES_NO_OPTION);
+            if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+                // Intentar borrar la canción en la base de datos
+                boolean exito = hibernateHelper.borrarCancion(nombreCancion);
+
+                // Verificar si la eliminación fue exitosa
+                if (exito) {
+                    // Volver a llenar la tabla después de borrar la canción
+                    llenarTablaCanciones();
+                    javax.swing.JOptionPane.showMessageDialog(this, "Canción borrada exitosamente.", "Borrado Exitoso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Error al borrar la canción.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona una canción para borrar.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_borrarCancionActionPerformed
+
     /**
      * Llena la tabla de canciones con la información de la base de datos.
      * Se invoca al inicializar la interfaz y después de agregar/borrar una canción.
      */
     private void llenarTablaCanciones() {
-    // Obtener las canciones del usuario actual desde el controlador
-    List<Canciones> canciones = hibernateHelper.obtenerCancionesUsuarioActual();
+        // Obtener las canciones del usuario actual desde el controlador
+        List<Canciones> canciones = hibernateHelper.obtenerCancionesUsuarioActual();
 
-    // Llenar la tabla con los datos de las canciones del usuario actual
-    DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
-    model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
+        // Llenar la tabla con los datos de las canciones del usuario actual
+        DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+        model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
 
-    for (Canciones cancion : canciones) {
-        // Agregar cada canción como una fila en la tabla
-        model.addRow(new Object[] {
-            cancion.getNombreCancion(),
-            cancion.getIdCancion(),
-            cancion.getArtistas().getNombreArtista()  // Ajustar esta línea según tu modelo
-        });
+        for (Canciones cancion : canciones) {
+            // Agregar cada canción como una fila en la tabla
+            model.addRow(new Object[] {
+                cancion.getNombreCancion(),
+                cancion.getIdCancion(),
+                cancion.getArtistas().getNombreArtista()  // Ajustar esta línea según tu modelo
+            });
+        }
     }
-}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

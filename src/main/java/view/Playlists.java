@@ -8,6 +8,9 @@ import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
 import controller.PrincipalController;
 import java.awt.Color;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,8 +29,26 @@ public class Playlists extends javax.swing.JPanel {
         labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelDescripcion.putClientProperty( "FlatLaf.styleClass", "h4" );
         buscarPlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Playlist" ); //Placeholder
+        
+        mostrarPlaylistsEnTabla();
     }
 
+    private void mostrarPlaylistsEnTabla() {
+        // Obtain playlists from HibernateHelper
+        List<model.Playlists> playlists = hibernateHelper.obtenerPlaylistsUsuarioActual();
+
+        // Populate the table with playlist data
+        DefaultTableModel model = (DefaultTableModel) tablaPlaylists.getModel();
+        model.setRowCount(0);  // Clear the table before adding new data
+
+        for (model.Playlists playlist : playlists) {
+            // Add each playlist as a row in the table
+            model.addRow(new Object[]{
+                    playlist.getNombrePlaylist(),
+                    playlist.getCancioneses().size()  // Assuming 'getCancioneses()' returns a set of songs
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,17 +97,17 @@ public class Playlists extends javax.swing.JPanel {
 
         tablaPlaylists.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Nombre Playlist", "Numero Canciones", "Vista Detallada"
+                "Nombre Playlist", "Numero Canciones"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -100,6 +121,11 @@ public class Playlists extends javax.swing.JPanel {
         borrarPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         borrarPlaylist.setText("Borrar Playlist");
         borrarPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        borrarPlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarPlaylistActionPerformed(evt);
+            }
+        });
 
         anadirPlaylist.setBackground(new java.awt.Color(139, 243, 204));
         anadirPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -186,6 +212,41 @@ public class Playlists extends javax.swing.JPanel {
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
+
+    private void borrarPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPlaylistActionPerformed
+        // Obtener el índice de la fila seleccionada
+        int selectedRowIndex = tablaPlaylists.getSelectedRow();
+
+        // Verificar si se ha seleccionado una fila
+        if (selectedRowIndex != -1) {
+            // Obtener el nombre de la playlist desde la fila seleccionada
+            String nombrePlaylist = (String) tablaPlaylists.getValueAt(selectedRowIndex, 0);
+
+            // Mostrar un cuadro de diálogo de confirmación
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres borrar la Playlist?", "Confirmar borrado", JOptionPane.YES_NO_OPTION);
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                // El usuario ha confirmado el borrado
+
+                // TODO: Utilizar el nombre de la playlist para borrarla de la base de datos
+                boolean eliminada = hibernateHelper.borrarPlaylist(nombrePlaylist);  // Reemplaza con el método real en HibernateHelper
+
+                if (eliminada) {
+                    // Si la playlist se elimina correctamente, actualiza la tabla
+                    mostrarPlaylistsEnTabla();
+                } else {
+                    // Manejar el caso en el que falla la eliminación
+                    System.out.println("No se pudo borrar la playlist");
+                }
+            } else {
+                // El usuario ha cancelado el borrado
+                System.out.println("Borrado cancelado por el usuario");
+            }
+        } else {
+            // Informar al usuario que seleccione una fila antes de intentar la eliminación
+            System.out.println("Por favor, selecciona una fila para borrar");
+        }
+    }//GEN-LAST:event_borrarPlaylistActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

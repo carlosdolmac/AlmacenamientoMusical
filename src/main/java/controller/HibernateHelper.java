@@ -12,10 +12,12 @@ package controller;
  */
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Artistas;
 import model.Canciones;
 import model.Playlists;
@@ -357,6 +359,36 @@ public class HibernateHelper {
 
         return null;
     }
+    
+    public List<Playlists> obtenerPlaylistsUsuarioActual() {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Obtaining the current user from the session
+                Usuarios usuarioActual = SessionManager.getUsuarioActual();
+
+                // Querying playlists and eagerly fetching the cancioneses collection
+                String queryString = "SELECT DISTINCT p FROM Playlists p LEFT JOIN FETCH p.cancioneses WHERE p.usuarios = :usuario";
+                Query<Playlists> query = session.createQuery(queryString, Playlists.class);
+                query.setParameter("usuario", usuarioActual);
+
+                List<Playlists> playlists = query.getResultList();
+
+                transaction.commit();
+                return playlists;
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public int obtenerNumeroCanciones() {
         try (Session session = sessionFactory.openSession()) {
@@ -420,5 +452,105 @@ public class HibernateHelper {
             return 0;
         }
     }
+    
+    public boolean guardarPlaylist(String nombrePlaylist) {
+        boolean guardadoExitoso = false;
 
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            // Obtener el usuario actual
+            Usuarios usuarioActual = obtenerUsuarioActual();
+
+            // Comprobar si ya existe una playlist con el mismo nombre para el usuario actual
+            Query<Playlists> query = session.createQuery("FROM Playlists WHERE usuarios = :usuario AND nombrePlaylist = :nombre", Playlists.class);
+            query.setParameter("usuario", usuarioActual);
+            query.setParameter("nombre", nombrePlaylist);
+
+            if (query.getResultList().isEmpty()) {
+                // Si no existe, crear y guardar la nueva playlist
+                Playlists nuevaPlaylist = new Playlists(usuarioActual, nombrePlaylist, new HashSet<>());
+                session.save(nuevaPlaylist);
+
+                session.getTransaction().commit();
+                guardadoExitoso = true;
+            } else {
+                // Mostrar un mensaje de error si ya existe una playlist con ese nombre
+                JOptionPane.showMessageDialog(null, "Ya tienes una playlist con ese nombre.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return guardadoExitoso;
+    }
+    
+    public boolean borrarPlaylist(String nombrePlaylist) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Buscar la playlist por nombre
+                String queryString = "FROM Playlists p WHERE p.nombrePlaylist = :nombre";
+                Query<Playlists> query = session.createQuery(queryString, Playlists.class);
+                query.setParameter("nombre", nombrePlaylist);
+
+                Playlists playlist = query.uniqueResult();
+
+                // Verificar si la playlist existe
+                if (playlist != null) {
+                    // Eliminar la playlist
+                    session.delete(playlist);
+                    transaction.commit();
+                    return true; // Indicar que la eliminación fue exitosa
+                } else {
+                    // La playlist no existe
+                    System.out.println("Playlist no encontrada");
+                    return false;
+                }
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+                return false; // Indicar que la eliminación falló
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Indicar que la eliminación falló
+        }
+    }
+    
+    public boolean borrarCancion(String nombreCancion) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            try {
+                // Buscar la canción por nombre
+                String queryString = "FROM Canciones WHERE nombreCancion = :nombre";
+                Canciones cancion = session.createQuery(queryString, Canciones.class)
+                        .setParameter("nombre", nombreCancion)
+                        .uniqueResult();
+
+                // Verificar si se encontró la canción
+                if (cancion != null) {
+                    // Borrar la canción
+                    session.delete(cancion);
+                    transaction.commit();
+                    return true;
+                } else {
+                    // La canción no existe
+                    transaction.rollback();
+                    return false;
+                }
+            } catch (Exception e) {
+                transaction.rollback();
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }
