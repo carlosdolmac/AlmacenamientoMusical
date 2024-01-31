@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 
@@ -24,6 +25,13 @@ public class Biblioteca extends javax.swing.JPanel {
         numPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
         labelCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h4" );
         labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h4" );
+        
+        //Titulos
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
+        labelCancionesGuardadas.setText(MensajesInternacionales.obtenerMensaje("label.cancionesguardadas"));
+        labelVerLista.setText(MensajesInternacionales.obtenerMensaje("label.verlista"));
+        labelVerPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.verplaylists"));
     }
 
     /**
@@ -78,9 +86,9 @@ public class Biblioteca extends javax.swing.JPanel {
         panelVerListaLayout.setHorizontalGroup(
             panelVerListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVerListaLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(55, 55, 55)
                 .addComponent(labelVerLista)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         panelVerListaLayout.setVerticalGroup(
             panelVerListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +159,9 @@ public class Biblioteca extends javax.swing.JPanel {
         panelVerPlaylistsLayout.setHorizontalGroup(
             panelVerPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVerPlaylistsLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(74, 74, 74)
                 .addComponent(labelVerPlaylists)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         panelVerPlaylistsLayout.setVerticalGroup(
             panelVerPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,26 +181,25 @@ public class Biblioteca extends javax.swing.JPanel {
         panelPlaylists.setLayout(panelPlaylistsLayout);
         panelPlaylistsLayout.setHorizontalGroup(
             panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelVerPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPlaylistsLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addGroup(panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(imgPlaylists)
-                    .addGroup(panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelPlaylists)
-                        .addGroup(panelPlaylistsLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(numPlaylists))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addComponent(imgPlaylists))
+            .addGroup(panelPlaylistsLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(numPlaylists))
+            .addGroup(panelPlaylistsLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(labelPlaylists))
+            .addComponent(panelVerPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelPlaylistsLayout.setVerticalGroup(
             panelPlaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPlaylistsLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(panelPlaylistsLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(imgPlaylists)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addComponent(numPlaylists)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(labelPlaylists)
                 .addGap(18, 18, 18)
                 .addComponent(panelVerPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
