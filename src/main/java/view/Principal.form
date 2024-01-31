@@ -321,7 +321,7 @@
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="iconOut1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabelCerrarSesion" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelSalir" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="190" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -332,7 +332,7 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="iconOut1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelCerrarSesion" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSalir" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="16" max="32767" attributes="0"/>
                       </Group>
@@ -340,7 +340,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelCerrarSesion">
+                <Component class="javax.swing.JLabel" name="jLabelSalir">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                   </Properties>
@@ -581,6 +581,8 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="textFieldBusqueda" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="idiomas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -607,7 +609,10 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="textFieldBusqueda" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="textFieldBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="idiomas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
@@ -639,6 +644,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="hora"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="idiomas">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Espa&#xf1;ol"/>
+                    <StringItem index="1" value="Ingl&#xe9;s"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idiomasActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

@@ -28,13 +28,13 @@ public class Password extends javax.swing.JPanel {
     public Password(Interfaz interfaz, LoginController loginController) {
         initComponents();
         this.loginController = loginController; // Inicializa el loginController
-         email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
-         code.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.codigo"));
-         changeLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
-         changeLabel.setText(MensajesInternacionales.obtenerMensaje("label.cambia"));
-         continuarBtn.setEnabled(false);
-         enviarBtn.setText(MensajesInternacionales.obtenerMensaje("button.enviar"));
-         continuarBtn.setText(MensajesInternacionales.obtenerMensaje("button.continuar"));
+        email.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
+        code.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.codigo"));
+        changeLabel.putClientProperty( "FlatLaf.styleClass", "h1" );
+        changeLabel.setText(MensajesInternacionales.obtenerMensaje("label.cambia"));
+        continuarBtn.setEnabled(false);
+        enviarBtn.setText(MensajesInternacionales.obtenerMensaje("button.enviar"));
+        continuarBtn.setText(MensajesInternacionales.obtenerMensaje("button.continuar"));
     }
 
     /**

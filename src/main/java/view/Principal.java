@@ -6,11 +6,14 @@ package view;
 //Placeholer para primera entrega
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import controller.AppState;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import controller.SessionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Locale;
 import javax.swing.JPanel;
 
 /**
@@ -60,8 +63,10 @@ public class Principal extends javax.swing.JPanel {
         jLabelLista.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelArtist.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
-        jLabelCerrarSesion.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelSalir.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelBuenos.putClientProperty( "FlatLaf.styleClass", "h3" );
+        
+        updateUIWithInternationalization();
     }
     
     /**
@@ -111,7 +116,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelInicio = new javax.swing.JLabel();
         iconDash = new javax.swing.JLabel();
         panelSalir = new javax.swing.JPanel();
-        jLabelCerrarSesion = new javax.swing.JLabel();
+        jLabelSalir = new javax.swing.JLabel();
         iconOut1 = new javax.swing.JLabel();
         panelArtista = new javax.swing.JPanel();
         jLabelArtist = new javax.swing.JLabel();
@@ -129,6 +134,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelBuenos = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        idiomas = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(51, 153, 0));
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -266,7 +272,7 @@ public class Principal extends javax.swing.JPanel {
             }
         });
 
-        jLabelCerrarSesion.setText("Salir");
+        jLabelSalir.setText("Salir");
 
         javax.swing.GroupLayout panelSalirLayout = new javax.swing.GroupLayout(panelSalir);
         panelSalir.setLayout(panelSalirLayout);
@@ -276,7 +282,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(iconOut1)
                 .addGap(26, 26, 26)
-                .addComponent(jLabelCerrarSesion)
+                .addComponent(jLabelSalir)
                 .addContainerGap(190, Short.MAX_VALUE))
         );
         panelSalirLayout.setVerticalGroup(
@@ -285,7 +291,7 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(panelSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iconOut1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCerrarSesion))
+                    .addComponent(jLabelSalir))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -488,6 +494,13 @@ public class Principal extends javax.swing.JPanel {
 
         jLabel3.setText("hora");
 
+        idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
+        idiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idiomasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -496,6 +509,8 @@ public class Principal extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -516,7 +531,9 @@ public class Principal extends javax.swing.JPanel {
                         .addComponent(jLabelBuenos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3))
-                    .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -627,11 +644,44 @@ public class Principal extends javax.swing.JPanel {
         System.exit(0);
     }//GEN-LAST:event_panelSalirMouseClicked
 
+    private void idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomasActionPerformed
+        String idiomaSeleccionado = idiomas.getSelectedItem().toString();
+        Locale nuevoLocale;
+
+        if (idiomaSeleccionado.equals("Español")) {
+            nuevoLocale = new Locale("es");
+        } else if (idiomaSeleccionado.equals("Inglés")) {
+            nuevoLocale = new Locale("en");
+        } else {
+            // Manejar cualquier otro idioma que puedas tener
+            nuevoLocale = new Locale("es");
+        }
+
+        // Cambiar el idioma a nivel global
+        AppState.setCurrentLocale(nuevoLocale);
+
+        // Cambiar el idioma utilizando el nuevo mecanismo en MensajesInternacionales
+        MensajesInternacionales.cambiarIdioma(nuevoLocale.getLanguage());
+
+        // Actualizar los textos en la interfaz con los nuevos mensajes internacionales
+        updateUIWithInternationalization();
+    }//GEN-LAST:event_idiomasActionPerformed
+
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
 
         colocarPaneles.revalidate();
         colocarPaneles.repaint();
+    }
+    
+    private void updateUIWithInternationalization() {
+        //Títulos
+        jLabelInicio.setText(MensajesInternacionales.obtenerMensaje("label.inicio"));
+        jLabelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        jLabelLista.setText(MensajesInternacionales.obtenerMensaje("label.listacanciones"));
+        jLabelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
+        jLabelArtist.setText(MensajesInternacionales.obtenerMensaje("label.artistas"));
+        jLabelSalir.setText(MensajesInternacionales.obtenerMensaje("label.salir"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -644,16 +694,17 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel iconLib;
     private javax.swing.JLabel iconOut;
     private javax.swing.JLabel iconOut1;
+    private javax.swing.JComboBox<String> idiomas;
     private javax.swing.JLabel imgApp;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelArtist;
     private javax.swing.JLabel jLabelBiblioteca;
     private javax.swing.JLabel jLabelBuenos;
-    private javax.swing.JLabel jLabelCerrarSesion;
     private javax.swing.JLabel jLabelInicio;
     private javax.swing.JLabel jLabelLista;
     private javax.swing.JLabel jLabelPlaylists;
+    private javax.swing.JLabel jLabelSalir;
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

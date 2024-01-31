@@ -137,7 +137,9 @@ public class Login extends javax.swing.JPanel {
         });
         fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "es", "en" }));
+        idiomas.setBackground(new java.awt.Color(91, 134, 229));
+        idiomas.setForeground(new java.awt.Color(255, 255, 255));
+        idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
         idiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idiomasActionPerformed(evt);
@@ -205,9 +207,9 @@ public class Login extends javax.swing.JPanel {
         String idiomaSeleccionado = idiomas.getSelectedItem().toString();
         Locale nuevoLocale;
 
-        if (idiomaSeleccionado.equals("es")) {
+        if (idiomaSeleccionado.equals("Español")) {
             nuevoLocale = new Locale("es");
-        } else if (idiomaSeleccionado.equals("en")) {
+        } else if (idiomaSeleccionado.equals("Inglés")) {
             nuevoLocale = new Locale("en");
         } else {
             // Manejar cualquier otro idioma que puedas tener
@@ -251,7 +253,5 @@ public class Login extends javax.swing.JPanel {
         registrateAqui.setText(MensajesInternacionales.obtenerMensaje("label.registrateAqui"));
         clickAqui.setText(MensajesInternacionales.obtenerMensaje("label.hazClickAqui"));
         login.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
-        
-        
     }
 }
