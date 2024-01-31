@@ -14,6 +14,7 @@ import controller.SessionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,7 @@ import javax.swing.JPanel;
 public class Principal extends javax.swing.JPanel {
     private PrincipalController principalController;
     private HibernateHelper sqlHelper;
+    private ResourceBundle resourceBundle;
     private int idUsuario;
     Color colorSeleccion = new Color(185, 253, 228); //Color al entrar en los paneles
     Color colorSeleccion2 = new Color(139,243,204); //Color al salir de los paneles
@@ -66,6 +68,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelSalir.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelBuenos.putClientProperty( "FlatLaf.styleClass", "h3" );
         
+        resourceBundle = ResourceBundle.getBundle("messages", new Locale("es"));
         updateUIWithInternationalization();
     }
     

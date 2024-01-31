@@ -5,6 +5,7 @@
 package view;
 
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -43,6 +44,19 @@ public class Inicio extends javax.swing.JPanel {
         numTotalArtistas.setText(String.valueOf(sqlHelper.obtenerNumeroArtistas())); // Actualiza el JLabel con el número de artistas
         numTusCanciones.setText(String.valueOf(sqlHelper.obtenerNumeroCancionesPorUsuarioActual())); // Actualiza el JLabel con el número de tus canciones
         numTusPlaylists.setText(String.valueOf(sqlHelper.obtenerNumeroPlaylistsUsuarioActual())); // Actualiza el JLabel con el número de tus playlists
+    
+        //Titulos
+        jLabelInicio.setText(MensajesInternacionales.obtenerMensaje("label.inicio"));
+        jLabelDescripcion.setText(MensajesInternacionales.obtenerMensaje("label.descripcionInicio"));
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
+        labelArtistas.setText(MensajesInternacionales.obtenerMensaje("label.artistas"));
+        labelTotalCanciones.setText(MensajesInternacionales.obtenerMensaje("label.totalcanciones"));
+        labelNumTotalCanciones.setText(MensajesInternacionales.obtenerMensaje("label.numtotalcanciones"));
+        labelTusPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.tusplaylists"));
+        labelNumArtistas.setText(MensajesInternacionales.obtenerMensaje("label.numartistas"));
+        labelNumCancionesArtistas.setText(MensajesInternacionales.obtenerMensaje("label.numcancionesartistas"));
+        labelListaCompleta.setText(MensajesInternacionales.obtenerMensaje("label.listacompleta"));
     }
 
     private void cargarTodasLasCanciones() {
@@ -91,7 +105,7 @@ public class Inicio extends javax.swing.JPanel {
         labelNumCancionesArtistas = new javax.swing.JLabel();
         numTotalArtistas = new javax.swing.JLabel();
         numTotalCanciones = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelListaCompleta = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaListaCanciones = new javax.swing.JTable();
 
@@ -230,7 +244,7 @@ public class Inicio extends javax.swing.JPanel {
                 .addGap(34, 34, 34))
         );
 
-        jLabel7.setText("Lista Completa de Canciones");
+        labelListaCompleta.setText("Lista Completa de Canciones");
 
         tablaListaCanciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -252,7 +266,7 @@ public class Inicio extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(436, 436, 436)
-                .addComponent(jLabel7)
+                .addComponent(labelListaCompleta)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
@@ -282,7 +296,7 @@ public class Inicio extends javax.swing.JPanel {
                     .addComponent(panelLibrary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelArtists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addComponent(labelListaCompleta)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -302,7 +316,6 @@ public class Inicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelInicio;
     private javax.swing.JPanel jPanel1;
@@ -311,6 +324,7 @@ public class Inicio extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelArtistas;
     private javax.swing.JLabel labelBiblioteca;
+    private javax.swing.JLabel labelListaCompleta;
     private javax.swing.JLabel labelNumArtistas;
     private javax.swing.JLabel labelNumCancionesArtistas;
     private javax.swing.JLabel labelNumTotalCanciones;
