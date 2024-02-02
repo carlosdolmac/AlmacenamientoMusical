@@ -6,6 +6,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
@@ -33,6 +34,21 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         
          // Llenar la tabla con las canciones al inicializar
         llenarTablaCanciones();
+        
+        //Titulos
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelListaCanciones.setText(MensajesInternacionales.obtenerMensaje("label.listacanciones"));
+        labelDescripcion.setText(MensajesInternacionales.obtenerMensaje("label.descripcionlistacanciones"));
+        borrarCancion.setText(MensajesInternacionales.obtenerMensaje("button.borrarcancion"));
+        anadirCancion.setText(MensajesInternacionales.obtenerMensaje("button.anadircancion"));
+        
+        // Internacionalizar los encabezados de la tabla
+        DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+        model.setColumnIdentifiers(new Object[] {
+            MensajesInternacionales.obtenerMensaje("columna.nombrecancion"),
+            MensajesInternacionales.obtenerMensaje("columna.idcancion"),
+            MensajesInternacionales.obtenerMensaje("columna.artista")
+        });
     }
 
     /**
@@ -91,7 +107,7 @@ public class ListaDeCanciones extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nombre Canción", "Numero Canciones", "Artista"
+                "Nombre Canción", "ID Canción", "Artista"
             }
         ) {
             boolean[] canEdit = new boolean [] {

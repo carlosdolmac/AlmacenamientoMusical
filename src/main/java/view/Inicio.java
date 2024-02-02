@@ -57,6 +57,14 @@ public class Inicio extends javax.swing.JPanel {
         labelNumArtistas.setText(MensajesInternacionales.obtenerMensaje("label.numartistas"));
         labelNumCancionesArtistas.setText(MensajesInternacionales.obtenerMensaje("label.numcancionesartistas"));
         labelListaCompleta.setText(MensajesInternacionales.obtenerMensaje("label.listacompleta"));
+        
+        // Internacionalizar los encabezados de la tabla
+        DefaultTableModel model = (DefaultTableModel) tablaListaCanciones.getModel();
+        model.setColumnIdentifiers(new Object[] {
+            MensajesInternacionales.obtenerMensaje("columna.nombrecancion"),
+            MensajesInternacionales.obtenerMensaje("columna.idcancion"),
+            MensajesInternacionales.obtenerMensaje("columna.artista")
+        });
     }
 
     private void cargarTodasLasCanciones() {
@@ -128,7 +136,7 @@ public class Inicio extends javax.swing.JPanel {
 
         numTusCanciones.setText("0");
 
-        labelNumTotalCanciones.setText("Número total de canciones guardadas");
+        labelNumTotalCanciones.setText("Canciones Guardadas");
 
         labelTusPlaylists.setText("Tus Playlists");
 
@@ -146,20 +154,15 @@ public class Inicio extends javax.swing.JPanel {
                 .addComponent(labelPlaylists)
                 .addContainerGap())
             .addGroup(panelLibraryLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLibraryLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelNumTotalCanciones))
-                    .addGroup(panelLibraryLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(numTusCanciones)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                    .addComponent(labelNumTotalCanciones)
+                    .addComponent(numTusCanciones))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                 .addGroup(panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTusPlaylists)
-                    .addGroup(panelLibraryLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(numTusPlaylists)))
-                .addGap(49, 49, 49))
+                    .addComponent(numTusPlaylists))
+                .addGap(53, 53, 53))
         );
         panelLibraryLayout.setVerticalGroup(
             panelLibraryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +194,7 @@ public class Inicio extends javax.swing.JPanel {
 
         jSeparator2.setForeground(new java.awt.Color(139, 243, 204));
 
-        labelNumArtistas.setText("Número total de Artistas");
+        labelNumArtistas.setText("Artistas");
 
         labelNumCancionesArtistas.setText("Número de canciones");
 
@@ -206,23 +209,20 @@ public class Inicio extends javax.swing.JPanel {
             .addComponent(jSeparator2)
             .addGroup(panelArtistsLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(labelArtistas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                .addComponent(labelTotalCanciones)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelArtistsLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelArtistsLayout.createSequentialGroup()
-                        .addComponent(labelArtistas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTotalCanciones)
-                        .addContainerGap())
-                    .addGroup(panelArtistsLayout.createSequentialGroup()
-                        .addComponent(labelNumArtistas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                        .addComponent(labelNumCancionesArtistas)
-                        .addGap(49, 49, 49))))
-            .addGroup(panelArtistsLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(numTotalArtistas)
+                    .addComponent(labelNumArtistas)
+                    .addComponent(numTotalArtistas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(numTotalCanciones)
-                .addGap(106, 106, 106))
+                .addGroup(panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numTotalCanciones)
+                    .addComponent(labelNumCancionesArtistas))
+                .addGap(53, 53, 53))
         );
         panelArtistsLayout.setVerticalGroup(
             panelArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

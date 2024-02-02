@@ -6,6 +6,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
@@ -31,6 +32,20 @@ public class Playlists extends javax.swing.JPanel {
         buscarPlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca una Playlist" ); //Placeholder
         
         mostrarPlaylistsEnTabla();
+        
+        //Titulos
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
+        borrarPlaylist.setText(MensajesInternacionales.obtenerMensaje("button.borrarplaylist"));
+        anadirPlaylist.setText(MensajesInternacionales.obtenerMensaje("button.anadirplaylist"));
+        labelDescripcion.setText(MensajesInternacionales.obtenerMensaje("label.descripcionplaylists"));
+        
+        // Internacionalizar los encabezados de la tabla
+        DefaultTableModel model = (DefaultTableModel) tablaPlaylists.getModel();
+        model.setColumnIdentifiers(new Object[] {
+            MensajesInternacionales.obtenerMensaje("columna.nombreplaylist"),
+            MensajesInternacionales.obtenerMensaje("columna.numcanciones")
+        });
     }
 
     private void mostrarPlaylistsEnTabla() {

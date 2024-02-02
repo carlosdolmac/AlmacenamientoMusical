@@ -7,6 +7,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
@@ -24,13 +25,21 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         initComponents();
         this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
-        labelLista.putClientProperty( "FlatLaf.styleClass", "h1" );
+        labelListaCanciones.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelAnadirCancion.putClientProperty( "FlatLaf.styleClass", "h1" );
         artista.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Selena Gomez" ); //Placeholder
         nombreCancion.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Who Says" ); //Placeholder
         
         // Cargar playlists desde la base de datos
         cargarPlaylists();
+        
+        //Titulos
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelListaCanciones.setText(MensajesInternacionales.obtenerMensaje("label.listacanciones"));
+        labelArtista.setText(MensajesInternacionales.obtenerMensaje("label.artista"));
+        labelNombre.setText(MensajesInternacionales.obtenerMensaje("label.nombrecancion"));
+        labelPlaylistOpcional.setText(MensajesInternacionales.obtenerMensaje("label.playlistopcional"));
+        guardarCancion.setText(MensajesInternacionales.obtenerMensaje("button.anadircancion"));
     }
     
     private void cargarPlaylists() {
@@ -58,15 +67,15 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         fondoAnadirCancionAPlaylist = new javax.swing.JPanel();
         labelBiblioteca = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        labelLista = new javax.swing.JLabel();
+        labelListaCanciones = new javax.swing.JLabel();
         labelAnadirCancion = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         labelNombre = new javax.swing.JLabel();
         nombreCancion = new javax.swing.JTextField();
         guardarCancion = new javax.swing.JButton();
         artista = new javax.swing.JTextField();
-        labelNombre2 = new javax.swing.JLabel();
-        labelNombre3 = new javax.swing.JLabel();
+        labelArtista = new javax.swing.JLabel();
+        labelPlaylistOpcional = new javax.swing.JLabel();
         playlist = new javax.swing.JComboBox<>();
 
         fondoAnadirCancionAPlaylist.setBackground(new java.awt.Color(244, 246, 248));
@@ -89,19 +98,19 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
-        labelLista.setForeground(new java.awt.Color(153, 153, 153));
-        labelLista.setText("Lista de Canciones");
-        labelLista.setToolTipText("Te lleva a la lista de canciones");
-        labelLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelLista.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelListaCanciones.setForeground(new java.awt.Color(153, 153, 153));
+        labelListaCanciones.setText("Lista de Canciones");
+        labelListaCanciones.setToolTipText("Te lleva a la lista de canciones");
+        labelListaCanciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelListaCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelListaMouseClicked(evt);
+                labelListaCancionesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelListaMouseEntered(evt);
+                labelListaCancionesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelListaMouseExited(evt);
+                labelListaCancionesMouseExited(evt);
             }
         });
 
@@ -129,9 +138,9 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         artista.setBackground(new java.awt.Color(244, 246, 248));
         artista.setPreferredSize(new java.awt.Dimension(340, 38));
 
-        labelNombre2.setText("Artista");
+        labelArtista.setText("Artista");
 
-        labelNombre3.setText("Playlist (Opcional)");
+        labelPlaylistOpcional.setText("Playlist (Opcional)");
 
         playlist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {})
         );
@@ -152,7 +161,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
                                 .addGap(20, 20, 20)
-                                .addComponent(labelLista)
+                                .addComponent(labelListaCanciones)
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel2)
                                 .addGap(17, 17, 17)
@@ -163,7 +172,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                                     .addComponent(nombreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(205, 205, 205)
                                 .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNombre2)
+                                    .addComponent(labelArtista)
                                     .addComponent(artista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(420, 420, 420)
@@ -171,7 +180,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(331, 331, 331)
                         .addGroup(fondoAnadirCancionAPlaylistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombre3)
+                            .addComponent(labelPlaylistOpcional)
                             .addComponent(playlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -191,7 +200,7 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(labelLista))
+                        .addComponent(labelListaCanciones))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jLabel2))
@@ -200,11 +209,11 @@ public class AnadirCancion1 extends javax.swing.JPanel {
                         .addComponent(labelAnadirCancion))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(labelNombre2)
+                        .addComponent(labelArtista)
                         .addGap(18, 18, 18)
                         .addComponent(artista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(labelNombre3)
+                .addComponent(labelPlaylistOpcional)
                 .addGap(18, 18, 18)
                 .addComponent(playlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -224,17 +233,17 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
+    private void labelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseClicked
         principalController.mostrarListaDeCanciones();
-    }//GEN-LAST:event_labelListaMouseClicked
+    }//GEN-LAST:event_labelListaCancionesMouseClicked
 
-    private void labelListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseEntered
-        labelLista.setForeground(Color.black);
-    }//GEN-LAST:event_labelListaMouseEntered
+    private void labelListaCancionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseEntered
+        labelListaCanciones.setForeground(Color.black);
+    }//GEN-LAST:event_labelListaCancionesMouseEntered
 
-    private void labelListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseExited
-        labelLista.setForeground(Color.GRAY);
-    }//GEN-LAST:event_labelListaMouseExited
+    private void labelListaCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseExited
+        labelListaCanciones.setForeground(Color.GRAY);
+    }//GEN-LAST:event_labelListaCancionesMouseExited
 
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
@@ -288,11 +297,11 @@ public class AnadirCancion1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelAnadirCancion;
+    private javax.swing.JLabel labelArtista;
     private javax.swing.JLabel labelBiblioteca;
-    private javax.swing.JLabel labelLista;
+    private javax.swing.JLabel labelListaCanciones;
     private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel labelNombre2;
-    private javax.swing.JLabel labelNombre3;
+    private javax.swing.JLabel labelPlaylistOpcional;
     private javax.swing.JTextField nombreCancion;
     private javax.swing.JComboBox<String> playlist;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import controller.HibernateHelper;
+import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -24,9 +25,15 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         initComponents();
         this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
-        labelLista.putClientProperty( "FlatLaf.styleClass", "h1" );
+        labelPlaylists.putClientProperty( "FlatLaf.styleClass", "h1" );
         labelAnadirPlaylist.putClientProperty( "FlatLaf.styleClass", "h1" );
-        nombrePlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Favoritas" ); //Placeholder
+        nombrePlaylist.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT,MensajesInternacionales.obtenerMensaje("placeholder.favoritas")); //Placeholder
+        
+        //Titulos
+        labelBiblioteca.setText(MensajesInternacionales.obtenerMensaje("label.biblioteca"));
+        labelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
+        labelAnadirPlaylist.setText(MensajesInternacionales.obtenerMensaje("button.anadirplaylist"));
+        labelNombre.setText(MensajesInternacionales.obtenerMensaje("label.nombreplaylists"));
     }
 
     /** This method is called from within the constructor to
@@ -41,7 +48,7 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         fondoAnadirCancionAPlaylist = new javax.swing.JPanel();
         labelBiblioteca = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        labelLista = new javax.swing.JLabel();
+        labelPlaylists = new javax.swing.JLabel();
         labelAnadirPlaylist = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         labelNombre = new javax.swing.JLabel();
@@ -68,19 +75,19 @@ public class AnadirPlaylist extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mayor.png"))); // NOI18N
 
-        labelLista.setForeground(new java.awt.Color(153, 153, 153));
-        labelLista.setText("Playlist");
-        labelLista.setToolTipText("Al pulsar te lleva a  Playlist");
-        labelLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelLista.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelPlaylists.setForeground(new java.awt.Color(153, 153, 153));
+        labelPlaylists.setText("Playlists");
+        labelPlaylists.setToolTipText("Al pulsar te lleva a  Playlist");
+        labelPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelPlaylists.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelListaMouseClicked(evt);
+                labelPlaylistsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelListaMouseEntered(evt);
+                labelPlaylistsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelListaMouseExited(evt);
+                labelPlaylistsMouseExited(evt);
             }
         });
 
@@ -119,7 +126,7 @@ public class AnadirPlaylist extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(20, 20, 20)
-                        .addComponent(labelLista)
+                        .addComponent(labelPlaylists)
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
                         .addGap(17, 17, 17)
@@ -144,7 +151,7 @@ public class AnadirPlaylist extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(labelLista))
+                        .addComponent(labelPlaylists))
                     .addGroup(fondoAnadirCancionAPlaylistLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jLabel2))
@@ -168,21 +175,21 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labelListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseClicked
+    private void labelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseClicked
         principalController.mostrarPlaylists();
-    }//GEN-LAST:event_labelListaMouseClicked
+    }//GEN-LAST:event_labelPlaylistsMouseClicked
 
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
-    private void labelListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseEntered
-        labelLista.setForeground(Color.black);
-    }//GEN-LAST:event_labelListaMouseEntered
+    private void labelPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseEntered
+        labelPlaylists.setForeground(Color.black);
+    }//GEN-LAST:event_labelPlaylistsMouseEntered
 
-    private void labelListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaMouseExited
-        labelLista.setForeground(Color.gray);
-    }//GEN-LAST:event_labelListaMouseExited
+    private void labelPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseExited
+        labelPlaylists.setForeground(Color.gray);
+    }//GEN-LAST:event_labelPlaylistsMouseExited
 
     private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
         labelBiblioteca.setForeground(Color.black);
@@ -226,8 +233,8 @@ public class AnadirPlaylist extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelAnadirPlaylist;
     private javax.swing.JLabel labelBiblioteca;
-    private javax.swing.JLabel labelLista;
     private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelPlaylists;
     private javax.swing.JTextField nombrePlaylist;
     // End of variables declaration//GEN-END:variables
 
