@@ -100,6 +100,11 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         nombrePlaylist.setBackground(new java.awt.Color(244, 246, 248));
         nombrePlaylist.setToolTipText("Introduce el nombre que quieras ponerle a tu Playlist");
         nombrePlaylist.setPreferredSize(new java.awt.Dimension(340, 38));
+        nombrePlaylist.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombrePlaylistKeyPressed(evt);
+            }
+        });
 
         guardarPlaylist.setBackground(new java.awt.Color(139, 243, 204));
         guardarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -211,6 +216,8 @@ public class AnadirPlaylist extends javax.swing.JPanel {
                 if (guardadoExitoso) {
                     // Mostrar un mensaje de éxito si la playlist se guardó correctamente
                     JOptionPane.showMessageDialog(this, "Playlist guardada exitosamente");
+                    
+                    nombrePlaylist.setText("");
                 } else {
                     // Mostrar un mensaje de error si hubo algún problema al guardar la playlist
                     JOptionPane.showMessageDialog(this, "Error al guardar la playlist");
@@ -224,6 +231,12 @@ public class AnadirPlaylist extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "El nombre de la playlist no puede estar vacío");
         }
     }//GEN-LAST:event_guardarPlaylistActionPerformed
+
+    private void nombrePlaylistKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePlaylistKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            guardarPlaylistActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_nombrePlaylistKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

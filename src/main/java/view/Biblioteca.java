@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.HibernateHelper;
 import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
@@ -13,12 +14,14 @@ import java.awt.Color;
  * @author Carlos de los Dolores Macías
  */
 public class Biblioteca extends javax.swing.JPanel {
-    private PrincipalController principalController;    
+    private PrincipalController principalController;
+    private HibernateHelper sqlHelper;    
     /**
      * Creates new form Biblioteca
      */
     public Biblioteca(PrincipalController principalController) {
         initComponents();
+        sqlHelper = new HibernateHelper();
         this.principalController = principalController;
         labelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h1" );
         numCancionesGuardadas.putClientProperty( "FlatLaf.styleClass", "h3" );
@@ -32,6 +35,9 @@ public class Biblioteca extends javax.swing.JPanel {
         labelCancionesGuardadas.setText(MensajesInternacionales.obtenerMensaje("label.cancionesguardadas"));
         labelVerLista.setText(MensajesInternacionales.obtenerMensaje("label.verlista"));
         labelVerPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.verplaylists"));
+        
+        numCancionesGuardadas.setText(String.valueOf(sqlHelper.obtenerNumeroCancionesPorUsuarioActual())); // Actualiza el JLabel con el número de tus canciones
+        numPlaylists.setText(String.valueOf(sqlHelper.obtenerNumeroPlaylistsUsuarioActual())); // Actualiza el JLabel con el número de tus playlists
     }
 
     /**
@@ -133,7 +139,7 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addComponent(panelVerLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panelPlaylists.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 51), 1, true));
+        panelPlaylists.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 51)));
         panelPlaylists.setPreferredSize(new java.awt.Dimension(212, 152));
 
         panelVerPlaylists.setBackground(new java.awt.Color(204, 255, 204));
@@ -199,11 +205,10 @@ public class Biblioteca extends javax.swing.JPanel {
                 .addComponent(imgPlaylists)
                 .addGap(18, 18, 18)
                 .addComponent(numPlaylists)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelPlaylists)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelVerPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(labelPlaylists)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(panelVerPlaylists, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout fondoBibliotecaLayout = new javax.swing.GroupLayout(fondoBiblioteca);

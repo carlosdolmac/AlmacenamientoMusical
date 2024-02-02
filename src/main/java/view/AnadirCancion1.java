@@ -122,6 +122,11 @@ public class AnadirCancion1 extends javax.swing.JPanel {
 
         nombreCancion.setBackground(new java.awt.Color(244, 246, 248));
         nombreCancion.setPreferredSize(new java.awt.Dimension(340, 38));
+        nombreCancion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombreCancionKeyPressed(evt);
+            }
+        });
 
         guardarCancion.setBackground(new java.awt.Color(139, 243, 204));
         guardarCancion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -288,6 +293,12 @@ public class AnadirCancion1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Error al agregar la canción. Por favor, inténtalo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_guardarCancionActionPerformed
+
+    private void nombreCancionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreCancionKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            guardarCancionActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
+        }
+    }//GEN-LAST:event_nombreCancionKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

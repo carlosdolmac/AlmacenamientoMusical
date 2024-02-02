@@ -8,7 +8,6 @@ import com.formdev.flatlaf.FlatClientProperties;
 import controller.AppState;
 import controller.LoginController;
 import controller.MensajesInternacionales;
-import java.awt.Color;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
