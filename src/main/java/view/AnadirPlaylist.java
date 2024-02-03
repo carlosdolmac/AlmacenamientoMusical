@@ -13,7 +13,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Panel para añadir una nueva playlist.
  * @author Carlos de los Dolores Macías
  */
 public class AnadirPlaylist extends javax.swing.JPanel {
@@ -21,6 +21,10 @@ public class AnadirPlaylist extends javax.swing.JPanel {
     HibernateHelper hibernateHelper = new HibernateHelper();
     private PrincipalController principalController;
     
+    /**
+     * Constructor de la clase AnadirPlaylist.
+     * @param principalController Controlador principal de la interfaz.
+     */
     public AnadirPlaylist(PrincipalController principalController) {
         initComponents();
         this.principalController = principalController;
@@ -180,30 +184,58 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Inicia la acción de mostrar las playlists cuando se hace clic en la etiqueta "Playlists".
+     * @param evt Evento del ratón.
+     */
     private void labelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseClicked
         principalController.mostrarPlaylists();
     }//GEN-LAST:event_labelPlaylistsMouseClicked
 
+    /**
+     * Inicia la acción de mostrar la biblioteca cuando se hace clic en la etiqueta "Biblioteca".
+     * @param evt Evento del ratón.
+     */
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
+    /**
+     * Cambia el color del texto a negro cuando el ratón entra en la etiqueta "Playlists".
+     * @param evt Evento del ratón.
+     */
     private void labelPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseEntered
         labelPlaylists.setForeground(Color.black);
     }//GEN-LAST:event_labelPlaylistsMouseEntered
 
+    /**
+     * Cambia el color del texto a gris cuando el ratón sale de la etiqueta "Playlists".
+     * @param evt Evento del ratón.
+     */
     private void labelPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPlaylistsMouseExited
         labelPlaylists.setForeground(Color.gray);
     }//GEN-LAST:event_labelPlaylistsMouseExited
 
+    /**
+     * Cambia el color del texto a negro cuando el ratón entra en la etiqueta "Biblioteca".
+     * @param evt Evento del ratón.
+     */
     private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
         labelBiblioteca.setForeground(Color.black);
     }//GEN-LAST:event_labelBibliotecaMouseEntered
 
+    /**
+     * Cambia el color del texto a gris cuando el ratón sale de la etiqueta "Biblioteca".
+     * @param evt Evento del ratón.
+     */
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
 
+    /**
+     * Realiza la acción de guardar una nueva playlist cuando se activa el botón "Guardar".
+     * @param evt Evento del botón.
+     */
     private void guardarPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPlaylistActionPerformed
         String nombrePlaylistTexto = nombrePlaylist.getText(); // Obtener el nombre de la playlist desde el campo de texto
 
@@ -232,6 +264,10 @@ public class AnadirPlaylist extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_guardarPlaylistActionPerformed
 
+    /**
+     * Realiza la acción de guardar una nueva playlist cuando se presiona la tecla "Enter" en el campo de texto del nombre de la playlist.
+     * @param evt Evento de la tecla.
+     */
     private void nombrePlaylistKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombrePlaylistKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             guardarPlaylistActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));

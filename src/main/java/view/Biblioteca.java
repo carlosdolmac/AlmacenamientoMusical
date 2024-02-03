@@ -10,14 +10,17 @@ import controller.PrincipalController;
 import java.awt.Color;
 
 /**
- *
+ * Representa el panel de la biblioteca, que muestra estadísticas y enlaces relacionados con las canciones y playlists del usuario.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class Biblioteca extends javax.swing.JPanel {
     private PrincipalController principalController;
     private HibernateHelper sqlHelper;    
+    
     /**
-     * Creates new form Biblioteca
+     * Constructor que inicializa el panel de la biblioteca.
+     * @param principalController Controlador principal que gestiona las acciones de la interfaz.
      */
     public Biblioteca(PrincipalController principalController) {
         initComponents();
@@ -249,26 +252,50 @@ public class Biblioteca extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     * 
+     */
     private void labelVerListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseClicked
         principalController.mostrarListaDeCanciones();
     }//GEN-LAST:event_labelVerListaMouseClicked
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     * 
+     */
     private void labelVerPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseClicked
         principalController.mostrarPlaylists();
     }//GEN-LAST:event_labelVerPlaylistsMouseClicked
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     *    
+     */
     private void labelVerListaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseEntered
        labelVerLista.setForeground(Color.blue);
     }//GEN-LAST:event_labelVerListaMouseEntered
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     *  
+     */
     private void labelVerListaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerListaMouseExited
         labelVerLista.setForeground(Color.black);
     }//GEN-LAST:event_labelVerListaMouseExited
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     * 
+     */
     private void labelVerPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseEntered
         labelVerPlaylists.setForeground(Color.blue);
     }//GEN-LAST:event_labelVerPlaylistsMouseEntered
 
+    /**
+     * Gestiona los eventos del ratón para los enlaces de la interfaz relacionados con la biblioteca.
+     * 
+     */
     private void labelVerPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVerPlaylistsMouseExited
         labelVerPlaylists.setForeground(Color.black);
     }//GEN-LAST:event_labelVerPlaylistsMouseExited

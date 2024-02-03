@@ -14,13 +14,18 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Panel para añadir una nueva canción.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class AnadirCancion1 extends javax.swing.JPanel {
     HibernateHelper hibernateHelper = new HibernateHelper();
     private PrincipalController principalController;
     
+    /**
+     * Constructor de la clase AnadirCancion1.
+     * @param principalController Controlador principal de la interfaz.
+     */
     public AnadirCancion1(PrincipalController principalController) {
         initComponents();
         this.principalController = principalController;
@@ -42,6 +47,9 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         guardarCancion.setText(MensajesInternacionales.obtenerMensaje("button.anadircancion"));
     }
     
+    /**
+     * Carga la lista de playlists desde la base de datos y la presenta en el JComboBox de la interfaz.
+     */
     private void cargarPlaylists() {
         // Obtener la lista de playlists desde la base de datos
         List<String> playlists = hibernateHelper.obtenerNombresPlaylists();
@@ -238,30 +246,51 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja los eventos del mouse y del teclado para la interfaz de usuario relacionados con la gestión de canciones.
+     */
     private void labelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseClicked
         principalController.mostrarListaDeCanciones();
     }//GEN-LAST:event_labelListaCancionesMouseClicked
 
+    /**
+     * Cambia el color del texto cuando el mouse entra en la etiqueta de Lista de Canciones.
+     */
     private void labelListaCancionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseEntered
         labelListaCanciones.setForeground(Color.black);
     }//GEN-LAST:event_labelListaCancionesMouseEntered
-
+    
+    /**
+      * Restaura el color del texto cuando el mouse sale de la etiqueta de Lista de Canciones.
+      */
     private void labelListaCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelListaCancionesMouseExited
         labelListaCanciones.setForeground(Color.GRAY);
     }//GEN-LAST:event_labelListaCancionesMouseExited
 
+    /**
+     * Maneja el evento de clic en la etiqueta de Biblioteca, mostrando la biblioteca de canciones.
+     */
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
+    /**
+     * Cambia el color del texto cuando el mouse entra en la etiqueta de Biblioteca.
+     */
     private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
         labelBiblioteca.setForeground(Color.black);
     }//GEN-LAST:event_labelBibliotecaMouseEntered
 
+    /**
+     * Restaura el color del texto cuando el mouse sale de la etiqueta de Biblioteca.
+     */
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
 
+    /**
+     * Maneja la acción de guardar una nueva canción.
+     */
     private void guardarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCancionActionPerformed
         String nombreCancionAdd = nombreCancion.getText();
         String artistaAdd = artista.getText();
@@ -294,6 +323,9 @@ public class AnadirCancion1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_guardarCancionActionPerformed
 
+    /**
+     * Maneja el evento de presionar una tecla en el campo de nombre de la canción, activando la acción de guardar al presionar Enter.
+     */
     private void nombreCancionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreCancionKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             guardarCancionActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));

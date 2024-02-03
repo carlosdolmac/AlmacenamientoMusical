@@ -12,6 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import model.Canciones;
 
 /**
+ * Panel de inicio que muestra información estadística y listas de canciones.
+ * Incluye el número total de canciones, artistas, tus canciones y tus playlists.
+ * Permite navegar a la biblioteca, playlists y ver la lista completa de canciones.
  *
  * @author Carlos de los Dolores Macías
  */
@@ -67,6 +70,9 @@ public class Inicio extends javax.swing.JPanel {
         });
     }
 
+    /**
+     * Carga todas las canciones desde la base de datos y actualiza la tabla de lista de canciones.
+     */
     private void cargarTodasLasCanciones() {
         // Obtener todas las canciones desde la base de datos
         List<Canciones> canciones = sqlHelper.obtenerTodasLasCanciones();

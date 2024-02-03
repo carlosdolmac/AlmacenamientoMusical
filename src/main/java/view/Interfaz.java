@@ -18,6 +18,10 @@ import javax.swing.JPanel;
 public class Interfaz extends javax.swing.JFrame {
     private static Interfaz instancia;
 
+    /**
+     * Constructor de la clase Interfaz.
+     * Inicializa los componentes de la interfaz y muestra el panel de inicio de sesión.
+     */
     public Interfaz() {
         initComponents();
         setLocationRelativeTo(null); // Establece la ubicación de la ventana en el centro de la pantalla
@@ -25,7 +29,11 @@ public class Interfaz extends javax.swing.JFrame {
         loginController.mostrarLogin(); // Muestra el panel de inicio de sesión al iniciar la aplicación
     }
     
-    // Método para obtener la instancia única de la clase Interfaz
+    /**
+     * Obtiene la instancia única de la clase Interfaz mediante el patrón Singleton.
+     *
+     * @return La instancia única de la clase Interfaz.
+     */
     public static Interfaz getInstance() {
         if (instancia == null) {
             instancia = new Interfaz();

@@ -20,6 +20,7 @@ public class ChangePassword extends javax.swing.JPanel {
     private HibernateHelper hibernateHelper;
     private String correoRecuperacion;
     private LoginController loginController;        
+    
     /**
      * Crea un nuevo formulario ChangePassword.
      * @param interfaz La interfaz principal.
