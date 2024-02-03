@@ -3,14 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package view;
-//Placeholer para primera entrega
+
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import controller.AppState;
 import controller.HibernateHelper;
 import controller.MensajesInternacionales;
 import controller.PrincipalController;
-import controller.SessionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.Locale;
@@ -18,7 +17,8 @@ import java.util.ResourceBundle;
 import javax.swing.JPanel;
 
 /**
- *
+ * Clase que representa el panel principal de la aplicación.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class Principal extends javax.swing.JPanel {
@@ -34,8 +34,9 @@ public class Principal extends javax.swing.JPanel {
     private boolean bibliotecaDesplegada = false;
     
     /**
+     * Constructor de la clase Principal.
      * 
-     * @param idUsuario este argumento es el id del usuario
+     * @param idUsuario Identificador único del usuario.
      */
     public Principal(int idUsuario) {
         initComponents();
@@ -73,8 +74,8 @@ public class Principal extends javax.swing.JPanel {
     }
     
     /**
-     * Método para mostrar los paneles.
-     * @param p este argumento es el panel que se quiera mostrar
+     * Método para mostrar los paneles en el contenedor principal.
+     * @param p Panel que se quiere mostrar.
      */
     public void mostrarPanel(JPanel p) {
         colocarPaneles.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
@@ -85,7 +86,10 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.revalidate(); // Obliga al panel a recalcular su diseño
         colocarPaneles.repaint(); // Solicita al panel que repinte sus componentes
     }
-    
+    /**
+     * Método para mostrar los paneles en el contenedor del fondo del dashboard.
+     * @param p Panel que se quiere mostrar.
+     */
     public void mostrarPanel1(JPanel p) {
         fondoDashboard.removeAll(); // Elimina todos los componentes hijos del panel para que no haya nada al mostrar el panel que se quiere
         fondoDashboard.setLayout(new BorderLayout()); // Establece el BorderLayout para que el panel se expanda
@@ -573,6 +577,11 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método llamado al hacer clic en el panel de la biblioteca.
+     * Muestra la biblioteca y actualiza el estado de visibilidad.
+     * Actualiza los paneles según el estado.
+     */
     private void panelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
         // Cambia el estado de visibilidad y actualiza los paneles
@@ -580,73 +589,142 @@ public class Principal extends javax.swing.JPanel {
         actualizarPaneles();
     }//GEN-LAST:event_panelBibliotecaMouseClicked
 
+    /**
+     * Método llamado al hacer clic en el panel de inicio.
+     * Muestra el panel de inicio en el contenedor principal.
+     */
     private void panelInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseClicked
         mostrarPanel(new Inicio());
     }//GEN-LAST:event_panelInicioMouseClicked
 
-    //Eventos para los paneles cuando entra y sale el mouse de ellos (se cambiará el color)
+    /**
+     * Método llamado al entrar con el ratón en el panel de inicio.
+     * Cambia el fondo del panel al color de selección.
+     */
     private void panelInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseEntered
         panelInicio.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelInicioMouseEntered
 
+    /**
+     * Método llamado al salir con el ratón del panel de inicio.
+     * Restaura el fondo del panel al color original.
+     */
     private void panelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseExited
         panelInicio.setBackground(colorSeleccion2);
     }//GEN-LAST:event_panelInicioMouseExited
 
+    /**
+     * Método llamado al entrar con el ratón en el panel de biblioteca.
+     * Cambia el fondo del panel al color de selección.
+     */
     private void panelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseEntered
         panelBiblioteca.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelBibliotecaMouseEntered
 
+    /**
+     * Método llamado al salir con el ratón del panel de biblioteca.
+     * Restaura el fondo del panel al color original.
+     */
     private void panelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBibliotecaMouseExited
         panelBiblioteca.setBackground(colorSeleccion2);
     }//GEN-LAST:event_panelBibliotecaMouseExited
 
+    /**
+     * Método llamado al salir con el ratón del panel de lista de canciones.
+     * Restaura el fondo del panel al color original.
+     */
     private void panelListaCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseExited
         panelListaCanciones.setBackground(colorSeleccion3);
     }//GEN-LAST:event_panelListaCancionesMouseExited
 
+    /**
+     * Método llamado al entrar con el ratón en el panel de lista de canciones.
+     * Cambia el fondo del panel al color de selección.
+     */
     private void panelListaCancionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseEntered
         panelListaCanciones.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelListaCancionesMouseEntered
 
+    /**
+     * Método llamado al entrar con el ratón en el panel de playlists.
+     * Cambia el fondo del panel al color de selección.
+     * También cambia el fondo del panel desplegable al color de selección.
+     */
     private void panelPlaylistsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseEntered
         panelPlaylists.setBackground(colorSeleccion);
         panelDesplegable.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelPlaylistsMouseEntered
 
+    /**
+     * Método llamado al salir con el ratón del panel de playlists.
+     * Restaura el fondo del panel y del panel desplegable al color original.
+     */
     private void panelPlaylistsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseExited
         panelPlaylists.setBackground(colorSeleccion3);
         panelDesplegable.setBackground(colorSeleccion3);
     }//GEN-LAST:event_panelPlaylistsMouseExited
 
+    
+    /**
+     * Método llamado al salir con el ratón del panel de artista.
+     * Restaura el fondo del panel al color original.
+     */
     private void panelArtistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArtistaMouseExited
         panelArtista.setBackground(colorSeleccion2);
     }//GEN-LAST:event_panelArtistaMouseExited
 
+    /**
+     * Método llamado al salir con el ratón del panel de salir.
+     * Restaura el fondo del panel al color original.
+     */
     private void panelSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseExited
         panelSalir.setBackground(colorSeleccion2);
     }//GEN-LAST:event_panelSalirMouseExited
-
+ 
+    /**
+     * Método llamado al entrar con el ratón en el panel de artista.
+     * Cambia el fondo del panel al color de selección.
+     */
     private void panelArtistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelArtistaMouseEntered
         panelArtista.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelArtistaMouseEntered
 
+    /**
+     * Método llamado al entrar con el ratón en el panel de salir.
+     * Cambia el fondo del panel al color de selección.
+     */
     private void panelSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseEntered
         panelSalir.setBackground(colorSeleccion);
     }//GEN-LAST:event_panelSalirMouseEntered
 
+    /**
+     * Método llamado al hacer clic en el panel de lista de canciones.
+     * Muestra la lista de canciones.
+     */
     private void panelListaCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelListaCancionesMouseClicked
         principalController.mostrarListaDeCanciones();
     }//GEN-LAST:event_panelListaCancionesMouseClicked
 
+    /**
+     * Método llamado al hacer clic en el panel de playlists.
+     * Muestra las playlists.
+     */
     private void panelPlaylistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPlaylistsMouseClicked
         principalController.mostrarPlaylists();
     }//GEN-LAST:event_panelPlaylistsMouseClicked
 
+    /**
+     * Método llamado al hacer clic en el panel de salir.
+     * Cierra la aplicación.
+     */
     private void panelSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirMouseClicked
         System.exit(0);
     }//GEN-LAST:event_panelSalirMouseClicked
 
+    /**
+     * Método llamado al seleccionar un idioma en el menú desplegable de idiomas.
+     * Cambia el idioma de la aplicación y actualiza los textos en la interfaz.
+     */
     private void idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomasActionPerformed
         String idiomaSeleccionado = idiomas.getSelectedItem().toString();
         Locale nuevoLocale;
@@ -669,7 +747,11 @@ public class Principal extends javax.swing.JPanel {
         // Actualizar los textos en la interfaz con los nuevos mensajes internacionales
         updateUIWithInternationalization();
     }//GEN-LAST:event_idiomasActionPerformed
-
+   
+    /**
+     * Método para actualizar la visibilidad del panel desplegable.
+     * Se llama después de cambiar el estado de visibilidad de la biblioteca.
+     */
     private void actualizarPaneles() {
         panelDesplegable.setVisible(bibliotecaDesplegada);
 
@@ -677,6 +759,9 @@ public class Principal extends javax.swing.JPanel {
         colocarPaneles.repaint();
     }
     
+    /**
+     * Método para actualizar los textos en la interfaz con los mensajes internacionales.
+     */
     private void updateUIWithInternationalization() {
         //Títulos
         jLabelInicio.setText(MensajesInternacionales.obtenerMensaje("label.inicio"));

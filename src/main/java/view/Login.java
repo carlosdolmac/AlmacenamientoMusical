@@ -22,13 +22,19 @@ public class Login extends javax.swing.JPanel {
     private LoginController controller;
     private ResourceBundle resourceBundle;
 
+    /**
+     * Constructor de la clase Login.
+     * Inicializa la instancia del controlador de inicio de sesión con la interfaz proporcionada.
+     * Además, inicializa los componentes del formulario y configura la internacionalización con el ResourceBundle predeterminado (español).
+     *
+     * @param interfaz La instancia de la interfaz a la que está asociado el formulario de inicio de sesión.
+     */
     public Login(Interfaz interfaz) {
         this.controller = new LoginController(interfaz); // Inicializa el controlador de inicio de sesión con la interfaz
         initComponents(); // Inicializa los componentes del formulario
         // Cargar el ResourceBundle por defecto (español)
         resourceBundle = ResourceBundle.getBundle("messages", new Locale("es"));
         updateUIWithInternationalization();
-    
     }
 
     /**
@@ -202,6 +208,12 @@ public class Login extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_passwrdKeyPressed
 
+    /**
+     * Método invocado al seleccionar un idioma en el JComboBox.
+     * Cambia el idioma de la aplicación y actualiza los textos en la interfaz con los nuevos mensajes internacionales.
+     *
+     * @param evt El evento de acción asociado al cambio de idioma.
+     */
     private void idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomasActionPerformed
         String idiomaSeleccionado = idiomas.getSelectedItem().toString();
         Locale nuevoLocale;
@@ -225,6 +237,21 @@ public class Login extends javax.swing.JPanel {
         updateUIWithInternationalization();
     }//GEN-LAST:event_idiomasActionPerformed
 
+    /**
+     * Actualiza los elementos de la interfaz de usuario con los mensajes internacionales.
+     * Se utiliza para cambiar el idioma de la interfaz de usuario y reflejar los cambios en los textos.
+     */
+    private void updateUIWithInternationalization() {
+        
+        email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
+        passwrd.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
+        signinLabel.putClientProperty("FlatLaf.styleClass", "h1");
+        signupLabel.setText(MensajesInternacionales.obtenerMensaje("label.noCuenta"));
+        signinLabel.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
+        registrateAqui.setText(MensajesInternacionales.obtenerMensaje("label.registrateAqui"));
+        clickAqui.setText(MensajesInternacionales.obtenerMensaje("label.hazClickAqui"));
+        login.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel clickAqui;
@@ -242,15 +269,4 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel signupLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void updateUIWithInternationalization() {
-        
-        email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.email"));
-        passwrd.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
-        signinLabel.putClientProperty("FlatLaf.styleClass", "h1");
-        signupLabel.setText(MensajesInternacionales.obtenerMensaje("label.noCuenta"));
-        signinLabel.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
-        registrateAqui.setText(MensajesInternacionales.obtenerMensaje("label.registrateAqui"));
-        clickAqui.setText(MensajesInternacionales.obtenerMensaje("label.hazClickAqui"));
-        login.setText(MensajesInternacionales.obtenerMensaje("label.iniciasesion"));
-    }
 }

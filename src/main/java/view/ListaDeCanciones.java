@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import model.Canciones;
 
 /**
- *
+ * Panel que muestra una lista de canciones.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class ListaDeCanciones extends javax.swing.JPanel {
@@ -22,7 +23,8 @@ public class ListaDeCanciones extends javax.swing.JPanel {
     private PrincipalController principalController;
     
     /**
-     * Creates new form ListaDeCanciones
+     * Constructor de la clase ListaDeCanciones.
+     * @param principalController Controlador principal para la gestión de eventos.
      */
     public ListaDeCanciones(PrincipalController principalController) {
         initComponents();
@@ -211,18 +213,34 @@ public class ListaDeCanciones extends javax.swing.JPanel {
         principalController.mostrarAnadirCancion();
     }//GEN-LAST:event_anadirCancionMouseClicked
 
+    /**
+     * Acción realizada al entrar al área de 'Biblioteca'.
+     * Cambia el color del texto a negro.
+     */
     private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
        labelBiblioteca.setForeground(Color.black);
     }//GEN-LAST:event_labelBibliotecaMouseEntered
 
+    /**
+     * Acción realizada al salir del área de 'Biblioteca'.
+     * Cambia el color del texto a gris.
+     */
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
 
+    /**
+     * Acción realizada al hacer clic en el área de 'Biblioteca'.
+     * Muestra el panel de la biblioteca.
+     */
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
+    /**
+     * Acción realizada al hacer clic en el botón 'Borrar Canción'.
+     * Elimina la canción seleccionada de la base de datos.
+     */
     private void borrarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarCancionActionPerformed
         // Obtener la fila seleccionada
         int selectedRow = tablaCanciones.getSelectedRow();

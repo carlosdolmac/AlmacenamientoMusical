@@ -12,7 +12,8 @@ import controller.MensajesInternacionales;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Representa el panel de recuperación de contraseña.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class Password extends javax.swing.JPanel {

@@ -14,14 +14,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Panel que muestra las playlists del usuario actual.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class Playlists extends javax.swing.JPanel {
     HibernateHelper hibernateHelper = new HibernateHelper();
     private PrincipalController principalController;
+    
     /**
-     * Creates new form Playlists
+     * Crea una nueva instancia del panel Playlists.
+     * Inicializa los componentes y configura la interfaz de usuario.
+     * 
+     * @param principalController Controlador principal para la gestión de la interfaz.
      */
     public Playlists(PrincipalController principalController) {
         initComponents();
@@ -48,6 +53,9 @@ public class Playlists extends javax.swing.JPanel {
         });
     }
 
+    /**
+     * Muestra las playlists del usuario actual en la tabla.
+     */
     private void mostrarPlaylistsEnTabla() {
         // Obtain playlists from HibernateHelper
         List<model.Playlists> playlists = hibernateHelper.obtenerPlaylistsUsuarioActual();
@@ -212,22 +220,52 @@ public class Playlists extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja el evento de clic en el botón "Añadir Playlist".
+     * Abre la vista de añadir playlist.
+     * 
+     * @param evt Evento de acción del mouse.
+     */
     private void anadirPlaylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_anadirPlaylistMouseClicked
         principalController.mostrarAnadirPlaylist();
     }//GEN-LAST:event_anadirPlaylistMouseClicked
 
+    /**
+     * Maneja el evento de clic en la etiqueta "Biblioteca".
+     * Navega a la vista de Biblioteca.
+     * 
+     * @param evt Evento de acción del mouse.
+     */
     private void labelBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseClicked
         principalController.mostrarBiblioteca();
     }//GEN-LAST:event_labelBibliotecaMouseClicked
 
+    /**
+     * Maneja el evento cuando el mouse entra en la etiqueta "Biblioteca".
+     * Cambia el color del texto a negro.
+     * 
+     * @param evt Evento de mouse.
+     */
     private void labelBibliotecaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseEntered
         labelBiblioteca.setForeground(Color.black);
     }//GEN-LAST:event_labelBibliotecaMouseEntered
 
+    /**
+     * Maneja el evento cuando el mouse sale de la etiqueta "Biblioteca".
+     * Cambia el color del texto a gris.
+     * 
+     * @param evt Evento de mouse.
+     */
     private void labelBibliotecaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBibliotecaMouseExited
         labelBiblioteca.setForeground(Color.gray);
     }//GEN-LAST:event_labelBibliotecaMouseExited
 
+    /**
+     * Maneja el evento de clic en el botón "Borrar Playlist".
+     * Elimina la playlist seleccionada después de la confirmación del usuario.
+     * 
+     * @param evt Evento de acción del mouse.
+     */
     private void borrarPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPlaylistActionPerformed
         // Obtener el índice de la fila seleccionada
         int selectedRowIndex = tablaPlaylists.getSelectedRow();

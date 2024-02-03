@@ -5,17 +5,13 @@
 package view;
 
 import com.formdev.flatlaf.FlatClientProperties;
-import controller.HibernateHelper;
 import controller.MensajesInternacionales;
 import controller.SignupController;
-import java.awt.Color;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import javax.swing.JOptionPane;
-import model.Usuarios;
 
 /**
- *
+ * Clase que representa el panel de registro.
+ * 
  * @author Carlos de los Dolores Macías
  */
 public class Signup extends javax.swing.JPanel {
@@ -224,31 +220,55 @@ public class Signup extends javax.swing.JPanel {
         interfaz.mostrarPanel(loginPanel); // Mostrar el panel de inicio de sesión al hacer clic en 'Login'
     }//GEN-LAST:event_loginLabelMouseClicked
 
-    // Métodos para manejar el cambio de foco entre campos al presionar 'Enter':
+    /**
+     * Maneja el evento de presionar la tecla Enter en el campo de texto 'name'.
+     * Si se presiona Enter, mueve el foco al campo 'surname'.
+     * @param evt Evento de tecla presionada.
+     */
     private void nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             surname.requestFocus(); // Mueve el foco al campo 'surname'
         }
     }//GEN-LAST:event_nameKeyPressed
 
+    /**
+     * Maneja el evento de presionar la tecla Enter en el campo de texto 'surname'.
+     * Si se presiona Enter, mueve el foco al campo 'username'.
+     * @param evt Evento de tecla presionada.
+     */
     private void surnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_surnameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             username.requestFocus(); // Mueve el foco al campo 'username'
         }
     }//GEN-LAST:event_surnameKeyPressed
 
+    /**
+     * Maneja el evento de presionar la tecla Enter en el campo de texto 'username'.
+     * Si se presiona Enter, mueve el foco al campo 'email'.
+     * @param evt Evento de tecla presionada.
+     */
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             email.requestFocus(); // Mueve el foco al campo 'email'
         }
     }//GEN-LAST:event_usernameKeyPressed
 
+    /**
+     * Maneja el evento de presionar la tecla Enter en el campo de texto 'email'.
+     * Si se presiona Enter, mueve el foco al campo 'passwrd'.
+     * @param evt Evento de tecla presionada.
+     */
     private void emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             passwrd.requestFocus(); // Mueve el foco al campo 'passwrd'
         }
     }//GEN-LAST:event_emailKeyPressed
 
+    /**
+     * Maneja el evento de presionar la tecla Enter en el campo de texto 'passwrd'.
+     * Si se presiona Enter, realiza la acción del botón 'Create Account'.
+     * @param evt Evento de tecla presionada.
+     */
     private void passwrdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwrdKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             createAccountActionPerformed(new java.awt.event.ActionEvent(this, 0, ""));
