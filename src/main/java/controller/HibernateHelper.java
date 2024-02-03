@@ -5,9 +5,8 @@
 package controller;
 
 /**
- * Clase HibernateHelper para operaciones de Hibernate relacionadas con entidades de usuarios.
- * Esta clase proporciona métodos para autenticación, creación, recuperación y actualización de usuarios.
- *
+ * Clase HibernateHelper para operaciones de Hibernate 
+ * 
  * Autor: Carlos de los Dolores Macías
  */
 import java.sql.Timestamp;
@@ -36,10 +35,12 @@ public class HibernateHelper {
 
     /**
      * Método para obtener el ID de usuario basado en el correo electrónico y la contraseña encriptada
-     * @param email email del usuario
-     * @param passwrdEncriptada contraseña encriptada del usuario
-     * @return devuelve el id del usuario
+     *
+     * @param email            Email del usuario
+     * @param passwrdEncriptada Contraseña encriptada del usuario
+     * @return El id del usuario
      */
+
     public int obtenerIdUsuario(String email, String passwrdEncriptada) {
         int idUsuario = -1;
 
@@ -68,9 +69,10 @@ public class HibernateHelper {
     }
     
     /**
-     * Método para crear un nuevo usuario en la base de datos
-     * @param usuario se pasa el usuario que se quiera crear
-     * @return devuelve el usuario creado
+     * Método para crear un nuevo usuario en la base de datos.
+     *
+     * @param usuario Usuario que se quiere crear
+     * @return True si se creó correctamente, False si hubo algún error.
      */
     public boolean crearUsuario(Usuarios usuario) {
         boolean creado = false;
@@ -97,9 +99,10 @@ public class HibernateHelper {
     }
 
     /**
-     * Método para recuperar un usuario por su correo electrónico
-     * @param email este argumento es el email del usuario
-     * @return devuelve el usuario asociado al email
+     * Método para recuperar un usuario por su correo electrónico.
+     * 
+     * @param email El correo electrónico del usuario.
+     * @return El usuario asociado al correo electrónico o null si no se encuentra.
      */
     public Usuarios obtenerUsuarioPorCorreo(String email) {
         Usuarios usuario = null;
@@ -121,8 +124,9 @@ public class HibernateHelper {
     
     /**
      * Método para verificar si un correo electrónico dado existe en la base de datos
-     * @param correo este argumento es el correo del usuario
-     * @return devuelve si existe el correo
+     * 
+     * @param correo El correo electrónico a verificar.
+     * @return true si el correo existe en la base de datos, false si no existe.
      */
     public boolean existeCorreo(String correo) {
         boolean correoExiste = false;
@@ -146,10 +150,11 @@ public class HibernateHelper {
     }
 
     /**
-     * Método para actualizar la contraseña de un usuario dado su correo electrónico
-     * @param correo este argumento es el correo del usuario
-     * @param nuevaPassword este argumento es la nueva contraseña
-     * @throws Exception en caso de que el correo no exista
+     * Método para actualizar la contraseña de un usuario dado su correo electrónico.
+     * 
+     * @param correo        El correo electrónico del usuario.
+     * @param nuevaPassword La nueva contraseña a establecer.
+     * @throws Exception     Si el correo no existe en la base de datos.
      */
     public void actualizarPasswordPorCorreo(String correo, String nuevaPassword) throws Exception {
         try (Session session = sessionFactory.openSession()) {
@@ -178,6 +183,7 @@ public class HibernateHelper {
     
     /**
      * Método para obtener todas las canciones de la base de datos
+     * 
      * @return Lista de todas las canciones
      */
     public List<Canciones> obtenerTodasLasCanciones() {
@@ -186,6 +192,7 @@ public class HibernateHelper {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
+            // Consulta que recupera todas las canciones junto con la información de los artistas asociados
             canciones = session.createQuery("FROM Canciones c JOIN FETCH c.artistas", Canciones.class).list();
 
             session.getTransaction().commit();
@@ -196,6 +203,12 @@ public class HibernateHelper {
         return canciones;
     }
     
+    /**
+     * Método para agregar una canción a la base de datos
+     * @param nombreCancion Nombre de la canción a agregar
+     * @param idPlaylist    ID de la playlist a la que se puede asociar la canción (puede ser null).
+     * @param artistaNombre Nombre del artista de la canción.     
+     */
     public void agregarCancion(String nombreCancion, Integer idPlaylist, String artistaNombre) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -228,11 +241,21 @@ public class HibernateHelper {
         }
     }
 
-    
+    /**
+     * Método privado para obtener el usuario actual desde la sesión.
+     * 
+     * @return El usuario actual.
+     */
     private Usuarios obtenerUsuarioActual() {
         return SessionManager.getUsuarioActual();
     }
 
+    /**
+     * Método privado para obtener un artista por su nombre desde la base de datos.
+     * 
+     * @param nombre El nombre del artista a buscar.
+     * @return El objeto Artistas correspondiente al nombre proporcionado, o null si no se encuentra.
+     */
     private Artistas obtenerArtistaPorNombre(String nombre) {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("FROM Artistas WHERE nombreArtista = :nombre", Artistas.class)
@@ -246,7 +269,8 @@ public class HibernateHelper {
     
     /**
      * Obtiene la lista de nombres de playlists del usuario actual desde la base de datos.
-     * @return Lista de nombres de playlists.
+     * 
+     * @return Lista de nombres de playlists, incluyendo la opción "null" como la primera opción.
      */
     public List<String> obtenerNombresPlaylists() {
         List<String> nombresPlaylists = new ArrayList<>();
@@ -277,6 +301,12 @@ public class HibernateHelper {
         return nombresPlaylists;
     }
 
+    /**
+     * Obtiene el ID de una playlist por su nombre y el ID del usuario actual desde la base de datos.
+     * 
+     * @param nombrePlaylist El nombre de la playlist a buscar.
+     * @return El ID de la playlist correspondiente al nombre proporcionado y al usuario actual, o null si no se encuentra.
+     */
     public Integer obtenerIdPlaylistPorNombre(String nombrePlaylist) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -303,6 +333,12 @@ public class HibernateHelper {
         return null;
     }
 
+    /**
+     * Obtiene la instancia de Playlists por su ID desde la base de datos.
+     * 
+     * @param idPlaylist El ID de la playlist a buscar.
+     * @return La instancia de Playlists correspondiente al ID proporcionado, o null si no se encuentra.
+     */
     public Playlists obtenerPlaylistPorId(Integer idPlaylist) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -330,6 +366,11 @@ public class HibernateHelper {
         return null;
     }
     
+    /**
+     * Obtiene la lista de canciones asociadas al usuario actual desde la base de datos.
+     *
+     * @return Lista de canciones asociadas al usuario actual o null si hay algún error.
+     */
     public List<Canciones> obtenerCancionesUsuarioActual() {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -360,15 +401,20 @@ public class HibernateHelper {
         return null;
     }
     
+    /**
+     * Obtiene la lista de playlists asociadas al usuario actual desde la base de datos.
+     *
+     * @return Lista de playlists asociadas al usuario actual o null si hay algún error.
+     */
     public List<Playlists> obtenerPlaylistsUsuarioActual() {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
 
             try {
-                // Obtaining the current user from the session
+                // Obtener el usuario actual desde la sesión
                 Usuarios usuarioActual = SessionManager.getUsuarioActual();
 
-                // Querying playlists and eagerly fetching the cancioneses collection
+                // Consultar playlists y cargar la colección de canciones de forma ansiosa
                 String queryString = "SELECT DISTINCT p FROM Playlists p LEFT JOIN FETCH p.cancioneses WHERE p.usuarios = :usuario";
                 Query<Playlists> query = session.createQuery(queryString, Playlists.class);
                 query.setParameter("usuario", usuarioActual);
@@ -390,6 +436,11 @@ public class HibernateHelper {
         return null;
     }
 
+    /**
+     * Obtiene el número total de canciones almacenadas en la base de datos.
+     *
+     * @return Número total de canciones o 0 si hay algún error.
+     */
     public int obtenerNumeroCanciones() {
         try (Session session = sessionFactory.openSession()) {
             // Realizar la consulta para contar el número total de canciones
@@ -403,9 +454,14 @@ public class HibernateHelper {
         }
     }
     
+    /**
+     * Obtiene el número total de artistas almacenados en la base de datos.
+     *
+     * @return Número total de artistas o 0 si hay algún error.
+     */
     public int obtenerNumeroArtistas() {
         try (Session session = sessionFactory.openSession()) {
-            // Realizar la consulta para contar el número total de canciones
+            // Realiza la consulta para contar el número total de canciones
             Query<Long> query = session.createQuery("SELECT COUNT(*) FROM Artistas", Long.class);
             Long count = query.uniqueResult();
             
@@ -416,6 +472,11 @@ public class HibernateHelper {
         }
     }
     
+    /**
+     * Obtiene el número total de canciones asociadas al usuario actual almacenadas en la base de datos.
+     *
+     * @return Número total de canciones asociadas al usuario actual o 0 si hay algún error.
+     */
     public int obtenerNumeroCancionesPorUsuarioActual() {
         try (Session session = sessionFactory.openSession()) {
             // Obtener el usuario actual desde la sesión
@@ -436,6 +497,11 @@ public class HibernateHelper {
         return 0;
     }
     
+    /**
+     * Obtiene el número total de playlists asociadas al usuario actual almacenadas en la base de datos.
+     *
+     * @return Número total de playlists asociadas al usuario actual o 0 si hay algún error.
+     */
     public int obtenerNumeroPlaylistsUsuarioActual() {
         try (Session session = sessionFactory.openSession()) {
             // Obtener el usuario actual desde la sesión
@@ -453,6 +519,12 @@ public class HibernateHelper {
         }
     }
     
+    /**
+     * Guarda una nueva playlist para el usuario actual en la base de datos.
+     *
+     * @param nombrePlaylist Nombre de la nueva playlist.
+     * @return true si el guardado fue exitoso, false si ya existe una playlist con el mismo nombre.
+     */
     public boolean guardarPlaylist(String nombrePlaylist) {
         boolean guardadoExitoso = false;
 
@@ -485,6 +557,12 @@ public class HibernateHelper {
         return guardadoExitoso;
     }
     
+    /**
+     * Elimina una playlist por su nombre de la base de datos.
+     *
+     * @param nombrePlaylist Nombre de la playlist a eliminar.
+     * @return true si la eliminación fue exitosa, false si la playlist no existe.
+     */
     public boolean borrarPlaylist(String nombrePlaylist) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -521,6 +599,12 @@ public class HibernateHelper {
         }
     }
     
+    /**
+     *  Elimina una canción por su nombre de la base de datos.
+     *
+     * @param nombreCancion Nombre de la canción a eliminar.
+     * @return true si la eliminación fue exitosa, false si la canción no existe.
+     */
     public boolean borrarCancion(String nombreCancion) {
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();

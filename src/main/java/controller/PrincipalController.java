@@ -13,7 +13,6 @@ import view.Principal;
 
 /**
  * Controlador para la gestión de la página Principal
- * Se encarga de mostrar los distintos paneles del panel Principal
  *
  * Autor: Carlos de los Dolores Macías
  */
@@ -21,8 +20,9 @@ public class PrincipalController {
     private Principal principal;
 
     /**
-     * 
-     * @param principal Este argumento es el jpanel Principal
+     * Constructor de la clase PrincipalController.
+     *
+     * @param principal Panel Principal asociado al controlador.
      */
     public PrincipalController(Principal principal) {
         this.principal = principal;
@@ -36,6 +36,9 @@ public class PrincipalController {
         principal.mostrarPanel(anadirCancion);
     }
     
+    /**
+     * Método para mostrar la ventana de añadir playlist.
+     */
     public void mostrarAnadirPlaylist() {
         AnadirPlaylist anadirPlaylist = new AnadirPlaylist(this); // Pasa 'this' como argumento
         principal.mostrarPanel(anadirPlaylist);
@@ -49,11 +52,17 @@ public class PrincipalController {
         principal.mostrarPanel(listaDeCanciones);
     }
     
+    /**
+     * Método para mostrar el panel de playlists.
+     */
     public void mostrarPlaylists() {
         Playlists playlists = new Playlists(this);
         principal.mostrarPanel(playlists);
     }
     
+    /**
+     * Método para mostrar el panel de la biblioteca.
+     */
     public void mostrarBiblioteca() {
         Biblioteca biblioteca = new Biblioteca(this);
         principal.mostrarPanel(biblioteca);

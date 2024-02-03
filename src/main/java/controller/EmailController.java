@@ -18,18 +18,20 @@ import javax.mail.internet.*;
 import java.util.Properties;
 
 public class EmailController {
+    /**
+     * Genera un código de recuperación aleatorio y único.
+     *
+     * @return El código de recuperación generado.
+     */
     public static String generarCodigoRecuperacion() {
-        /**
-        * Genera un código de recuperación aleatorio y único.
-        * @return El código de recuperación generado.
-        */
         SecureRandom random = new SecureRandom();
         return new BigInteger(130, random).toString(32);
     }
 
     /**
      * Envía un correo electrónico de recuperación de contraseña a la dirección proporcionada.
-     * @param userEmail La dirección de correo electrónico del destinatario.
+     *
+     * @param userEmail         La dirección de correo electrónico del destinatario.
      * @param codigoRecuperacion El código de recuperación a enviar.
      */
     public static void enviarCorreoRecuperacion(String userEmail, String codigoRecuperacion) {

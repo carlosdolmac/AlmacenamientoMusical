@@ -4,7 +4,6 @@
  */
 package controller;
 
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Usuarios;
 import org.mindrot.jbcrypt.BCrypt;
@@ -15,8 +14,7 @@ import view.Password;
 
 /**
  * Controlador para la gestión del inicio de sesión y las operaciones relacionadas.
- * Se encarga de mostrar los distintos paneles de la interfaz y manejar las operaciones de inicio de sesión.
- *
+ * 
  * Autor: Carlos de los Dolores Macías
  */
 public class LoginController {
@@ -52,6 +50,12 @@ public class LoginController {
     }
 
 
+    /**
+     * Método para realizar el inicio de sesión de un usuario.
+     * 
+     * @param correo Correo electrónico del usuario.
+     * @param contraseña Contraseña proporcionada por el usuario.
+     */
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
         Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
@@ -77,7 +81,7 @@ public class LoginController {
 
 
     /**
-     * // Método para mostrar el panel de registro
+     * Método para mostrar el panel de registro
      */
     public void mostrarSignup() {
         SignupController signupController = new SignupController(interfaz);

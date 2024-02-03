@@ -16,6 +16,10 @@ import view.Signup;
 public class SignupController {
     private Interfaz interfaz;
 
+    /**
+     * Constructor de SignupController.
+     * @param interfaz La interfaz asociada al controlador.
+     */
     public SignupController(Interfaz interfaz) {
         this.interfaz = interfaz;
     }
@@ -29,13 +33,14 @@ public class SignupController {
     }
 
     /**
-     * Método para crear un nuevo usuario en la base de datos
-     * @param nombre nombre real del usuario
-     * @param apellidos apellidos del usuario
-     * @param nombreUsuario nombre del usuario (username)
-     * @param correo correo electrónico del usuario
-     * @param password contraseña que quiera poner el usuario
-     * @return devuelve la creación del usuario con Hibernate
+     * Crea un nuevo usuario en la base de datos.
+     *
+     * @param nombre           Nombre real del usuario.
+     * @param apellidos        Apellidos del usuario.
+     * @param nombreUsuario    Nombre del usuario (username).
+     * @param correo           Correo electrónico del usuario.
+     * @param password         Contraseña que el usuario desea establecer.
+     * @return                 Devuelve true si la creación del usuario fue exitosa, false en caso contrario.
      */
     public boolean crearNuevoUsuario(String nombre, String apellidos, String nombreUsuario, String correo, String password) {
         HibernateHelper hibernateHelper = new HibernateHelper();
