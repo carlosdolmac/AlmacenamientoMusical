@@ -58,6 +58,7 @@ public class LoginController {
      */
     public void login(String correo, String contraseña) {
         HibernateHelper hibernateHelper = new HibernateHelper(); 
+        JOptionPane.showMessageDialog(interfaz, "Cargando...");
         Usuarios usuario = hibernateHelper.obtenerUsuarioPorCorreo(correo);
 
         if (usuario != null) {

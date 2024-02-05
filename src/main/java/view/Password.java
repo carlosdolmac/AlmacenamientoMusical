@@ -36,6 +36,7 @@ public class Password extends javax.swing.JPanel {
         continuarBtn.setEnabled(false);
         enviarBtn.setText(MensajesInternacionales.obtenerMensaje("button.enviar"));
         continuarBtn.setText(MensajesInternacionales.obtenerMensaje("button.continuar"));
+        labelVolver.setText(MensajesInternacionales.obtenerMensaje("label.volver"));
     }
 
     /**
@@ -66,6 +67,7 @@ public class Password extends javax.swing.JPanel {
         imagelogin = new javax.swing.JLabel();
         changeLabel = new javax.swing.JLabel();
         inicioImg = new javax.swing.JLabel();
+        labelVolver = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(139, 243, 204));
         setLayout(new java.awt.GridBagLayout());
@@ -138,6 +140,9 @@ public class Password extends javax.swing.JPanel {
             }
         });
         fondoPassword.add(inicioImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 445, -1, -1));
+
+        labelVolver.setText("Volver");
+        fondoPassword.add(labelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, -1, -1));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -254,5 +259,6 @@ public class Password extends javax.swing.JPanel {
     private javax.swing.JLabel inicioImg;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel labelVolver;
     // End of variables declaration//GEN-END:variables
 }

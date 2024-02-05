@@ -14,6 +14,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -126,7 +127,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelPlaylists = new javax.swing.JLabel();
         iconOut = new javax.swing.JLabel();
         colocarPaneles = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        barraSuperior = new javax.swing.JPanel();
         labelBienvenidos = new javax.swing.JLabel();
         idiomas = new javax.swing.JComboBox<>();
 
@@ -437,7 +438,7 @@ public class Principal extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(139, 243, 204));
+        barraSuperior.setBackground(new java.awt.Color(139, 243, 204));
 
         labelBienvenidos.setText("Tu biblioteca músical");
 
@@ -448,25 +449,25 @@ public class Principal extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout barraSuperiorLayout = new javax.swing.GroupLayout(barraSuperior);
+        barraSuperior.setLayout(barraSuperiorLayout);
+        barraSuperiorLayout.setHorizontalGroup(
+            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraSuperiorLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(375, 375, 375)
                 .addComponent(labelBienvenidos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        barraSuperiorLayout.setVerticalGroup(
+            barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraSuperiorLayout.createSequentialGroup()
+                .addGroup(barraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(barraSuperiorLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(labelBienvenidos))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(barraSuperiorLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -482,7 +483,7 @@ public class Principal extends javax.swing.JPanel {
                 .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE))
             .addGroup(fondoDashboardLayout.createSequentialGroup()
                 .addGap(255, 255, 255)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(barraSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoDashboardLayout.setVerticalGroup(
             fondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,7 +491,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(fondoDashboardLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(colocarPaneles, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(barraSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -643,8 +644,10 @@ public class Principal extends javax.swing.JPanel {
 
         if (idiomaSeleccionado.equals("Español")) {
             nuevoLocale = new Locale("es");
+            JOptionPane.showMessageDialog(barraSuperior, "Cambiando idioma, acualiza la página");
         } else if (idiomaSeleccionado.equals("Inglés")) {
             nuevoLocale = new Locale("en");
+            JOptionPane.showMessageDialog(barraSuperior, "Changing language, refresh the page");
         } else {
             // Manejar cualquier otro idioma que puedas tener
             nuevoLocale = new Locale("es");
@@ -686,6 +689,7 @@ public class Principal extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel barraSuperior;
     private javax.swing.JPanel colocarPaneles;
     private javax.swing.JPanel fondoDashboard;
     private javax.swing.JLabel iconArt;
@@ -704,7 +708,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelBienvenidos;
     private javax.swing.JLabel labelMusicNocta;
     private javax.swing.JPanel panelBiblioteca;

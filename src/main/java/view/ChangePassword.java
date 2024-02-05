@@ -37,6 +37,7 @@ public class ChangePassword extends javax.swing.JPanel {
         modificarPass.setText(MensajesInternacionales.obtenerMensaje("button.modificar"));
         newPass.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.password"));
         newPass1.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, MensajesInternacionales.obtenerMensaje("placeholder.repitepassword"));
+        labelVolver.setText(MensajesInternacionales.obtenerMensaje("label.volver"));
     }
 
     /**
@@ -58,6 +59,7 @@ public class ChangePassword extends javax.swing.JPanel {
         inicioLabel = new javax.swing.JLabel();
         newPass1 = new javax.swing.JPasswordField();
         newPass = new javax.swing.JPasswordField();
+        labelVolver = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(139, 243, 204));
         setLayout(new java.awt.GridBagLayout());
@@ -119,6 +121,9 @@ public class ChangePassword extends javax.swing.JPanel {
             }
         });
         fondoChangePassword.add(newPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 580, -1));
+
+        labelVolver.setText("Volver");
+        fondoChangePassword.add(labelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, -1, -1));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -203,6 +208,7 @@ public class ChangePassword extends javax.swing.JPanel {
     private javax.swing.JLabel inicioLabel;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel labelVolver;
     private javax.swing.JButton modificarPass;
     private javax.swing.JPasswordField newPass;
     private javax.swing.JPasswordField newPass1;
