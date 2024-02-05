@@ -48,17 +48,11 @@ public class Principal extends javax.swing.JPanel {
         iconLib.setIcon(new FlatSVGIcon("img/biblio.svg"));
         iconOut1.setIcon(new FlatSVGIcon("img/Logout.svg"));
         iconDesplegable.setIcon(new FlatSVGIcon("img/flechaAbajo.svg"));
-        textFieldBusqueda.putClientProperty( FlatClientProperties.TEXT_FIELD_TRAILING_ICON,
-                new FlatSVGIcon( "img/Lupa.svg" ) );
-        textFieldBusqueda.putClientProperty( FlatClientProperties.PLACEHOLDER_TEXT, "Busca algo aquí" ); //Placeholder
-        textFieldBusqueda.putClientProperty( "FlatLaf.style", "arc:10"); //Redondeo
-        
         mostrarPanel(new Inicio()); // Mostrar el panel 'Inicio' al inicializar la clase Principal
         panelDesplegable.setVisible(false); //Por defecto se oculta el panelDesplegable
         
         //Tamaños
         labelMusicNocta.putClientProperty( "FlatLaf.styleClass", "h1" );
-        labelBienvenidos.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelUsername.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
@@ -66,7 +60,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelLista.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelPlaylists.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelSalir.putClientProperty( "FlatLaf.styleClass", "h3" );
-        labelBienvenidos.putClientProperty( "FlatLaf.styleClass", "h3" );
+        labelBienvenidos.putClientProperty( "FlatLaf.styleClass", "h1" );
         
         resourceBundle = ResourceBundle.getBundle("messages", new Locale("es"));
         updateUIWithInternationalization();
@@ -133,10 +127,7 @@ public class Principal extends javax.swing.JPanel {
         iconOut = new javax.swing.JLabel();
         colocarPaneles = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        textFieldBusqueda = new javax.swing.JTextField();
         labelBienvenidos = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         idiomas = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(51, 153, 0));
@@ -446,19 +437,10 @@ public class Principal extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(139, 243, 204));
 
-        textFieldBusqueda.setBackground(new java.awt.Color(227, 236, 227));
-        textFieldBusqueda.setPreferredSize(new java.awt.Dimension(440, 38));
+        labelBienvenidos.setText("Tu biblioteca músical");
 
-        labelBienvenidos.setText("Bienvenidos");
-
-        jLabel2.setText("fecha");
-
-        jLabel3.setText("hora");
-
-        idiomas.setBackground(new java.awt.Color(91, 134, 229));
-        idiomas.setForeground(new java.awt.Color(255, 255, 255));
         idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
         idiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,35 +453,23 @@ public class Principal extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(labelBienvenidos)
-                        .addGap(25, 25, 25)))
-                .addGap(40, 40, 40))
+                .addGap(375, 375, 375)
+                .addComponent(labelBienvenidos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(labelBienvenidos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textFieldBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(labelBienvenidos))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addComponent(idiomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fondoDashboardLayout = new javax.swing.GroupLayout(fondoDashboard);
@@ -726,8 +696,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel iconOut1;
     private javax.swing.JComboBox<String> idiomas;
     private javax.swing.JLabel imgApp;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelBiblioteca;
     private javax.swing.JLabel jLabelInicio;
     private javax.swing.JLabel jLabelLista;
@@ -745,6 +713,5 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JPanel panelListaCanciones;
     private javax.swing.JPanel panelPlaylists;
     private javax.swing.JPanel panelSalir;
-    private javax.swing.JTextField textFieldBusqueda;
     // End of variables declaration//GEN-END:variables
 }

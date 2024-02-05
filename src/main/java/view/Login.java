@@ -142,8 +142,6 @@ public class Login extends javax.swing.JPanel {
         });
         fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        idiomas.setBackground(new java.awt.Color(91, 134, 229));
-        idiomas.setForeground(new java.awt.Color(255, 255, 255));
         idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
         idiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
