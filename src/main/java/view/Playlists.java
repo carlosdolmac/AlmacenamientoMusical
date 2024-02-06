@@ -11,7 +11,11 @@ import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  * Panel que muestra las playlists del usuario actual.
@@ -51,6 +55,24 @@ public class Playlists extends javax.swing.JPanel {
             MensajesInternacionales.obtenerMensaje("columna.nombreplaylist"),
             MensajesInternacionales.obtenerMensaje("columna.numcanciones")
         });
+        
+         // Agregar el DocumentListener al campo buscarPlaylist para filtrar la tabla
+        buscarPlaylist.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filtrarTablaPlaylists(buscarPlaylist.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filtrarTablaPlaylists(buscarPlaylist.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filtrarTablaPlaylists(buscarPlaylist.getText());
+            }
+        });
     }
 
     /**
@@ -70,6 +92,23 @@ public class Playlists extends javax.swing.JPanel {
                     playlist.getNombrePlaylist(),
                     playlist.getCancioneses().size()  // Assuming 'getCancioneses()' returns a set of songs
             });
+        }
+    }
+    
+     /**
+     * Filtra la tabla de playlists según el texto ingresado en el campo buscarPlaylist.
+     * 
+     * @param texto El texto ingresado para filtrar la tabla.
+     */
+    private void filtrarTablaPlaylists(String texto) {
+        DefaultTableModel model = (DefaultTableModel) tablaPlaylists.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        tablaPlaylists.setRowSorter(sorter);
+        
+        if (texto.trim().length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + texto)); // Case-insensitive search
         }
     }
     /**

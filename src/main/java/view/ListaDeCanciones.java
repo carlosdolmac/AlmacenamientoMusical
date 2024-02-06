@@ -10,7 +10,11 @@ import controller.MensajesInternacionales;
 import controller.PrincipalController;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.Canciones;
 
 /**
@@ -51,6 +55,64 @@ public class ListaDeCanciones extends javax.swing.JPanel {
             MensajesInternacionales.obtenerMensaje("columna.idcancion"),
             MensajesInternacionales.obtenerMensaje("columna.artista")
         });
+        
+        // Agregar el DocumentListener al campo buscarCancion para filtrar la tabla
+        buscarCancion.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filtrarTabla(buscarCancion.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filtrarTabla(buscarCancion.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filtrarTabla(buscarCancion.getText());
+            }
+        });
+    }
+
+    
+    /**
+     * Llena la tabla de canciones con la información de la base de datos.
+     * Se invoca al inicializar la interfaz y después de agregar/borrar una canción.
+     */
+    private void llenarTablaCanciones() {
+        // Obtener las canciones del usuario actual desde el controlador
+        List<Canciones> canciones = hibernateHelper.obtenerCancionesUsuarioActual();
+
+        // Llenar la tabla con los datos de las canciones del usuario actual
+        DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+        model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
+
+        for (Canciones cancion : canciones) {
+            // Agregar cada canción como una fila en la tabla
+            model.addRow(new Object[] {
+                cancion.getNombreCancion(),
+                cancion.getIdCancion(),
+                cancion.getArtistas().getNombreArtista()  // Ajustar esta línea según tu modelo
+            });
+        }
+    }
+    
+    /**
+     * Filtra la tabla de canciones según el texto ingresado en el campo buscarCancion.
+     * 
+     * @param texto El texto ingresado para filtrar la tabla.
+     */
+    private void filtrarTabla(String texto) {
+        DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        tablaCanciones.setRowSorter(sorter);
+
+        if (texto.trim().length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + texto));
+        }
     }
 
     /**
@@ -273,29 +335,6 @@ public class ListaDeCanciones extends javax.swing.JPanel {
             javax.swing.JOptionPane.showMessageDialog(this, "Selecciona una canción para borrar.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_borrarCancionActionPerformed
-
-    /**
-     * Llena la tabla de canciones con la información de la base de datos.
-     * Se invoca al inicializar la interfaz y después de agregar/borrar una canción.
-     */
-    private void llenarTablaCanciones() {
-        // Obtener las canciones del usuario actual desde el controlador
-        List<Canciones> canciones = hibernateHelper.obtenerCancionesUsuarioActual();
-
-        // Llenar la tabla con los datos de las canciones del usuario actual
-        DefaultTableModel model = (DefaultTableModel) tablaCanciones.getModel();
-        model.setRowCount(0);  // Limpiar la tabla antes de agregar nuevos datos
-
-        for (Canciones cancion : canciones) {
-            // Agregar cada canción como una fila en la tabla
-            model.addRow(new Object[] {
-                cancion.getNombreCancion(),
-                cancion.getIdCancion(),
-                cancion.getArtistas().getNombreArtista()  // Ajustar esta línea según tu modelo
-            });
-        }
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirCancion;
