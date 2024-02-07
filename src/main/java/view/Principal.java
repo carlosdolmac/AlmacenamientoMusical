@@ -54,7 +54,7 @@ public class Principal extends javax.swing.JPanel {
         
         //Tamaños
         labelMusicNocta.putClientProperty( "FlatLaf.styleClass", "h1" );
-        jLabelUsername.putClientProperty( "FlatLaf.styleClass", "h3" );
+        jLabelBienvenido.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelBiblioteca.putClientProperty( "FlatLaf.styleClass", "h3" );
         jLabelInicio.putClientProperty( "FlatLaf.styleClass", "h3" );
@@ -112,7 +112,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelBiblioteca = new javax.swing.JLabel();
         iconDesplegable = new javax.swing.JLabel();
         iconLib = new javax.swing.JLabel();
-        jLabelUsername = new javax.swing.JLabel();
+        jLabelBienvenido = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
         jLabelInicio = new javax.swing.JLabel();
         iconDash = new javax.swing.JLabel();
@@ -210,7 +210,7 @@ public class Principal extends javax.swing.JPanel {
                         .addComponent(iconDesplegable))))
         );
 
-        jLabelUsername.setText("Username");
+        jLabelBienvenido.setText("Bienvenido");
 
         panelInicio.setBackground(new java.awt.Color(139, 243, 204));
         panelInicio.setToolTipText("Muestra la pantalla de Inicio");
@@ -398,7 +398,7 @@ public class Principal extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(jLabelUsername))
+                        .addComponent(jLabelBienvenido))
                     .addComponent(panelBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,7 +410,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabelUsername)
+                .addComponent(jLabelBienvenido)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -686,6 +686,7 @@ public class Principal extends javax.swing.JPanel {
         jLabelPlaylists.setText(MensajesInternacionales.obtenerMensaje("label.playlists"));
         jLabelSalir.setText(MensajesInternacionales.obtenerMensaje("label.salir"));
         labelBienvenidos.setText(MensajesInternacionales.obtenerMensaje("label.bienvenido"));
+        jLabelBienvenido.setText(MensajesInternacionales.obtenerMensaje("label.welcome"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -701,11 +702,11 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> idiomas;
     private javax.swing.JLabel imgApp;
     private javax.swing.JLabel jLabelBiblioteca;
+    private javax.swing.JLabel jLabelBienvenido;
     private javax.swing.JLabel jLabelInicio;
     private javax.swing.JLabel jLabelLista;
     private javax.swing.JLabel jLabelPlaylists;
     private javax.swing.JLabel jLabelSalir;
-    private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelBienvenidos;
