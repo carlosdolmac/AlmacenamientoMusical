@@ -4,7 +4,7 @@
  */
 package view;
 
-import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
 import controller.LoginController;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -84,7 +84,7 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        FlatLightFlatIJTheme.setup();
+        FlatGitHubIJTheme.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
