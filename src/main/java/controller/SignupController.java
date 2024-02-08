@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import model.Usuarios;
 import view.Interfaz;
 import view.Signup;
@@ -42,7 +44,12 @@ public class SignupController {
      * @param password         Contraseña que el usuario desea establecer.
      * @return                 Devuelve true si la creación del usuario fue exitosa, false en caso contrario.
      */
-    public boolean crearNuevoUsuario(String nombre, String apellidos, String nombreUsuario, String correo, String password) {
+   public boolean crearNuevoUsuario(String nombre, String apellidos, String nombreUsuario, String correo, String password) {
+        // Verificar si el correo electrónico es válido
+        if (!esCorreoValido(correo)) {
+            System.out.println("El correo electrónico introducido no es válido.");
+            return false;
+        }
         HibernateHelper hibernateHelper = new HibernateHelper();
         Usuarios nuevoUsuario = new Usuarios();
         nuevoUsuario.setNombreUsuario(nombreUsuario);
@@ -53,6 +60,20 @@ public class SignupController {
 
         // Llamar al método en el HibernateHelper para crear el usuario
         return hibernateHelper.crearUsuario(nuevoUsuario);
+    }
+
+   /**
+     * Verifica si una dirección de correo electrónico tiene un formato válido.
+     *
+     * @param correo la dirección de correo electrónico a verificar
+     * @return true si la dirección de correo electrónico tiene un formato válido, false de lo contrario
+     */
+    private boolean esCorreoValido(String correo) {
+        // Patrón de expresión regular para validar el formato del correo electrónico
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(correo);
+        return matcher.matches();
     }
 }
 
