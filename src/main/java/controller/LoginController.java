@@ -68,7 +68,7 @@ public class LoginController {
                 // Guardar información del usuario en la sesión
                 SessionManager.setUsuarioActual(usuario);
 
-                // Mostrar el panel o realizar otras acciones después del inicio de sesión exitoso
+                // Mostrar el panel
                 interfaz.mostrarDashboard(usuario.getIdUsuario());
             } else {
                 // Contraseña incorrecta
