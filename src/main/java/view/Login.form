@@ -82,6 +82,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="f3" red="8b" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Email para iniciar sesi&#xf3;n"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -110,6 +111,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inicia Sesi&#xf3;n"/>
+            <Property name="toolTipText" type="java.lang.String" value="Click para iniciar sesi&#xf3;n"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -184,7 +186,7 @@
               <Color blue="99" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reg&#xed;strate Aqu&#xed;"/>
-            <Property name="toolTipText" type="java.lang.String" value="Pulssa para ir a la pantalla de registro"/>
+            <Property name="toolTipText" type="java.lang.String" value="Pulsa para ir a la pantalla de registro"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -203,6 +205,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="f3" red="8b" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Contrase&#xf1;a para inciar sesi&#xf3;n"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -227,6 +230,7 @@
                 <StringItem index="1" value="Ingl&#xe9;s"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cambio de idioma"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idiomasActionPerformed"/>

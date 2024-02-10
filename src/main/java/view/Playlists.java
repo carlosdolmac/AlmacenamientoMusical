@@ -135,6 +135,7 @@ public class Playlists extends javax.swing.JPanel {
 
         labelBiblioteca.setForeground(new java.awt.Color(153, 153, 153));
         labelBiblioteca.setText("Biblioteca");
+        labelBiblioteca.setToolTipText("De vuelta a la biblioteca");
         labelBiblioteca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,6 +156,7 @@ public class Playlists extends javax.swing.JPanel {
         labelDescripcion.setText("Lista de playlists que has guardado");
 
         buscarPlaylist.setBackground(new java.awt.Color(227, 236, 227));
+        buscarPlaylist.setToolTipText("Busca una Playlist");
         buscarPlaylist.setPreferredSize(new java.awt.Dimension(340, 38));
 
         tablaPlaylists.setModel(new javax.swing.table.DefaultTableModel(
@@ -182,6 +184,7 @@ public class Playlists extends javax.swing.JPanel {
         borrarPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         borrarPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         borrarPlaylist.setText("Borrar Playlist");
+        borrarPlaylist.setToolTipText("Selecciona una playlist y se borrará");
         borrarPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         borrarPlaylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +196,7 @@ public class Playlists extends javax.swing.JPanel {
         anadirPlaylist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         anadirPlaylist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Mas.png"))); // NOI18N
         anadirPlaylist.setText("Añadir Playlist");
+        anadirPlaylist.setToolTipText("Click para ir a la página de añadir Playlist");
         anadirPlaylist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         anadirPlaylist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

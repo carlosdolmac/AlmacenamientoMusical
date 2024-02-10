@@ -79,6 +79,7 @@ public class Login extends javax.swing.JPanel {
         fondo.add(signinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 158, -1, -1));
 
         email.setBackground(new java.awt.Color(139, 243, 204));
+        email.setToolTipText("Email para iniciar sesión");
         email.setBorder(null);
         email.setPreferredSize(new java.awt.Dimension(575, 47));
         email.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -92,6 +93,7 @@ public class Login extends javax.swing.JPanel {
         login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Inicia Sesión");
+        login.setToolTipText("Click para iniciar sesión");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         login.setPreferredSize(new java.awt.Dimension(575, 60));
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +125,7 @@ public class Login extends javax.swing.JPanel {
 
         registrateAqui.setForeground(new java.awt.Color(0, 51, 153));
         registrateAqui.setText("Regístrate Aquí");
-        registrateAqui.setToolTipText("Pulssa para ir a la pantalla de registro");
+        registrateAqui.setToolTipText("Pulsa para ir a la pantalla de registro");
         registrateAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrateAqui.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,6 +135,7 @@ public class Login extends javax.swing.JPanel {
         fondo.add(registrateAqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 449, -1, -1));
 
         passwrd.setBackground(new java.awt.Color(139, 243, 204));
+        passwrd.setToolTipText("Contraseña para inciar sesión");
         passwrd.setBorder(null);
         passwrd.setPreferredSize(new java.awt.Dimension(575, 47));
         passwrd.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -143,6 +146,7 @@ public class Login extends javax.swing.JPanel {
         fondo.add(passwrd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         idiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Inglés" }));
+        idiomas.setToolTipText("Cambio de idioma");
         idiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idiomasActionPerformed(evt);

@@ -204,6 +204,8 @@ public class Signup extends javax.swing.JPanel {
             if (creado) {
                 // Mostrar un mensaje de éxito
                 JOptionPane.showMessageDialog(this, "Usuario creado exitosamente.");
+                Login loginPanel = new Login(interfaz); // Crear una instancia del panel de inicio de sesión
+                interfaz.mostrarPanel(loginPanel); // Mostrar el panel de inicio de sesión al hacer clic en 'Login'
             } else {
                 // Manejar el caso de error al crear el usuario
                 JOptionPane.showMessageDialog(this, "Error al crear el usuario. Por favor, inténtalo de nuevo.");

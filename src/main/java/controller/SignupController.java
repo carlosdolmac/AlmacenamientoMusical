@@ -5,6 +5,7 @@
 package controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import model.Usuarios;
 import view.Interfaz;
 import view.Signup;
@@ -47,7 +48,7 @@ public class SignupController {
    public boolean crearNuevoUsuario(String nombre, String apellidos, String nombreUsuario, String correo, String password) {
         // Verificar si el correo electrónico es válido
         if (!esCorreoValido(correo)) {
-            System.out.println("El correo electrónico introducido no es válido.");
+            JOptionPane.showMessageDialog(null, "El correo electrónico introducido no es válido.", "Error Correo Electrónico", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         HibernateHelper hibernateHelper = new HibernateHelper();
