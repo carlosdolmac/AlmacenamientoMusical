@@ -171,13 +171,6 @@ public class Password extends javax.swing.JPanel {
             // Habilitar el botón "Continuar"
             continuarBtn.setEnabled(true);
             
-            // Mensaje de éxito al enviar el correo
-            JOptionPane.showMessageDialog(
-                null,
-                "Se ha enviado un correo con el código de recuperación.",
-                "Correo enviado",
-                JOptionPane.INFORMATION_MESSAGE
-            );
         } else {
             JOptionPane.showMessageDialog(
                 null,

@@ -152,7 +152,7 @@ public class ChangePassword extends javax.swing.JPanel {
                     "Cambio Exitoso",
                     JOptionPane.INFORMATION_MESSAGE
                 );
-                // Realiza alguna acción adicional si es necesario después del cambio de contraseña
+                loginController.mostrarLogin();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                     null,

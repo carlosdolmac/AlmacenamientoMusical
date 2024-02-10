@@ -53,6 +53,7 @@ public class Interfaz extends javax.swing.JFrame {
         ponerPaneles = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout ponerPanelesLayout = new javax.swing.GroupLayout(ponerPaneles);
         ponerPaneles.setLayout(ponerPanelesLayout);
