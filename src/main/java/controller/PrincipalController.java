@@ -8,6 +8,7 @@ import view.AnadirCancion1;
 import view.AnadirPlaylist;
 import view.Biblioteca;
 import view.ListaDeCanciones;
+import view.ModificarCancion;
 import view.Playlists;
 import view.Principal;
 
@@ -34,6 +35,17 @@ public class PrincipalController {
     public void mostrarAnadirCancion() {
         AnadirCancion1 anadirCancion = new AnadirCancion1(this); // Pasa 'this' como argumento
         principal.mostrarPanel(anadirCancion);
+    }
+    
+    /**
+     * Método para mostrar la ventana de modificar canción.
+     * @param nombreCancion Nombre de la canción a modificar.
+     * @param idCancion ID de la canción a modificar.
+     * @param nombreArtista Nombre del artista de la canción a modificar.
+     */
+    public void mostrarModificarCancion(String nombreCancion, int idCancion, String nombreArtista) {
+        ModificarCancion modificarCancion = new ModificarCancion(this, nombreCancion, idCancion, nombreArtista);
+        principal.mostrarPanel(modificarCancion);
     }
     
     /**
@@ -66,5 +78,5 @@ public class PrincipalController {
     public void mostrarBiblioteca() {
         Biblioteca biblioteca = new Biblioteca(this);
         principal.mostrarPanel(biblioteca);
-    }
+    }  
 }

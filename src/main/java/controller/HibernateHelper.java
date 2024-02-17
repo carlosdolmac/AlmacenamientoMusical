@@ -637,4 +637,56 @@ public class HibernateHelper {
 
         return false;
     }
+    
+    /**
+    * Modifica una canción existente en la base de datos.
+    *
+    * @param idCancion      ID de la canción que se va a modificar.
+    * @param nombreCancion  Nuevo nombre para la canción.
+    * @param idPlaylist     Nuevo ID de la playlist asociada a la canción (puede ser null si no se cambia).
+    * @param nombreArtista  Nuevo nombre del artista de la canción.
+    * @return true si la modificación fue exitosa, false si la canción no existe.
+    */
+   public boolean modificarCancion(int idCancion, String nombreCancion, Integer idPlaylist, String nombreArtista) {
+       try (Session session = sessionFactory.openSession()) {
+           Transaction transaction = session.beginTransaction();
+
+           // Obtener la canción por su ID
+           Canciones cancion = session.get(Canciones.class, idCancion);
+
+           if (cancion != null) {
+               // Obtener el artista por su nombre
+               Artistas artista = obtenerArtistaPorNombre(nombreArtista);
+
+               // Si el artista no existe, crearlo y guardarlo en la base de datos
+               if (artista == null) {
+                   artista = new Artistas(nombreArtista);
+                   session.save(artista);
+               }
+
+               // Actualizar los campos de la canción
+               cancion.setNombreCancion(nombreCancion);
+               cancion.setArtistas(artista);
+
+               // Asignar la nueva playlist si se proporciona un nuevo ID de playlist
+               if (idPlaylist != null) {
+                   Playlists playlist = session.get(Playlists.class, idPlaylist);
+                   cancion.setPlaylists(playlist);
+               }
+
+               // Guardar los cambios en la base de datos
+               session.update(cancion);
+
+               transaction.commit();
+               return true; // Indicar que la modificación fue exitosa
+           } else {
+               // La canción no existe
+               System.out.println("Canción no encontrada");
+               return false;
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+           return false; // Indicar que la modificación falló
+       }
+   }
 }
